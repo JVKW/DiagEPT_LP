@@ -7,7 +7,7 @@
 #include "model/docente.h"
 
 
-#define DOCENTE_FILE "data/docentes.json"
+#define FILE "data/docentes.json"
 
 void salvar_docente(Docente *d);
 

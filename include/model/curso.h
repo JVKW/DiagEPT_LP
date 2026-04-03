@@ -11,7 +11,7 @@ typedef struct Curso
     char codigo[16];
     int carga_horaria_total;
     
-    Disciplina * disciplinas;
+    int * id_disciplinas;
     int qtd_disciplinas;
 } Curso;
 

@@ -7,7 +7,7 @@
 #include "model/discente.h"
 
 
-#define DOCENTE_FILE "data/discentes.json"
+#define FILE "data/discentes.json"
 
 void salvar_discente(Discente *d);
 

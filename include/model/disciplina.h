@@ -11,8 +11,7 @@ typedef struct Disciplina
     char codigo[16];
     int carga_horaria_total;
     
-    Turma *turmas;
-    int turmas_count;
+    int * id_turma;
 } Disciplina;
 
 

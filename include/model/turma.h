@@ -10,7 +10,7 @@ typedef struct Turma
     char periodo[64];
     int docente_id;
 
-    Matricula *matriculas;
+    int *id_matricula;
     int matriculas_count;
 } Turma;
 

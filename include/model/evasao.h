@@ -3,6 +3,7 @@
 
 typedef struct Evasao
 {
+    int id;
     char motivo[2048];
     
 

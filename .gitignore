@@ -1,0 +1,35 @@
+# Arquivos de compilação
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.exe
+*.out
+*.app
+
+# Diretórios de build
+/build/
+/bin/
+/dist/
+/Debug/
+/Release/
+
+# Arquivos de logs
+*.log
+
+# Arquivos temporários do editor
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# IDEs e editores específicos
+.vscode/
+.idea/
+*.code-workspace
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db

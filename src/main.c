@@ -1,10 +1,16 @@
 #include <stdio.h>
+#include <string.h>
+
 #include "view/menu.h"
 #include "controller/notas.h"
 #include "view/diagnostico.h"
 #include "model/estado.h"
 #include "controller/evasao.h"
 #include "utils/utils.h"
+#include "model/estado.h"
+#include "dao/docenteDAO.h"
+
+#include "dao/jsonDAO.h"
 
 int main() {
     int opcao;

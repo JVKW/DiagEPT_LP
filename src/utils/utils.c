@@ -45,3 +45,37 @@ void lerString(char *destino, int tamanho) {
 
     destino[strcspn(destino, "\n")] = '\0';
 }
+
+char *ler_arquivo(const char *path)
+{
+    FILE *f = fopen(path,"r");
+
+    if(!f)
+        return NULL;
+
+    fseek(f,0,SEEK_END);
+    long tamanho = ftell(f);
+    rewind(f);
+
+    char *buffer = malloc(tamanho + 1);
+
+    fread(buffer,1,tamanho,f);
+
+    buffer[tamanho] = '\0';
+
+    fclose(f);
+
+    return buffer;
+}
+
+void escrever_arquivo(const char *path, const char *conteudo)
+{
+    FILE *f = fopen(path,"w");
+
+    if(!f)
+        return;
+
+    fprintf(f,"%s",conteudo);
+
+    fclose(f);
+}

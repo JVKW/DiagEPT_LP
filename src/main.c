@@ -8,11 +8,11 @@
 #include "controller/evasao.h"
 #include "utils/utils.h"
 #include "model/estado.h"
-#include "dao/docenteDAO.h"
+#include "dao/discenteDAO.h"
 
 #include "dao/jsonDAO.h"
 
-int main() {
+void menu(){
     int opcao;
     Estado estado;
 
@@ -59,6 +59,15 @@ int main() {
         getchar(); // espera o usuário
 
     } while (opcao != 4);
+}
+
+int main() {
+    // Exemplo de como salvar um dado
+    // Discente d;
+    // strcpy(d.nome, "Siclano de Tal");
+    // d.numero_matricula = 654627;
+
+    // salvar_discente(&d);
 
     return 0;
 }

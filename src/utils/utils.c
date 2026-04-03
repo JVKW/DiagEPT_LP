@@ -79,3 +79,45 @@ void escrever_arquivo(const char *path, const char *conteudo)
 
     fclose(f);
 }
+
+cJSON* int_array_to_json(const int *array, int size)
+{
+    if (array == NULL || size <= 0)
+        return NULL;
+
+    cJSON *json_array = cJSON_CreateArray();
+
+    for (int i = 0; i < size; i++)
+    {
+        cJSON_AddItemToArray(json_array, cJSON_CreateNumber(array[i]));
+    }
+
+    return json_array;
+}
+
+
+int* json_to_int_array(cJSON *json_array, int *size)
+{
+    if (!cJSON_IsArray(json_array))
+        return NULL;
+
+    int count = cJSON_GetArraySize(json_array);
+
+    int *array = malloc(sizeof(int) * count);
+    if (!array)
+        return NULL;
+
+    for (int i = 0; i < count; i++)
+    {
+        cJSON *item = cJSON_GetArrayItem(json_array, i);
+
+        if (cJSON_IsNumber(item))
+            array[i] = item->valueint;
+        else
+            array[i] = 0;
+    }
+
+    *size = count;
+
+    return array;
+}

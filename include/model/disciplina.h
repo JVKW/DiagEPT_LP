@@ -11,7 +11,10 @@ typedef struct Disciplina
     char codigo[16];
     int carga_horaria_total;
     
+    // Sempre que adicionar uma turma na lista
+    // atualizar o novo tamanho dela em qtd_turma
     int * id_turma;
+    int qtd_turma;
 } Disciplina;
 
 

@@ -7,11 +7,11 @@
 typedef struct Turma
 {
     int id;
-    char periodo[64];
+    char codigo[8];
     int docente_id;
 
     int *id_matricula;
-    int matriculas_count;
+    int qtd_matricula;
 } Turma;
 
 

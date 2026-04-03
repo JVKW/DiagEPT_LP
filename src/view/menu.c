@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "menu/menu.h"
+#include "view/menu.h"
 #include "utils/utils.h"
 
 #define SEM_OPCAO 0

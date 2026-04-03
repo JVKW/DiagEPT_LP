@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "notas/notas.h"
+#include "controller/notas.h"
 #include "utils/utils.h"
-#include "estado/estado.h"
+#include "model/estado.h"
 
 void adicionarNotas(Estado *e) {
     int qtd;

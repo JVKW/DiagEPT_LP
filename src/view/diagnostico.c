@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "diagnostico/diagnostico.h"
-#include "estado/estado.h"
-#include "menu/menu.h"
+#include "view/diagnostico.h"
+#include "model/estado.h"
+#include "view/menu.h"
 
 void mostrarDiagnostico(Estado *e) {
     if (e->totalAlunos == 0) {

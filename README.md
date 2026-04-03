@@ -21,5 +21,5 @@ Desenvolver um programa que simule um sistema de gerenciamento contínuo atravé
 Para compilar o projeto, utilize o seguinte comando:
 
 ```bash
-gcc src/main.c src/menu/*.c src/utils/*.c src/notas/*.c src/diagnostico/*.c src/evasao/*.c src/estado/*.c -Iinclude -o dist/mainEPT
+    gcc src/*.c src/*/*.c lib/cjson/cJSON.c -Iinclude -Iinclude/cjson -o bin/programa
 ```

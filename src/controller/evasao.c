@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "evasao/evasao.h"
+#include "controller/evasao.h"
 #include "utils/utils.h"
 
 void registrarEvasao(Estado *e) {

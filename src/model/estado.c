@@ -1,4 +1,4 @@
-#include "estado/estado.h"
+#include "model/estado.h"
 
 void inicializarEstado(Estado *e) {
     e->totalAlunos = 0;

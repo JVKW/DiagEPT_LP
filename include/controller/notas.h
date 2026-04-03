@@ -1,7 +1,7 @@
 #ifndef NOTAS_H
 #define NOTAS_H
 
-#include "estado/estado.h"
+#include "model/estado.h"
 
 void adicionarNotas(Estado *e);
 

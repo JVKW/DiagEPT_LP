@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "menu/menu.h"
-#include "notas/notas.h"
-#include "diagnostico/diagnostico.h"
-#include "estado/estado.h"
-#include "evasao/evasao.h"
+#include "view/menu.h"
+#include "controller/notas.h"
+#include "view/diagnostico.h"
+#include "model/estado.h"
+#include "controller/evasao.h"
 #include "utils/utils.h"
 
 int main() {

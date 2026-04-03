@@ -1,7 +1,7 @@
 #ifndef DIAGNOSTICO_H
 #define DIAGNOSTICO_H
 
-#include "estado/estado.h"
+#include "model/estado.h"
 
 void mostrarDiagnostico(Estado *e);
 

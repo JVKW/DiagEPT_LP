@@ -17,7 +17,7 @@ Desenvolver um programa que simule um sistema de gerenciamento contínuo atravé
 ---
 
 ## Diagrama de relacionamento entre entidades(structs)
-```
+```mermaid
 erDiagram
     CURSO ||--o{ DISCIPLINA : contem
     DISCIPLINA ||--o{ TURMA : contem

@@ -1,12 +1,13 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+int logoPrint();
 void limparTela();
+
+float lerNotaValida();
 
 int lerInteiro();
 float lerFloat();
-float lerNotaValida();
-
 void lerString(char *destino, int tamanho);
 
 #endif

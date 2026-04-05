@@ -20,6 +20,7 @@ int main() {
     "4 - Sair\n";
 
     do {
+        logoPrint();
         opcao = mostrarMenu(menuPrincipal, 1);
 
         switch (opcao) {

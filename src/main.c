@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "view/menu.h"
 #include "controller/notas.h"
-#include "view/diagnostico.h"
+#include "controller/diagnostico.h"
 #include "model/estado.h"
 #include "controller/evasao.h"
 #include "utils/utils.h"
@@ -50,8 +50,7 @@ int main() {
         }
 
         printf("\nPressione ENTER para continuar...");
-        getchar(); // espera o usuário
-
+        getchar();
     } while (opcao != 4);
 
     return 0;

@@ -2,17 +2,16 @@
 #ifndef TURMA_H
 #define TURMA_H
 
-#include "model/docente.h"
 #include "model/matricula.h"
 
 typedef struct Turma
 {
     int id;
-    char periodo[64];
+    char codigo[8];
+    int docente_id;
 
-    Docente docente;
-    Matricula *matriculas;
-    int matriculas_count;
+    int *id_matricula;
+    int qtd_matricula;
 } Turma;
 
 

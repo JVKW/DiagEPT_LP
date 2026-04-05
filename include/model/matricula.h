@@ -16,9 +16,7 @@ typedef struct Matricula
     char status[128];
 
     int discente_id;
-    int qtd_discentes;
-
-    Evasao evasao;
+    int id_evasao;
     
 } Matricula;
 

@@ -1,12 +1,18 @@
 #include <stdio.h>
+#include <string.h>
+
 #include "view/menu.h"
 #include "controller/notas.h"
 #include "controller/diagnostico.h"
 #include "model/estado.h"
 #include "controller/evasao.h"
 #include "utils/utils.h"
+#include "model/estado.h"
+#include "dao/discenteDAO.h"
 
-int main() {
+#include "dao/jsonDAO.h"
+
+void menu(){
     int opcao;
     Estado estado;
 
@@ -53,6 +59,15 @@ int main() {
         printf("\nPressione ENTER para continuar...");
         getchar();
     } while (opcao != 4);
+}
+
+int main() {
+    // Exemplo de como salvar um dado
+    // Discente d;
+    // strcpy(d.nome, "Siclano de Tal");
+    // d.numero_matricula = 654627;
+
+    // salvar_discente(&d);
 
     return 0;
 }

@@ -7,7 +7,8 @@
 
 void salvar_disciplina(Disciplina *d)
 {
-    d->id = dao_next_id(FILE);
+    if (d->id == NULL)
+        d->id = dao_next_id(FILE);
     dao_save(
         FILE,
         d,

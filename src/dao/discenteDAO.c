@@ -10,7 +10,8 @@
 
 void salvar_discente(Discente *d)
 {
-    d->id = dao_next_id(DISCENTE_FILE);
+    if (d->id == NULL)
+        d->id = dao_next_id(DISCENTE_FILE);
     dao_save(
         DISCENTE_FILE,
         d,

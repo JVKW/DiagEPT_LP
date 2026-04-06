@@ -8,6 +8,8 @@
 
 void salvar_docente(Docente *d)
 {
+    if (d->id == NULL)
+        d->id = dao_next_id(FILE);
     dao_save(
         DOCENTE_FILE,
         d,

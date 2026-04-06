@@ -8,6 +8,7 @@ typedef struct Docente
     char login[256];
     char senha[128];
 
+    int table_size;
 } Docente;
 
 #endif

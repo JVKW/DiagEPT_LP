@@ -2,15 +2,24 @@
 #include <string.h>
 
 #include "view/menu.h"
-#include "controller/notas.h"
 #include "view/diagnostico.h"
+
 #include "model/estado.h"
+#include "model/estado.h"
+#include "model/lista_generica.h"
+
 #include "controller/evasao.h"
-#include "utils/utils.h"
-#include "model/estado.h"
+#include "controller/notas.h"
 #include "controller/discente_controller.h"
+#include "controller/docente_controller.h"
+
+#include "utils/utils.h"
 
 #include "dao/jsonDAO.h"
+
+// Quando o usuário estiver logado deve ter o valor 1
+// Quando o usuário estiver deslogado deve ter o valor 0
+int USUARIO_AUTENTICADO = 0; 
 
 void menu(){
     int opcao;
@@ -61,14 +70,30 @@ void menu(){
     } while (opcao != 4);
 }
 
+// PADÃO DE CÓDIGOS DE ERRO
+/*
+     0 Executou sem erros;
+    -1 Erro na valição 
+*/
+
 int main() {
     // Exemplo de como salvar um dado
-    Discente d;
-    d.id = 2;
+    Docente d;
+    //d.id = 2;
     strcpy(d.nome, "Fulanoo de Tal");
-    d.numero_matricula = 654627;
+    strcpy(d.senha, "sadojfoisr");
+    strcpy(d.login, "654927");
 
-    update_discente_id(&d);
+    //cadastrar_docente(&d);
+
+    USUARIO_AUTENTICADO = logar_docente("654927", "sadojfoisr") >= 0? 1: 0;
+    
+    printf("%d\n", USUARIO_AUTENTICADO);
+
+    //update_discente_id(&d);
+    //puts(docentes[1].nome);
+
+
 
 
     return 0;

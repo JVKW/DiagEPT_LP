@@ -2,10 +2,12 @@
 #define JSON_DAO_H
 
 #include "cjson/cJSON.h"
+#include "model/lista_generica.h"
 
 
 typedef cJSON *(*to_json_fn)(void *obj);
 typedef void *(*from_json_fn)(cJSON *json);
+typedef void *(*from_json_array_fn)(cJSON *json, int);
 
 void dao_save(const char *file,
     void *obj,
@@ -32,5 +34,10 @@ int dao_delete_by_id(
 int dao_next_id(
     const char *file
 );
+
+
+DAO_list dao_find_all(
+    const char *file,
+    from_json_fn from_json);
 
 #endif

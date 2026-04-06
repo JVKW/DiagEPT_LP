@@ -1,5 +1,6 @@
 #include "dao/jsonDAO.h"
 #include "utils/utils.h"
+#include "model/lista_generica.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -184,4 +185,42 @@ void *dao_find_by_id(
     free(conteudo);
 
     return NULL;
+}
+
+DAO_list dao_find_all(
+    const char *file,
+    from_json_fn from_json)
+{
+    DAO_list result;
+    result.items = NULL;
+    result.size = 0;
+
+    char *conteudo = ler_arquivo(file);
+
+    if(!conteudo)
+        return result;
+
+    cJSON *array = cJSON_Parse(conteudo);
+
+    if(!array)
+    {
+        free(conteudo);
+        return result;
+    }
+
+    int size = cJSON_GetArraySize(array);
+
+    result.items = malloc(sizeof(void*) * size);
+    result.size = size;
+
+    for(int i = 0; i < size; i++)
+    {
+        cJSON *item = cJSON_GetArrayItem(array, i);
+        result.items[i] = from_json(item);
+    }
+
+    cJSON_Delete(array);
+    free(conteudo);
+
+    return result;
 }

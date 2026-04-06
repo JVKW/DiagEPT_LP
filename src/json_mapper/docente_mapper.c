@@ -12,6 +12,7 @@ cJSON *docente_to_json(void *obj)
     cJSON_AddStringToObject(json,"nome",d->nome);
     cJSON_AddStringToObject(json,"login",d->login);
     cJSON_AddStringToObject(json,"senha",d->senha);
+    cJSON_AddNumberToObject(json,"table_size",0);
     
 
     return json;

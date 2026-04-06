@@ -13,4 +13,6 @@ void salvar_docente(Docente *d);
 
 Docente *buscar_docente(int id);
 
+void update_docente(Docente *d);
+
 #endif

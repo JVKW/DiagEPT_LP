@@ -7,7 +7,7 @@
 
 void salvar_disciplina(Disciplina *d)
 {
-    if (d->id == NULL)
+    if (d->id == 0)
         d->id = dao_next_id(FILE);
     dao_save(
         FILE,
@@ -22,5 +22,14 @@ Disciplina *buscar_disciplina(int id)
         FILE,
         id,
         json_to_disciplina
+    );
+}
+
+void update_diciplina(Disciplina *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        disciplina_to_json
     );
 }

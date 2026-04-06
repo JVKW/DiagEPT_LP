@@ -13,4 +13,6 @@ void salvar_evasao(Evasao *d);
 
 Evasao *buscar_evasao(int id);
 
+void update_evasao(Evasao *d);
+
 #endif

@@ -30,6 +30,43 @@ void dao_save(const char *file, void *obj, to_json_fn to_json)
     cJSON_Delete(array);
 }
 
+void dao_update(const char *file, int id, void *obj, to_json_fn to_json)
+{
+    char *conteudo = ler_arquivo(file);
+
+    if (!conteudo)
+        return;
+
+    cJSON *array = cJSON_Parse(conteudo);
+    if (!array)
+    {
+        free(conteudo);
+        return;
+    }
+
+    cJSON *item = NULL;
+
+    cJSON_ArrayForEach(item, array)
+    {
+        cJSON *json_id = cJSON_GetObjectItem(item, "id");
+
+        if (cJSON_IsNumber(json_id) && json_id->valueint == id)
+        {
+            cJSON *novo = to_json(obj);
+            cJSON_ReplaceItemViaPointer(array, item, novo);
+            break;
+        }
+    }
+
+    char *saida = cJSON_Print(array);
+
+    escrever_arquivo(file, saida);
+
+    free(saida);
+    free(conteudo);
+    cJSON_Delete(array);
+}
+
 int dao_delete_by_id(const char *file, int id)
 {
     char *conteudo = ler_arquivo(file);

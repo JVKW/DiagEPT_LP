@@ -13,6 +13,6 @@ void cadastrarDocente(char nome[256], char login[256], char senha[128]){
     salvar_docente(&d);
 }
 
-Docente buscarDocentePorId(int id){
+Docente buscar_docente_id(int id){
     return *buscar_docente(id);
 }

@@ -3,8 +3,8 @@
 
 #include "model/docente.h"
 
-void cadastrarDocente(char nome[256], char login[256], char senha[128]);
+void cadastrar_docente(char nome[256], char login[256], char senha[128]);
 
-Docente buscarDocentePorId(int id);
+Docente buscar_docente_id(int id);
 
 #endif

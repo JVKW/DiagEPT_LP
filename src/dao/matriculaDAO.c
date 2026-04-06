@@ -7,7 +7,7 @@
 
 void salvar_matricula(Matricula *d)
 {
-    if (d->id == NULL)
+    if (d->id == 0)
         d->id = dao_next_id(FILE);
     dao_save(
         FILE,
@@ -22,5 +22,14 @@ Matricula *buscar_matricula(int id)
         FILE,
         id,
         json_to_matricula
+    );
+}
+
+void update_matricula(Matricula *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        matricula_to_json
     );
 }

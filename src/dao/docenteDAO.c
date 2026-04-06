@@ -8,7 +8,7 @@
 
 void salvar_docente(Docente *d)
 {
-    if (d->id == NULL)
+    if (d->id == 0)
         d->id = dao_next_id(FILE);
     dao_save(
         DOCENTE_FILE,
@@ -23,5 +23,14 @@ Docente *buscar_docente(int id)
         DOCENTE_FILE,
         id,
         json_to_docente
+    );
+}
+
+void update_docente(Docente *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        docente_to_json
     );
 }

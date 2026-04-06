@@ -10,7 +10,7 @@
 
 void salvar_discente(Discente *d)
 {
-    if (d->id == NULL)
+    if (d->id == 0)
         d->id = dao_next_id(DISCENTE_FILE);
     dao_save(
         DISCENTE_FILE,
@@ -25,5 +25,14 @@ Discente *buscar_discente(int id)
         DISCENTE_FILE,
         id,
         json_to_discente
+    );
+}
+
+void update_discente(Discente *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        discente_to_json
     );
 }

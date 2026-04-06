@@ -41,7 +41,7 @@ void *json_to_turma(cJSON *json)
         cJSON_GetObjectItem(json,"codigo")->valuestring);
     
     cJSON *array = cJSON_GetObjectItem(json, "id_matricula");
-    e->id_matricula = json_to_int_array(array, e->qtd_matricula);
+    e->id_matricula = json_to_int_array(array, &e->qtd_matricula);
 
     return e;
 }

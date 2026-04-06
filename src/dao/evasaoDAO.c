@@ -7,7 +7,7 @@
 
 void salvar_evasao(Evasao *d)
 {
-    if (d->id == NULL)
+    if (d->id == 0)
         d->id = dao_next_id(FILE);
     dao_save(
         FILE,
@@ -22,5 +22,14 @@ Evasao *buscar_evasao(int id)
         FILE,
         id,
         json_to_evasao
+    );
+}
+
+void update_evasao(Evasao *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        evasao_to_json
     );
 }

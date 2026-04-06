@@ -8,7 +8,7 @@
 #include "controller/evasao.h"
 #include "utils/utils.h"
 #include "model/estado.h"
-#include "dao/discenteDAO.h"
+#include "controller/discente_controller.h"
 
 #include "dao/jsonDAO.h"
 
@@ -32,7 +32,7 @@ void menu(){
         case 1:
             limparTela();
             printf("=== ADICIONAR NOTAS ===\n");
-            adicionarNotas(&estado);
+            adicionar_notas(&estado);
             break;
 
         case 2:
@@ -44,7 +44,7 @@ void menu(){
         case 3:
             limparTela();
             printf("=== REGISTRAR EVASAO ===\n");
-            registrarEvasao(&estado);
+            registrar_evasao(&estado);
             break;
 
         case 4:
@@ -63,11 +63,13 @@ void menu(){
 
 int main() {
     // Exemplo de como salvar um dado
-    // Discente d;
-    // strcpy(d.nome, "Siclano de Tal");
-    // d.numero_matricula = 654627;
+    Discente d;
+    d.id = 2;
+    strcpy(d.nome, "Fulanoo de Tal");
+    d.numero_matricula = 654627;
 
-    // salvar_discente(&d);
+    update_discente_id(&d);
+
 
     return 0;
 }

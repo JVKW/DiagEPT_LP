@@ -7,7 +7,7 @@
 
 void salvar_curso(Curso *d)
 {
-    if (d->id == NULL)
+    if (d->id == 0)
         d->id = dao_next_id(FILE);
     dao_save(
         FILE,
@@ -22,5 +22,14 @@ Curso *buscar_curso(int id)
         FILE,
         id,
         json_to_curso
+    );
+}
+
+void update_curso(Curso *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        curso_to_json
     );
 }

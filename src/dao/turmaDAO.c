@@ -7,7 +7,7 @@
 
 void salvar_turma(Turma *d)
 {
-    if (d->id == NULL)
+    if (d->id == 0)
         d->id = dao_next_id(FILE);
     dao_save(
         FILE,
@@ -22,5 +22,14 @@ Turma *buscar_turma(int id)
         FILE,
         id,
         json_to_turma
+    );
+}
+
+void update_turma(Turma *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        turma_to_json
     );
 }

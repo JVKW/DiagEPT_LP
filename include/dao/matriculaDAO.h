@@ -13,4 +13,6 @@ void salvar_matricula(Matricula *d);
 
 Matricula *buscar_matricula(int id);
 
+void update_matricula(Matricula *d);
+
 #endif

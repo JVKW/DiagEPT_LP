@@ -13,4 +13,6 @@ void salvar_disciplina(Disciplina *d);
 
 Disciplina *buscar_disciplina(int id);
 
+void update_disciplina(Disciplina *d);
+
 #endif

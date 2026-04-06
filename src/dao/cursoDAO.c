@@ -7,8 +7,7 @@
 
 void salvar_curso(Curso *d)
 {
-    if (d->id == 0)
-        d->id = dao_next_id(FILE);
+    d->id = dao_next_id(FILE);
     dao_save(
         FILE,
         d,

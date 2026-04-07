@@ -33,6 +33,7 @@ int logar_docente(char * login, char * senha){
             return 0;
         }
     }
+    
     puts("Erro ao logar docente: \nLogin ou senha incorretos!");
     return -1;
 }

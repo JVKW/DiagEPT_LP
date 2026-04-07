@@ -4,6 +4,7 @@
 #include "dao/matriculaDAO.h"
 #include "json_mapper/matricula_mapper.h"
 #include "model/matricula.h"
+#include "model/lista_generica.h"
 
 void salvar_matricula(Matricula *d)
 {
@@ -20,6 +21,14 @@ Matricula *buscar_matricula(int id)
     return dao_find_by_id(
         FILE,
         id,
+        json_to_matricula
+    );
+}
+
+DAO_list buscar_matriculas()
+{
+    return dao_find_all(
+        FILE,
         json_to_matricula
     );
 }

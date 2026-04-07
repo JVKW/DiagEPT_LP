@@ -84,7 +84,7 @@ int main() {
     strcpy(d.senha, "sadojfoisr");
     strcpy(d.login, "654927");
 
-    //cadastrar_docente(&d);
+    cadastrar_docente(&d);
 
     USUARIO_AUTENTICADO = logar_docente("654927", "sadojfoisr") >= 0? 1: 0;
     

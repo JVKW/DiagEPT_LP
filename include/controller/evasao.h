@@ -3,6 +3,6 @@
 
 #include "model/estado.h"
 
-void registrarEvasao(Estado *e);
+void registrar_evasao(Estado *e);
 
 #endif

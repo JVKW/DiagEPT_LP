@@ -4,6 +4,7 @@
 #include "dao/disciplinaDAO.h"
 #include "json_mapper/disciplina_mapper.h"
 #include "model/disciplina.h"
+#include "model/lista_generica.h"
 
 void salvar_disciplina(Disciplina *d)
 {
@@ -21,5 +22,22 @@ Disciplina *buscar_disciplina(int id)
         FILE,
         id,
         json_to_disciplina
+    );
+}
+
+DAO_list buscar_disciplinas()
+{
+    return dao_find_all(
+        FILE,
+        json_to_disciplina
+    );
+}
+
+void update_diciplina(Disciplina *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        disciplina_to_json
     );
 }

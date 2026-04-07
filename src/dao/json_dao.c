@@ -1,5 +1,6 @@
 #include "dao/jsonDAO.h"
 #include "utils/utils.h"
+#include "model/lista_generica.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -27,6 +28,43 @@ void dao_save(const char *file, void *obj, to_json_fn to_json)
     free(saida);
     free(conteudo);
 
+    cJSON_Delete(array);
+}
+
+void dao_update(const char *file, int id, void *obj, to_json_fn to_json)
+{
+    char *conteudo = ler_arquivo(file);
+
+    if (!conteudo)
+        return;
+
+    cJSON *array = cJSON_Parse(conteudo);
+    if (!array)
+    {
+        free(conteudo);
+        return;
+    }
+
+    cJSON *item = NULL;
+
+    cJSON_ArrayForEach(item, array)
+    {
+        cJSON *json_id = cJSON_GetObjectItem(item, "id");
+
+        if (cJSON_IsNumber(json_id) && json_id->valueint == id)
+        {
+            cJSON *novo = to_json(obj);
+            cJSON_ReplaceItemViaPointer(array, item, novo);
+            break;
+        }
+    }
+
+    char *saida = cJSON_Print(array);
+
+    escrever_arquivo(file, saida);
+
+    free(saida);
+    free(conteudo);
     cJSON_Delete(array);
 }
 
@@ -147,4 +185,42 @@ void *dao_find_by_id(
     free(conteudo);
 
     return NULL;
+}
+
+DAO_list dao_find_all(
+    const char *file,
+    from_json_fn from_json)
+{
+    DAO_list result;
+    result.items = NULL;
+    result.size = 0;
+
+    char *conteudo = ler_arquivo(file);
+
+    if(!conteudo)
+        return result;
+
+    cJSON *array = cJSON_Parse(conteudo);
+
+    if(!array)
+    {
+        free(conteudo);
+        return result;
+    }
+
+    int size = cJSON_GetArraySize(array);
+
+    result.items = malloc(sizeof(void*) * size);
+    result.size = size;
+
+    for(int i = 0; i < size; i++)
+    {
+        cJSON *item = cJSON_GetArrayItem(array, i);
+        result.items[i] = from_json(item);
+    }
+
+    cJSON_Delete(array);
+    free(conteudo);
+
+    return result;
 }

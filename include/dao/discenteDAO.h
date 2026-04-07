@@ -13,4 +13,6 @@ void salvar_discente(Discente *d);
 
 Discente *buscar_discente(int id);
 
+void update_discente(Discente *d);
+
 #endif

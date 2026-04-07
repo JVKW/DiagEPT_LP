@@ -23,3 +23,12 @@ Curso *buscar_curso(int id)
         json_to_curso
     );
 }
+
+void update_curso(Curso *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        curso_to_json
+    );
+}

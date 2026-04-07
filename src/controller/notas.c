@@ -3,7 +3,7 @@
 #include "utils/utils.h"
 #include "model/estado.h"
 
-void adicionarNotas(Estado *e) {
+void adicionar_notas(Estado *e) {
     int qtd;
 
     printf("Quantidade de alunos: ");

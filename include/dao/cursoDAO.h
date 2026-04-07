@@ -13,4 +13,6 @@ void salvar_curso(Curso *d);
 
 Curso *buscar_curso(int id);
 
+void update_curso(Curso *d);
+
 #endif

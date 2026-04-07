@@ -2,15 +2,24 @@
 #include <string.h>
 
 #include "view/menu.h"
-#include "controller/notas.h"
 #include "view/diagnostico.h"
+
 #include "model/estado.h"
+#include "model/estado.h"
+#include "model/lista_generica.h"
+
 #include "controller/evasao.h"
+#include "controller/notas.h"
+#include "controller/discente_controller.h"
+#include "controller/docente_controller.h"
+
 #include "utils/utils.h"
-#include "model/estado.h"
-#include "dao/discenteDAO.h"
 
 #include "dao/jsonDAO.h"
+
+// Quando o usuário estiver logado deve ter o valor 1
+// Quando o usuário estiver deslogado deve ter o valor 0
+int USUARIO_AUTENTICADO = 0; 
 
 void menu(){
     int opcao;
@@ -32,7 +41,7 @@ void menu(){
         case 1:
             limparTela();
             printf("=== ADICIONAR NOTAS ===\n");
-            adicionarNotas(&estado);
+            adicionar_notas(&estado);
             break;
 
         case 2:
@@ -44,7 +53,7 @@ void menu(){
         case 3:
             limparTela();
             printf("=== REGISTRAR EVASAO ===\n");
-            registrarEvasao(&estado);
+            registrar_evasao(&estado);
             break;
 
         case 4:
@@ -61,13 +70,30 @@ void menu(){
     } while (opcao != 4);
 }
 
-int main() {
-    // Exemplo de como salvar um dado
-    // Discente d;
-    // strcpy(d.nome, "Siclano de Tal");
-    // d.numero_matricula = 654627;
+// PADÃO DE CÓDIGOS DE ERRO
+/*
+     0 Executou sem erros;
+    -1 Erro na valição 
+*/
 
-    // salvar_discente(&d);
+int main() {
+    // Exemplo de como salvar um dado - ISSO DEVE ACONTECER EXCLUSIVAMENTE EM UM ARQUIVO 
+    // DA PASTA VIEW
+
+    Docente d;
+    strcpy(d.nome, "Fulanoo de Tal");
+    strcpy(d.senha, "sadojfoisr");
+    strcpy(d.login, "654927");
+
+    cadastrar_docente(&d);
+
+    USUARIO_AUTENTICADO = logar_docente("654927", "sadojfoisr") >= 0? 1: 0;
+    
+    printf("%d\n", USUARIO_AUTENTICADO);
+
+
+
+
 
     return 0;
 }

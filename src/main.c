@@ -77,9 +77,10 @@ void menu(){
 */
 
 int main() {
-    // Exemplo de como salvar um dado
+    // Exemplo de como salvar um dado - ISSO DEVE ACONTECER EXCLUSIVAMENTE EM UM ARQUIVO 
+    // DA PASTA VIEW
+
     Docente d;
-    //d.id = 2;
     strcpy(d.nome, "Fulanoo de Tal");
     strcpy(d.senha, "sadojfoisr");
     strcpy(d.login, "654927");
@@ -90,8 +91,6 @@ int main() {
     
     printf("%d\n", USUARIO_AUTENTICADO);
 
-    //update_discente_id(&d);
-    //puts(docentes[1].nome);
 
 
 

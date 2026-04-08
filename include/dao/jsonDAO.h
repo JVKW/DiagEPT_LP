@@ -40,4 +40,9 @@ DAO_list dao_find_all(
     const char *file,
     from_json_fn from_json);
 
+int dao_exists(
+    const char *file,
+    int id
+);
+
 #endif

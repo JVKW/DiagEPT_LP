@@ -7,8 +7,6 @@ typedef struct Discente
     char nome[256];
     int numero_matricula;
     
-    int table_size;
-
 } Discente;
 
 

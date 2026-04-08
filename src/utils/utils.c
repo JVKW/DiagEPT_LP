@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "utils/utils.h"
 #include <string.h>
+#include <ctype.h>
 
 void limparTela() {
     printf("\033[H\033[J]");
@@ -120,4 +121,20 @@ int* json_to_int_array(cJSON *json_array, int *size)
     *size = count;
 
     return array;
+}
+
+
+char *removerEspacos(char *str) {
+    char *resultado = malloc(strlen(str) + 1);
+    int i = 0, j = 0;
+
+    while (str[i] != '\0') {
+        if (!isspace((unsigned char)str[i])) {
+            resultado[j++] = str[i];
+        }
+        i++;
+    }
+
+    resultado[j] = '\0';
+    return resultado;
 }

@@ -48,8 +48,17 @@ void excluir_curso(int id){
 }
 
 int existe_curso(int id){
-    dao_exists(
+    return dao_exists(
         FILE,
         id
+    );
+}
+
+void atualizar_curso(Curso *d){
+    dao_update(
+        FILE,
+        d->id,
+        d,
+        curso_to_json
     );
 }

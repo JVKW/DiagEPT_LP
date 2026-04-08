@@ -6,6 +6,7 @@
 
 #include "controller/docente_controller.h"
 #include "controller/curso_controller.h"
+#include "controller/disciplina_controller.h"
 
 #include "utils/utils.h"
 
@@ -38,21 +39,26 @@ int main() {
     
     // printf("%d\n", USUARIO_AUTENTICADO);
 
-    Curso c;
-    c.id = 3;
-    c.carga_horaria_total = 10;
-    strcpy(c.codigo, "sahfg");
-    strcpy(c.nome, "Disciplina");
+    // Curso c;
+    // c.id = 3;
+    // c.carga_horaria_total = 10;
+    // strcpy(c.codigo, "sahfg");
+    // strcpy(c.nome, "Disciplina");
 
 
-    cadastrar_curso(&c);
+    // cadastrar_curso(&c);
 
+    Disciplina d;
+
+    d.carga_horaria_total = 40;
+    strcpy(d.codigo, "alsjjre");
+    strcpy(d.nome, "LAB");
     
+    int curso_id = 1;
+    cadastrar_disciplina(&d, curso_id);
 
-    
 
-
-    printf("%d\n",remover_curso_seguro(4));
+    printf("%d\n",remover_disciplina_seguro(1));
 
         
     return 0;

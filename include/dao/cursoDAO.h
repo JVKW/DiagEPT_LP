@@ -18,6 +18,8 @@ DAO_list buscar_cursos( );
 
 void excluir_curso(int id);
 
+void atualizar_curso(Curso *d);
+
 int existe_curso(int id);
 
 #endif

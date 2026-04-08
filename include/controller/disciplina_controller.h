@@ -5,6 +5,6 @@
 
 void cadastrar_disciplina(char nome[256], int numero_matricula);
 
-Disciplina buscar_disciplina_id(int id);
+int atulizar_turmas(int id, int *id_turma, int qtd_turma);
 
 #endif

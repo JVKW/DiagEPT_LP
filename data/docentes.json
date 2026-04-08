@@ -2,12 +2,5 @@
 		"id":	1,
 		"nome":	"Fulanoo de Tal",
 		"login":	"654627",
-		"senha":	"sadojfoisr",
-		"table_size":	0
-	}, {
-		"id":	2,
-		"nome":	"Fulanoo de Tal",
-		"login":	"654627",
-		"senha":	"sadojfoisr",
-		"table_size":	0
+		"senha":	"sadojfoisr"
 	}]

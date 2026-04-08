@@ -32,3 +32,10 @@ void update_turma(Turma *d){
         turma_to_json
     );
 }
+
+void excluir_turma(int id){
+    dao_delete_by_id(
+        FILE,
+        id
+    );
+}

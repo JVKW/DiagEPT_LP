@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 
 void dao_save(const char *file, void *obj, to_json_fn to_json)
@@ -119,7 +120,7 @@ int dao_next_id(const char *file)
     char *conteudo = ler_arquivo(file);
 
     if (!conteudo)
-        return 1; // primeiro registro
+        return 1;
 
     cJSON *array = cJSON_Parse(conteudo);
 
@@ -223,4 +224,48 @@ DAO_list dao_find_all(
     free(conteudo);
 
     return result;
+}
+
+int dao_exists(const char *file, int id)
+{
+    FILE *fp = fopen(file, "r");
+
+    if (!fp)
+        return -1;
+
+    fclose(fp);
+
+    char *conteudo = ler_arquivo(file);
+
+    if (!conteudo)
+        return -1;
+
+    cJSON *array = cJSON_Parse(conteudo);
+
+    if (!array)
+    {
+        free(conteudo);
+        return -1;
+    }
+
+    int size = cJSON_GetArraySize(array);
+
+    for (int i = 0; i < size; i++)
+    {
+        cJSON *item = cJSON_GetArrayItem(array, i);
+
+        cJSON *id_item = cJSON_GetObjectItem(item, "id");
+
+        if (id_item && id_item->valueint == id)
+        {
+            cJSON_Delete(array);
+            free(conteudo);
+            return 0;
+        }
+    }
+
+    cJSON_Delete(array);
+    free(conteudo);
+
+    return -1;
 }

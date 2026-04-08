@@ -24,11 +24,32 @@ Curso *buscar_curso(int id)
     );
 }
 
+DAO_list buscar_cursos( ){
+    return dao_find_all(
+        FILE,
+        json_to_curso
+    );
+}
+
 void update_curso(Curso *d){
     dao_update(
         FILE,
         d->id,
         d,
         curso_to_json
+    );
+}
+
+void excluir_curso(int id){
+    dao_delete_by_id(
+        FILE,
+        id
+    );
+}
+
+int existe_curso(int id){
+    dao_exists(
+        FILE,
+        id
     );
 }

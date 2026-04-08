@@ -3,7 +3,7 @@
 
 #include "model/discente.h"
 
-void cadastrar_discente(Discente *);
+int cadastrar_discente(Discente *);
 
 Discente buscar_discente_id(int id);
 

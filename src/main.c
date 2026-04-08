@@ -8,6 +8,8 @@
 #include "controller/curso_controller.h"
 #include "controller/disciplina_controller.h"
 
+#include "controller/discente_controller.h"
+
 #include "utils/utils.h"
 
 #include "dao/jsonDAO.h"
@@ -48,18 +50,21 @@ int main() {
 
     // cadastrar_curso(&c);
 
-    Disciplina d;
+    //Disciplina d;
 
-    d.carga_horaria_total = 40;
-    strcpy(d.codigo, "alsjjre");
-    strcpy(d.nome, "LAB");
+    //d.carga_horaria_total = 40;
+    //strcpy(d.codigo, "alsjjre");
+    //strcpy(d.nome, "LAB");
     
-    int curso_id = 1;
-    cadastrar_disciplina(&d, curso_id);
+    //int curso_id = 1;
+    //cadastrar_disciplina(&d, curso_id);
 
 
-    printf("%d\n",remover_disciplina_seguro(1));
-
+    //printf("%d\n",remover_disciplina_seguro(1));
+    Discente xanderson;
+    strcpy(xanderson.nome,"xanderson");
+    xanderson.numero_matricula= 458889;
+    printf("%d \n ", cadastrar_discente(&xanderson));
         
     return 0;
 }

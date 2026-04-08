@@ -8,7 +8,7 @@
 #include "model/lista_generica.h"
 
 
-#define FILE "data/disciplina.json"
+#define DISCIPLINA_FILE "data/disciplina.json"
 
 void salvar_disciplina(Disciplina *d);
 
@@ -17,5 +17,9 @@ Disciplina *buscar_disciplina(int id);
 void update_disciplina(Disciplina *d);
 
 DAO_list buscar_disciplinas();
+
+int existe_disciplina(int id);
+
+void excluir_disciplina(int id);
 
 #endif

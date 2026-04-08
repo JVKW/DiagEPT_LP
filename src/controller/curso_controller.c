@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "controller/curso_controller.h"
 #include "dao/cursoDAO.h"
@@ -55,6 +56,40 @@ int remover_curso_seguro(int id){
     }
     
     excluir_curso(id);
+
+    return 0;
+}
+
+int adicionar_disciplina(int id_curso, int id_disciplina){
+    if (existe_curso(id_curso) != 0){
+        return -2;
+    }
+
+    Curso *curso = buscar_curso(id_curso);
+
+    int nova_qtd = curso->qtd_disciplinas + 1;
+
+    int *disciplinas_atuais = malloc(sizeof(int) * nova_qtd);
+
+    for (int i = 0; i < curso->qtd_disciplinas; i++)
+    {
+        if (curso->id_disciplinas[i] == id_disciplina)
+        {
+            free(disciplinas_atuais);
+            return -1;
+        }
+
+        disciplinas_atuais[i] = curso->id_disciplinas[i];
+    }
+
+    disciplinas_atuais[curso->qtd_disciplinas] = id_disciplina;
+
+    free(curso->id_disciplinas);
+
+    curso->id_disciplinas = disciplinas_atuais;
+    curso->qtd_disciplinas = nova_qtd;
+
+    atualizar_curso(curso);
 
     return 0;
 }

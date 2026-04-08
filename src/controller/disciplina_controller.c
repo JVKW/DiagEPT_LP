@@ -1,0 +1,61 @@
+#include <string.h>
+
+#include "controller/disciplina_controller.h"
+#include "controller/curso_controller.h"
+#include "dao/disciplinaDAO.h"
+#include "model/lista_generica.h"
+#include "model/disciplina.h"
+
+
+/*
+    CÓDIGOS DE RETORNO:
+     0 SUCESSO
+    -1 ERRO INFORMAÇÕES INCORRETAS
+    -2 ERRO AO REALIZAR A OPERAÇÃO
+
+*/
+int cadastrar_disciplina(Disciplina *d, int id_disciplina){
+    d->id = dao_next_id(DISCIPLINA_FILE);
+    d->qtd_turma = 0;
+    d->id_turma  = NULL; 
+
+    DAO_list lista = buscar_disciplinas();
+
+    if (d->carga_horaria_total <=0)
+    {
+        return -1;
+    }
+     
+    for(int i; i < lista.size; i ++){
+        Disciplina * temp = lista.items[i];
+        if (strcmp(temp->codigo, d->codigo) == 0)
+        {
+            return -2;
+        }
+    }
+
+    int result = adicionar_disciplina(id_disciplina, d->id);
+    if (result != 0)
+    {
+        return result;
+    }
+
+    salvar_disciplina(d);
+
+    return 0;
+}
+
+int remover_disciplina_seguro(int id){
+    if (existe_disciplina(id) != 0){
+        return -2;
+    }
+
+    Disciplina * temp = buscar_disciplina(id);
+    if (temp->qtd_turma >= 1){
+        return -2;        
+    }
+    
+    excluir_disciplina(id);
+
+    return 0;
+}

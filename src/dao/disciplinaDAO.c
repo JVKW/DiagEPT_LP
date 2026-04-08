@@ -8,9 +8,8 @@
 
 void salvar_disciplina(Disciplina *d)
 {
-    d->id = dao_next_id(FILE);
     dao_save(
-        FILE,
+        DISCIPLINA_FILE,
         d,
         disciplina_to_json
     );
@@ -19,7 +18,7 @@ void salvar_disciplina(Disciplina *d)
 Disciplina *buscar_disciplina(int id)
 {
     return dao_find_by_id(
-        FILE,
+        DISCIPLINA_FILE,
         id,
         json_to_disciplina
     );
@@ -28,16 +27,30 @@ Disciplina *buscar_disciplina(int id)
 DAO_list buscar_disciplinas()
 {
     return dao_find_all(
-        FILE,
+        DISCIPLINA_FILE,
         json_to_disciplina
     );
 }
 
 void update_diciplina(Disciplina *d){
     dao_update(
-        FILE,
+        DISCIPLINA_FILE,
         d->id,
         d,
         disciplina_to_json
+    );
+}
+
+void excluir_disciplina(int id){
+    dao_delete_by_id(
+        DISCIPLINA_FILE,
+        id
+    );
+}
+
+int existe_disciplina(int id){
+    return dao_exists(
+        DISCIPLINA_FILE,
+        id
     );
 }

@@ -3,8 +3,10 @@
 
 #include "model/disciplina.h"
 
-void cadastrar_disciplina(char nome[256], int numero_matricula);
+int cadastrar_disciplina(Disciplina *d, int id_disciplina);
 
 int atulizar_turmas(int id, int *id_turma, int qtd_turma);
+
+int remover_disciplina_seguro(int id);
 
 #endif

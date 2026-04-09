@@ -2,7 +2,10 @@
 #define UTILS_H
 #include "cJSON.h"
 
+int logoPrint();
 void limparTela();
+
+float lerNotaValida();
 
 int lerInteiro();
 float lerFloat();

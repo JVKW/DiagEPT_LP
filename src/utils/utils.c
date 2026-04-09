@@ -123,6 +123,20 @@ int* json_to_int_array(cJSON *json_array, int *size)
     return array;
 }
 
+int logoPrint() {
+    printf(
+" _____   _                ______  _____   _______\n"
+"|  __ \\ (_)              |  ____||  __ \\ |__   __|\n"
+"| |  | | _   __ _   __ _ | |__   | |__) |   | |\n"
+"| |  | || | / _` | / _` ||  __|  |  ___/    | |\n"
+"| |__| || || (_| || (_| || |____ | |        | |\n"
+"|_____/ |_| \\__,_| \\__, ||______||_|        |_|\n"
+"                    __/ |\n"
+"                   |___/\n"
+    );
+
+    return 0;
+}
 
 char *removerEspacos(char *str) {
     char *resultado = malloc(strlen(str) + 1);

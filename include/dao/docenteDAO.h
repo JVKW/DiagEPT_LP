@@ -18,4 +18,6 @@ void update_docente(Docente *d);
 
 DAO_list buscar_docentes();
 
+int existe_docente(int id);
+
 #endif

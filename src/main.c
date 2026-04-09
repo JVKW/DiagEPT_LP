@@ -7,7 +7,7 @@
 #include "controller/docente_controller.h"
 #include "controller/curso_controller.h"
 #include "controller/disciplina_controller.h"
-
+#include "controller/turma_controller.h"
 #include "controller/discente_controller.h"
 
 #include "utils/utils.h"
@@ -61,10 +61,15 @@ int main() {
 
 
     //printf("%d\n",remover_disciplina_seguro(1));
-    Discente xanderson;
-    strcpy(xanderson.nome,"xanderson");
-    xanderson.numero_matricula= 458889;
-    printf("%d \n ", cadastrar_discente(&xanderson));
+    // Discente xanderson;
+    // strcpy(xanderson.nome,"xanderson");
+    // xanderson.numero_matricula= 458889;
+    // printf("%d \n ", cadastrar_discente(&xanderson));
+
+
+    int result = criar_turma(2,1);
+    // Turma * t = buscar_turma(1);
+    printf("%d", excluir_turma_seguro(9));
         
     return 0;
 }

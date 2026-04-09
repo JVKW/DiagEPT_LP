@@ -14,7 +14,7 @@ void salvar_disciplina(Disciplina *d);
 
 Disciplina *buscar_disciplina(int id);
 
-void update_disciplina(Disciplina *d);
+void atualizar_disciplina(Disciplina *d);
 
 DAO_list buscar_disciplinas();
 

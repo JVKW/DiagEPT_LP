@@ -14,6 +14,7 @@ cJSON *turma_to_json(void *obj)
     cJSON_AddStringToObject(json,"codigo",e->codigo);
     cJSON_AddNumberToObject(json,"docente_id",e->docente_id);
     cJSON_AddNumberToObject(json,"qtd_matricula",e->qtd_matricula);
+    cJSON_AddNumberToObject(json,"id_disciplina",e->id_disciplina);
 
     cJSON_AddItemToObject(
         json,
@@ -36,6 +37,9 @@ void *json_to_turma(cJSON *json)
     
     e->qtd_matricula = 
         cJSON_GetObjectItem(json, "qtd_matricula")->valueint;
+    
+    e->id_disciplina = 
+        cJSON_GetObjectItem(json, "id_disciplina")->valueint;
 
     strcpy(e->codigo,
         cJSON_GetObjectItem(json,"codigo")->valuestring);

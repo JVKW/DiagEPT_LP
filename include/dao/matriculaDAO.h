@@ -8,7 +8,7 @@
 #include "model/lista_generica.h"
 
 
-#define FILE "data/matricula.json"
+#define MATRICULA_FILE "data/matricula.json"
 
 void salvar_matricula(Matricula *d);
 

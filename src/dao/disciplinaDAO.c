@@ -32,7 +32,7 @@ DAO_list buscar_disciplinas()
     );
 }
 
-void update_diciplina(Disciplina *d){
+void atualizar_disciplina(Disciplina *d){
     dao_update(
         DISCIPLINA_FILE,
         d->id,

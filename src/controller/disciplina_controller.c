@@ -1,4 +1,6 @@
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "controller/disciplina_controller.h"
 #include "controller/curso_controller.h"
@@ -56,6 +58,67 @@ int remover_disciplina_seguro(int id){
     }
     
     excluir_disciplina(id);
+
+    return 0;
+}
+
+void adicionar_turma_na_disciplina(int id_disciplina, int nova_turma_id) {
+    Disciplina * disc = buscar_disciplina(id_disciplina);
+
+    int novo_tamanho = disc->qtd_turma + 1;
+    
+    int *turmas_atuais = malloc(sizeof(int) * novo_tamanho);
+
+    for (int i = 0; i < disc->qtd_turma; i++){
+        turmas_atuais[i] = disc->id_turma[i];
+    }
+
+    free(disc->id_turma);
+
+    disc->id_turma = turmas_atuais;
+    disc->id_turma[disc->qtd_turma] = nova_turma_id;
+    disc->qtd_turma = novo_tamanho;
+
+    atualizar_disciplina(disc);
+}
+
+int remover_turma_na_disciplina(int id_disciplina, int turma_id){
+    if (existe_disciplina(id_disciplina) != 0){
+        return -1;
+    }
+    
+
+    Disciplina * disc = buscar_disciplina(id_disciplina);
+
+    int novo_tamanho = disc->qtd_turma - 1;
+    
+    int *turmas_atuais = malloc(sizeof(int) * novo_tamanho);
+
+    int pos = -1;
+
+
+    for (int i = 0; i < novo_tamanho+1; i++) {
+        turmas_atuais[i] = disc->id_turma[i];
+        if (turmas_atuais[i] == turma_id) {
+            pos = i;
+            break;
+        }
+    }
+
+    if (pos != -1) {
+        for (int i = pos; i < novo_tamanho; i++) {
+            turmas_atuais[i] = disc->id_turma[i + 1];
+        }
+    }else{
+        return -1;
+    }
+
+    free(disc->id_turma);
+
+    disc->id_turma = turmas_atuais;
+    disc->qtd_turma = novo_tamanho;
+
+    atualizar_disciplina(disc);
 
     return 0;
 }

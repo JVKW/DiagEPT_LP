@@ -40,3 +40,10 @@ void update_docente(Docente *d){
         docente_to_json
     );
 }
+
+int existe_docente(int id){
+    dao_exists(
+        FILE,
+        id
+    );
+}

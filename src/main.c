@@ -1,73 +1,70 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-#include "view/menu.h"
-#include "controller/notas.h"
-#include "controller/diagnostico.h"
-#include "model/estado.h"
-#include "controller/evasao.h"
+#include "model/lista_generica.h"
+
+#include "controller/docente_controller.h"
+#include "controller/curso_controller.h"
+#include "controller/disciplina_controller.h"
+
+#include "controller/discente_controller.h"
+
 #include "utils/utils.h"
-#include "model/estado.h"
-#include "dao/discenteDAO.h"
 
 #include "dao/jsonDAO.h"
 
-void menu(){
-    int opcao;
-    Estado estado;
+// Quando o usuário estiver logado deve ter o valor 1
+// Quando o usuário estiver deslogado deve ter o valor 0
+int USUARIO_AUTENTICADO = 0; 
 
-    inicializarEstado(&estado);
 
-    const char *menuPrincipal =
-    "=== MENU ===\n"
-    "1 - Adicionar notas\n"
-    "2 - Ver diagnostico\n"
-    "3 - Registrar evasao\n"
-    "4 - Sair\n";
-
-    do {
-        logoPrint();
-        opcao = mostrarMenu(menuPrincipal, 1);
-
-        switch (opcao) {
-        case 1:
-            limparTela();
-            printf("=== ADICIONAR NOTAS ===\n");
-            adicionarNotas(&estado);
-            break;
-
-        case 2:
-            limparTela();
-            printf("=== DIAGNOSTICO ===\n");
-            mostrarDiagnostico(&estado);
-            break;
-
-        case 3:
-            limparTela();
-            printf("=== REGISTRAR EVASAO ===\n");
-            registrarEvasao(&estado);
-            break;
-
-        case 4:
-            printf("Saindo do sistema...\n");
-            break;
-
-        default:
-            printf("Opcao invalida.\n");
-        }
-
-        printf("\nPressione ENTER para continuar...");
-        getchar();
-    } while (opcao != 4);
-}
+// PADÃO DE CÓDIGOS DE ERRO
+/*
+     0 Executou sem erros;
+    -1 Erro na valição;
+*/
 
 int main() {
     // Exemplo de como salvar um dado
-    // Discente d;
-    // strcpy(d.nome, "Siclano de Tal");
-    // d.numero_matricula = 654627;
+    // ISSO DEVE ACONTECER EXCLUSIVAMENTE EM UM ARQUIVO 
+    // DA PASTA VIEW
 
-    // salvar_discente(&d);
+    // Docente d;
+    // strcpy(d.nome, "Fulanoo de Tal");
+    // strcpy(d.senha, "sadojfoisr");
+    // strcpy(d.login, "654927");
 
+    // cadastrar_docente(&d);
+
+    // USUARIO_AUTENTICADO = logar_docente("654927", "sadojfoisr") >= 0? 1: 0;
+    
+    // printf("%d\n", USUARIO_AUTENTICADO);
+
+    // Curso c;
+    // c.id = 3;
+    // c.carga_horaria_total = 10;
+    // strcpy(c.codigo, "sahfg");
+    // strcpy(c.nome, "Disciplina");
+
+
+    // cadastrar_curso(&c);
+
+    //Disciplina d;
+
+    //d.carga_horaria_total = 40;
+    //strcpy(d.codigo, "alsjjre");
+    //strcpy(d.nome, "LAB");
+    
+    //int curso_id = 1;
+    //cadastrar_disciplina(&d, curso_id);
+
+
+    //printf("%d\n",remover_disciplina_seguro(1));
+    Discente xanderson;
+    strcpy(xanderson.nome,"xanderson");
+    xanderson.numero_matricula= 458889;
+    printf("%d \n ", cadastrar_discente(&xanderson));
+        
     return 0;
 }

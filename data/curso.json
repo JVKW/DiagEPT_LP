@@ -1,0 +1,8 @@
+[{
+		"id":	1,
+		"nome":	"Disciplina",
+		"codigo":	"sahfg",
+		"carga_horaria_total":	10,
+		"qtd_disciplinas":	1,
+		"id_disciplinas":	[2]
+	}]

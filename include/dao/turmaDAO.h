@@ -13,4 +13,6 @@ void salvar_turma(Turma *d);
 
 Turma *buscar_turma(int id);
 
+void update_turma(Turma *d);
+
 #endif

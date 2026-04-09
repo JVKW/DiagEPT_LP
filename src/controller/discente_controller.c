@@ -1,0 +1,38 @@
+#include <string.h>
+#include <stdio.h>
+#include "dao/discenteDAO.h"
+#include "controller/discente_controller.h"
+
+int cadastrar_discente(Discente *d){
+    //conversão dos arquivo json para se tornarem discentes criando a lista 
+    DAO_list lista = dao_find_all("data/discentes.json", json_to_discente);
+    //loop que começa em zero e teremina quando a lista fica do tamanho da quantia de discentes menos 1 pq encerra quando fica do mesmo tamanho somando de 1 em 1
+    for (int i= 0; i < lista.size; i++ ) { 
+        //aqui eu uso uma conversão de tipo CAST (discente *) (tipo (que é discente ) e valor (que é um ponteiro, hexadecimal) ou seja eu tô apontando para a lista e guardando como discente no arquivo json)
+
+        //mas tbm da pra criar uma variavel temp so pra guardar o item da lista se quiser, nao sei se faz diferença
+
+        //não criei a lista.items dentro do loop, so to usando
+
+        Discente* existente = lista.items[i];
+        //comparando matricula exitente com a seguinte matricula sendo esse d o discente novo que a gente ta tentando cadastrar
+        // ai basicamente se o numero da matricula que ta dentro da lista ja existir ele compara e arrocha o no em imprimir o erro, so apontando pro dado dentro da lista
+        if (existente -> numero_matricula==d -> numero_matricula) {
+            //imprime o texto se ja existir e retorna menos zero
+            puts ("Erro: Numero de matricula ja cadastrado!");
+            return -1;
+        }
+    }
+    // o código so vai chegar aqui se nao encontrar nenhuma matricula igual, chamando a função de salvar para finalizar e salvar os novo(s) discentes
+   
+    salvar_discente(d);
+    return 0;
+}
+
+Discente buscar_discente_id(int id){
+    return *buscar_discente(id);
+}
+
+void update_discente_id(Discente *d){
+    update_discente(d);
+}

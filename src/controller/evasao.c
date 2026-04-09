@@ -2,7 +2,7 @@
 #include "controller/evasao.h"
 #include "utils/utils.h"
 
-void registrarEvasao(Estado *e) {
+void registrar_evasao(Estado *e) {
     char motivo[300];
 
     printf("Motivo da Evasao: ");

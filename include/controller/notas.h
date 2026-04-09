@@ -3,6 +3,6 @@
 
 #include "model/estado.h"
 
-void adicionarNotas(Estado *e);
+void adicionar_notas(Estado *e);
 
 #endif

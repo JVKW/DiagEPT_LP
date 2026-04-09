@@ -7,9 +7,9 @@
 
 void salvar_turma(Turma *d)
 {
-    d->id = dao_next_id(FILE);
+    d->id = dao_next_id(TURMA_FILE);
     dao_save(
-        FILE,
+        TURMA_FILE,
         d,
         turma_to_json
     );
@@ -18,7 +18,7 @@ void salvar_turma(Turma *d)
 Turma *buscar_turma(int id)
 {
     return dao_find_by_id(
-        FILE,
+        TURMA_FILE,
         id,
         json_to_turma
     );
@@ -26,7 +26,7 @@ Turma *buscar_turma(int id)
 
 void update_turma(Turma *d){
     dao_update(
-        FILE,
+        TURMA_FILE,
         d->id,
         d,
         turma_to_json
@@ -35,7 +35,14 @@ void update_turma(Turma *d){
 
 void excluir_turma(int id){
     dao_delete_by_id(
-        FILE,
+        TURMA_FILE,
+        id
+    );
+}
+
+int existe_turma(int id){
+    dao_exists(
+        TURMA_FILE,
         id
     );
 }

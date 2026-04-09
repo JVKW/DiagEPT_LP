@@ -7,12 +7,16 @@
 #include "model/turma.h"
 
 
-#define FILE "data/turma.json"
+#define TURMA_FILE "data/turma.json"
 
 void salvar_turma(Turma *d);
 
 Turma *buscar_turma(int id);
 
 void update_turma(Turma *d);
+
+int existe_turma(int id);
+
+void excluir_turma(int id);
 
 #endif

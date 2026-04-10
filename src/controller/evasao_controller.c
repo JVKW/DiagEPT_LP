@@ -18,6 +18,9 @@ int processar_evasao_discente(int id_matricula, char *motivo) {
     if (m == NULL) {
         return -1;  // Erro: matrícula não encontrada
     }
+    if (m->tem_evasao) {
+        return -1;  // Erro: matrícula já marcada como evadida
+    }
 
     // Criar Evasão
     Evasao nova_ev;

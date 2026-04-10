@@ -78,8 +78,8 @@ int main() {
 
     realizar_matricula(1, 1);
     processar_evasao_discente(1, "LEDSON");
-    // remover_matricula(1);
-    //exibir_relatorio_turma(1);
+    //remover_matricula(1);
+    exibir_relatorio_turma(1);
 
     return 0;
 }

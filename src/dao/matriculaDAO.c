@@ -8,17 +8,11 @@
 
 void salvar_matricula(Matricula *d)
 {
-    d->id = dao_next_id(MATRICULA_FILE);
     dao_save(
         MATRICULA_FILE,
         d,
         matricula_to_json
     );
-}
-
-void update_matricula(Matricula *m) {
-    dao_delete_by_id(FILE, m->id);  // Remove o registro antigo
-    dao_save(FILE, m, matricula_to_json);  // Salva o atualizado (adiciona ao array)
 }
 
 Matricula *buscar_matricula(int id)
@@ -44,5 +38,19 @@ void update_matricula(Matricula *d){
         d->id,
         d,
         matricula_to_json
+    );
+}
+
+int existe_matricula(int id){
+    dao_exists(
+        MATRICULA_FILE,
+        id
+    );
+}
+
+void excluir_matricula(int id){
+    dao_delete_by_id(
+        MATRICULA_FILE,
+        id
     );
 }

@@ -26,7 +26,7 @@ Evasao *buscar_evasao(int id)
 
 void update_evasao(Evasao *d){
     dao_update(
-        FILE,
+        EVASAO_FILE,
         d->id,
         d,
         evasao_to_json

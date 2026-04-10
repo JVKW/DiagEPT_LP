@@ -1,7 +1,8 @@
 [{
 		"id":	1,
-		"codigo":	"T0000001\u0001",
+		"codigo":	"T0000002\u0001",
 		"docente_id":	1,
-		"qtd_matricula":	0,
-		"id_disciplina":	2
+		"qtd_matricula":	2,
+		"id_disciplina":	2,
+		"id_matricula":	[1, 1]
 	}]

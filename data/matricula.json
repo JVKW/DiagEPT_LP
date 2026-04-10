@@ -1,0 +1,12 @@
+[{
+		"id":	1,
+		"nota_pratica":	-1,
+		"nota_teorica":	-1,
+		"tempo_ausente":	0,
+		"aulas_ausente":	0,
+		"tem_evasao":	true,
+		"status":	"EVADIDO",
+		"discente_id":	1,
+		"id_turma":	1,
+		"id_evasao":	1
+	}]

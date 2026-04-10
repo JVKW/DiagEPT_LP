@@ -5,16 +5,11 @@
 #include "model/evasao.h"
 #include "dao/matriculaDAO.h"
 #include "dao/evasaoDAO.h"
+#include "view/evasao_view.h"
 
 void registrarEvasao(Estado *e) {
-    char motivo[300];
-
-    printf("Motivo da Evasao: ");
-    lerString(motivo, 300);
-
+    registrarEvasaoView();
     e->alunosEvadidos++;
-
-    printf("Evasao Registrada: %s\n", motivo);
 }
 
 int processar_evasao_discente(int id_matricula, char *motivo) {
@@ -22,6 +17,9 @@ int processar_evasao_discente(int id_matricula, char *motivo) {
     Matricula *m = buscar_matricula(id_matricula);
     if (m == NULL) {
         return -1;  // Erro: matrícula não encontrada
+    }
+    if (m->tem_evasao) {
+        return -1;  // Erro: matrícula já marcada como evadida
     }
 
     // Criar Evasão

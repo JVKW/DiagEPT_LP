@@ -23,3 +23,12 @@ Evasao *buscar_evasao(int id)
         json_to_evasao
     );
 }
+
+void update_evasao(Evasao *d){
+    dao_update(
+        EVASAO_FILE,
+        d->id,
+        d,
+        evasao_to_json
+    );
+}

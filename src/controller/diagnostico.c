@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "view/diagnostico.h"
+#include "controller/diagnostico.h"
 #include "model/estado.h"
 #include "view/menu.h"
 

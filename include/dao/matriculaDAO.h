@@ -12,10 +12,18 @@
 
 void salvar_matricula(Matricula *d);
 
+void update_matricula(Matricula *m);
+
 Matricula *buscar_matricula(int id);
 
 void update_matricula(Matricula *d);
 
 DAO_list buscar_matriculas();
+
+DAO_list buscar_matriculas_por_turma(int id_turma);
+
+int existe_matricula(int id);
+
+void excluir_matricula(int id);
 
 #endif

@@ -8,11 +8,20 @@
 #include "controller/curso_controller.h"
 #include "controller/disciplina_controller.h"
 #include "controller/turma_controller.h"
+#include "controller/diagnostico_controller.h"
+
 #include "controller/discente_controller.h"
+#include "controller/matricula_controller.h"
 
 #include "utils/utils.h"
+#include "controller/evasao_controller.h"
+#include "utils/utils.h"
+#include "dao/discenteDAO.h"
 
 #include "dao/jsonDAO.h"
+
+#include "view/curso_view.h"
+#include "view/relatorio_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -71,9 +80,14 @@ int main() {
     // printf("%d \n ", cadastrar_discente(&xanderson));
 
 
-    int result = criar_turma(2,1);
+    // //int result = criar_turma(2,1);
     // Turma * t = buscar_turma(1);
-    printf("%d", excluir_turma_seguro(9));
-        
+    // printf("%d", excluir_turma_seguro(9));
+
+    realizar_matricula(1, 1);
+    processar_evasao_discente(1, "LEDSON");
+    //remover_matricula(1);
+    exibir_relatorio_turma(1);
+
     return 0;
 }

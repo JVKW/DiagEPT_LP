@@ -46,3 +46,19 @@ int existe_turma(int id){
         id
     );
 }
+
+void atulizar_turma(Turma *d){
+    dao_update(
+        TURMA_FILE,
+        d->id,
+        d,
+        turma_to_json
+    );
+}
+
+DAO_list buscar_turmas(){
+    dao_find_all(
+        TURMA_FILE,
+        json_to_turma
+    );
+}

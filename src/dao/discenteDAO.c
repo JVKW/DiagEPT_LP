@@ -10,7 +10,7 @@
 
 void salvar_discente(Discente *d)
 {
-    d->id = dao_next_id(FILE);
+    d->id = dao_next_id(DISCENTE_FILE);
     dao_save(
         DISCENTE_FILE,
         d,
@@ -29,9 +29,15 @@ Discente *buscar_discente(int id)
 
 void update_discente(Discente *d){
     dao_update(
-        FILE,
+        DISCENTE_FILE,
         d->id,
         d,
         discente_to_json
+    );
+}
+Discente *buscar_discentes(){
+    dao_find_all(
+        DISCENTE_FILE,
+        json_to_discente
     );
 }

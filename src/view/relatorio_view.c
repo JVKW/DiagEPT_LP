@@ -16,19 +16,19 @@
 void exibir_relatorio_turma(int id_turma) {
     Turma *turma = buscar_turma(id_turma);
     if (!turma) {
-        printf("Turma não encontrada.\n");
+        printf("Turma nao encontrada.\n");
         return;
     }
 
     Disciplina *disciplina = buscar_disciplina(turma->id_disciplina);
     if (!disciplina) {
-        printf("Disciplina não encontrada.\n");
+        printf("Disciplina nao encontrada.\n");
         return;
     }
 
     Docente *docente = buscar_docente(turma->docente_id);
     if (!docente) {
-        printf("Docente não encontrado.\n");
+        printf("Docente nao encontrado.\n");
         return;
     }
 
@@ -99,17 +99,17 @@ void exibir_relatorio_turma(int id_turma) {
     }
 
     // Cabeçalho
-    printf("=== Relatório Detalhado da Turma ===\n");
-    printf("Código da Turma: %s\n", turma->codigo);
+    printf("=== Relatorio Detalhado da Turma ===\n");
+    printf("Codigo da Turma: %s\n", turma->codigo);
     printf("Nome da Disciplina: %s\n", disciplina->nome);
     printf("Nome do Docente: %s\n", docente->nome);
     printf("Grau de Defasagem: %.2f horas\n", grau_defasagem);
 
     // Estatísticas
-    printf("\nEstatísticas:\n");
-    printf("Média Geral: %.2f\n", media_geral);
+    printf("\nEstatisticas:\n");
+    printf("Media Geral: %.2f\n", media_geral);
     printf("Total de Alunos: %d\n", total_alunos);
-    printf("Total de Evasões: %d\n", total_evasoes);
+    printf("Total de Evasoes: %d\n", total_evasoes);
 
     // Status de Defasagem
     printf("\nStatus de Defasagem: ");
@@ -134,7 +134,7 @@ void exibir_relatorio_turma(int id_turma) {
     }
 
     printf("\nLista de Alunos:\n");
-    printf("%-30s %-10s %-15s\n", "Nome", "Média", "Status");
+    printf("%-30s %-10s %-15s\n", "Nome", "Media", "Status");
     printf("------------------------------------------------------------\n");
     for (int i = 0; i < count; i++) {
         printf("%-30s %-10.2f %-15s\n", alunos[i].nome, alunos[i].media, alunos[i].status);

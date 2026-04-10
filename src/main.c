@@ -15,6 +15,8 @@
 
 #include "utils/utils.h"
 #include "controller/evasao_controller.h"
+#include "utils/utils.h"
+#include "dao/discenteDAO.h"
 
 #include "dao/jsonDAO.h"
 

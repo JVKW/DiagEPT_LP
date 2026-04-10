@@ -9,8 +9,8 @@
 #include "controller/disciplina_controller.h"
 #include "controller/turma_controller.h"
 #include "controller/discente_controller.h"
-
 #include "utils/utils.h"
+#include "controller/evasao_controller.h"
 
 #include "dao/jsonDAO.h"
 
@@ -76,6 +76,9 @@ int main() {
     remover_curso_seguro(1);
     tela_cadastrar_curso();
     tela_excluir_curso();
+
+
+
 
     return 0;
 }

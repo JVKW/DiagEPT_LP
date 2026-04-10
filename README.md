@@ -80,4 +80,5 @@ Para compilar o projeto, utilize o seguinte comando:
 
 ```bash
     gcc src/*.c src/*/*.c lib/cjson/cJSON.c -Iinclude -Iinclude/cjson -o bin/programa
+    gcc (Get-ChildItem src/.c, src//*.c, lib/cjson/cJSON.c) -Iinclude -Iinclude/cjson -o bin/programa.exe
 ```

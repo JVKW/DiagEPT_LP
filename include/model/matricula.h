@@ -15,6 +15,8 @@ typedef struct Matricula
     bool tem_evasao;
     char status[128];
 
+    int id_turma;
+
     int discente_id;
     int id_evasao;
     

@@ -18,4 +18,8 @@ void update_matricula(Matricula *d);
 
 DAO_list buscar_matriculas();
 
+int existe_matricula(int id);
+
+void excluir_matricula(int id);
+
 #endif

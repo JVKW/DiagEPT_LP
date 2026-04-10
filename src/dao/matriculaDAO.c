@@ -8,7 +8,6 @@
 
 void salvar_matricula(Matricula *d)
 {
-    d->id = dao_next_id(MATRICULA_FILE);
     dao_save(
         MATRICULA_FILE,
         d,
@@ -39,5 +38,19 @@ void update_matricula(Matricula *d){
         d->id,
         d,
         matricula_to_json
+    );
+}
+
+int existe_matricula(int id){
+    dao_exists(
+        MATRICULA_FILE,
+        id
+    );
+}
+
+void excluir_matricula(int id){
+    dao_delete_by_id(
+        MATRICULA_FILE,
+        id
     );
 }

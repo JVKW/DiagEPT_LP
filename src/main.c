@@ -9,6 +9,7 @@
 #include "controller/disciplina_controller.h"
 #include "controller/turma_controller.h"
 #include "controller/discente_controller.h"
+#include "controller/matricula_controller.h"
 
 #include "utils/utils.h"
 
@@ -67,9 +68,12 @@ int main() {
     // printf("%d \n ", cadastrar_discente(&xanderson));
 
 
-    int result = criar_turma(2,1);
+    // int result = criar_turma(2,1);
     // Turma * t = buscar_turma(1);
-    printf("%d", excluir_turma_seguro(9));
+    // printf("%d", excluir_turma_seguro(9));
+
+    // realizar_matricula(1, 1);
+    // remover_matricula(1);
         
     return 0;
 }

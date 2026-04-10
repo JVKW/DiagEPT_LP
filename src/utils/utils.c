@@ -4,6 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 
+
+
 void limparTela() {
     printf("\033[H\033[J]");
 }
@@ -21,8 +23,18 @@ float lerNotaValida() {
 
 int lerInteiro() {
     char buffer[20];
-    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
-        return -1;
+    int valor;
+
+    while (1) {
+        if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+            return -1;
+        }
+
+        if (sscanf(buffer, "%d", &valor) == 1) {
+            return valor;
+        }
+
+        printf("Valor invalido. Digite um numero inteiro: ");
     }
 }
 
@@ -40,6 +52,7 @@ float lerFloat() {
         printf("Valor inválido. Tente novamente: ");
     }
 }
+
 
 void lerString(char *destino, int tamanho) {
     fgets(destino, tamanho, stdin);
@@ -151,4 +164,5 @@ char *removerEspacos(char *str) {
 
     resultado[j] = '\0';
     return resultado;
-}
+
+}    

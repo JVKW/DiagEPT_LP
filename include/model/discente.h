@@ -9,5 +9,6 @@ typedef struct Discente
     
 } Discente;
 
+Discente* pede_captura_discente();
 
 #endif

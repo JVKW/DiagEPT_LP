@@ -7,9 +7,9 @@
 
 void salvar_curso(Curso *d)
 {
-    d->id = dao_next_id(FILE);
+    d->id = dao_next_id(CURSO_FILE);
     dao_save(
-        FILE,
+        CURSO_FILE,
         d,
         curso_to_json
     );
@@ -18,7 +18,7 @@ void salvar_curso(Curso *d)
 Curso *buscar_curso(int id)
 {
     return dao_find_by_id(
-        FILE,
+        CURSO_FILE,
         id,
         json_to_curso
     );
@@ -26,14 +26,14 @@ Curso *buscar_curso(int id)
 
 DAO_list buscar_cursos( ){
     return dao_find_all(
-        FILE,
+        CURSO_FILE,
         json_to_curso
     );
 }
 
 void update_curso(Curso *d){
     dao_update(
-        FILE,
+        CURSO_FILE,
         d->id,
         d,
         curso_to_json
@@ -42,21 +42,21 @@ void update_curso(Curso *d){
 
 void excluir_curso(int id){
     dao_delete_by_id(
-        FILE,
+        CURSO_FILE,
         id
     );
 }
 
 int existe_curso(int id){
     return dao_exists(
-        FILE,
+        CURSO_FILE,
         id
     );
 }
 
 void atualizar_curso(Curso *d){
     dao_update(
-        FILE,
+        CURSO_FILE,
         d->id,
         d,
         curso_to_json

@@ -2,6 +2,7 @@
 #include "model/curso.h"
 #include <stdio.h>
 #include "utils/utils.h"
+#include "dao/cursoDAO.h"
 #include "controller/curso_controller.h"
 
 
@@ -26,6 +27,27 @@ void tela_cadastrar_curso(){
 
 
 
+//Criar uma função void tela_excluir_curso().
+//
+//Solicite o id do curso;
+//
+//Use a função remover_curso_seguro(id); (lembre de importar o curso_controller.h)
+//
+//Se a função retornar 0 informe que houve sucesso ao realizar a ação; do contrário, informe que houve um erro.
+
+void tela_excluir_curso(){
+
+    printf("Informe o id do curso que você gostaria de remover : \n ");
+
+    int id;
+    scanf("%d",&id);
+   
+    int resultado = remover_curso_seguro(id);
+
+    
+    printf((resultado == 0 ?  "Sucesso na remoção! o curso Foi removido !! \n "  : "Erro na remoção do curso !! esse curso não existe .... \n " ));
+
+    remover_curso_seguro(id);
 
 
-void tela_excluir_curso();
+}

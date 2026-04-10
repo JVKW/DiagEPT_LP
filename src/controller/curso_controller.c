@@ -46,16 +46,22 @@ int cadastrar_curso(Curso *c){
     return 0;
 }
 int remover_curso_seguro(int id){
-    if (existe_curso(id) != 0){
+    
+
+    if (buscar_curso(id) == NULL){
         return -2;
     }
+    
+
 
     Curso * temp = buscar_curso(id);
     if (temp->qtd_disciplinas >= 1){
         return -2;        
     }
     
+    
     excluir_curso(id);
+  
 
     return 0;
 }

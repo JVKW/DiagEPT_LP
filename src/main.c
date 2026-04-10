@@ -73,8 +73,9 @@ int main() {
     // Turma * t = buscar_turma(1);
     //printf("%d", excluir_turma_seguro(9));
     
+    remover_curso_seguro(1);
     tela_cadastrar_curso();
-
+    tela_excluir_curso();
 
     return 0;
 }

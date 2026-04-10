@@ -44,14 +44,14 @@ int main() {
     
     // printf("%d\n", USUARIO_AUTENTICADO);
 
-    // Curso c;
-    // c.id = 3;
-    // c.carga_horaria_total = 10;
-    // strcpy(c.codigo, "sahfg");
-    // strcpy(c.nome, "Disciplina");
+    Curso c;
+    c.id = 1;
+    c.carga_horaria_total = 10;
+    strcpy(c.codigo, "sahfg");
+    strcpy(c.nome, "Disciplina");
 
 
-    // cadastrar_curso(&c);
+    cadastrar_curso(&c);
 
     //Disciplina d;
 
@@ -77,7 +77,7 @@ int main() {
     //remover_curso_seguro(1);
     //tela_cadastrar_curso();
     //tela_excluir_curso();
-    menu_cadastrar_disciplina();
+    menu_disciplina();
 
     return 0;
 }

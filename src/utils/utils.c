@@ -21,8 +21,18 @@ float lerNotaValida() {
 
 int lerInteiro() {
     char buffer[20];
-    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
-        return -1;
+    int valor;
+
+    while (1) {
+        if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+            return -1;
+        }
+
+        if (sscanf(buffer, "%d", &valor) == 1) {
+            return valor;
+        }
+
+        printf("Valor inválido. Tente novamente: ");
     }
 }
 

@@ -4,49 +4,41 @@
 #include "dao/cursoDAO.h"
 #include "view/disciplina_view.h"
 
-void menu_cadastrar_disciplina(){
+void menu_disciplina(){
 
     Disciplina novo;
 
-    int curso_id;
-
-    printf("Qual o id do curso? \n ");
-
-    scanf("%d", curso_id );
-
-    printf("Qual o nome do curso ? \n ");
-
-    int nome_curso;
-
-    scanf("%d",nome_curso);
-
-    printf("Qual o codigo do curso ? \n ");
-
-    int novo_codigo;
-
-    scanf("%d",novo_codigo);
-
-    printf("Qual a carga horaria do curso ? \n ");
     
-    int nova_carga_horaria_total;
+    printf("Qual o id do curso? \n ");
+    int id_curso = lerInteiro();
 
-    scanf("%d", nova_carga_horaria_total);
+    printf("Qual o nome da disciplina ? \n ");
+
+    lerString(novo.nome, 128);
+
+    printf("Qual o codigo da disciplina ? \n ");
+
+    lerString(novo.codigo, 16);
+
+
+    printf("Qual a carga horaria da disciplina ? \n ");
+    
+    novo.carga_horaria_total = lerInteiro();
     
     novo.id_turma = NULL;
 
     novo.qtd_turma = 0;
 
-    int resultado = cadastrar_disciplina(&novo, curso_id);
+    int resultado = cadastrar_disciplina(&novo, id_curso);
 
     if (resultado == 0) {
 
-        printf("Sucesso no cadastro !! \n ");
+        printf("Sucesso ao cadastrar disciplina!! \n ");
 
     }else{
         
-        printf("Falha no cadastro :(( \n  ");
+        printf("Falha ao cadastrar disciplina :( \n  ");
     }
-
 
 
 }

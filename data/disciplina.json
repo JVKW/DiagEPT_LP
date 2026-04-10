@@ -5,4 +5,10 @@
 		"carga_horaria_total":	40,
 		"qtd_turma":	1,
 		"id_turma":	[1]
+	}, {
+		"id":	3,
+		"nome":	"PUF",
+		"codigo":	"234567dert",
+		"carga_horaria_total":	12345,
+		"qtd_turma":	0
 	}]

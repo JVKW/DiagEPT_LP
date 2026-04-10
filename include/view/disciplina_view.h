@@ -1,10 +1,10 @@
-#ifndef CURSO_VIEW
-#define CURSO_VIEW
+#ifndef DISCIPLINA_VIEW
+#define DISCIPLINA_VIEW
 
 void atualizar_turmas();
 
 
-void tela_cadastrar_disciplina();
+void menu_disciplina();
 
 
 

@@ -16,7 +16,7 @@
     -2 ERRO AO REALIZAR A OPERAÇÃO
 
 */
-int cadastrar_disciplina(Disciplina *d, int id_disciplina){
+int cadastrar_disciplina(Disciplina *d, int id_curso){
     d->id = dao_next_id(DISCIPLINA_FILE);
     d->qtd_turma = 0;
     d->id_turma  = NULL; 
@@ -36,7 +36,7 @@ int cadastrar_disciplina(Disciplina *d, int id_disciplina){
         }
     }
 
-    int result = adicionar_disciplina(id_disciplina, d->id);
+    int result = adicionar_disciplina(id_curso, d->id);
     if (result != 0)
     {
         return result;

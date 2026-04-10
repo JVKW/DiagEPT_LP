@@ -9,6 +9,6 @@ typedef struct {
     int totalAlunos;
 
     char status[50];
-} DiagnosticoTurma;
+} DiagnosticoTurma; 
 
 #endif

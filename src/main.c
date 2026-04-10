@@ -14,6 +14,8 @@
 
 #include "dao/jsonDAO.h"
 
+#include "view/curso_view.h"
+
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
 int USUARIO_AUTENTICADO = 0; 
@@ -67,9 +69,13 @@ int main() {
     // printf("%d \n ", cadastrar_discente(&xanderson));
 
 
-    int result = criar_turma(2,1);
+    //int result = criar_turma(2,1);
     // Turma * t = buscar_turma(1);
-    printf("%d", excluir_turma_seguro(9));
-        
+    //printf("%d", excluir_turma_seguro(9));
+    
+    remover_curso_seguro(1);
+    tela_cadastrar_curso();
+    tela_excluir_curso();
+
     return 0;
 }

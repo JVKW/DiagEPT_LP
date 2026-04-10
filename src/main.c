@@ -8,6 +8,8 @@
 #include "controller/curso_controller.h"
 #include "controller/disciplina_controller.h"
 #include "controller/turma_controller.h"
+#include "controller/diagnostico.h"
+
 #include "controller/discente_controller.h"
 #include "controller/matricula_controller.h"
 

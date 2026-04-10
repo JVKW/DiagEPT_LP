@@ -22,7 +22,7 @@ static bool possuiNotaValida(float nota) {
 
 static bool alunoPossuiAlgumaNota(Matricula *m) {
     return possuiNotaValida(m->nota_teorica) ||
-           possuiNotaValida(m->nota_pratica);
+        possuiNotaValida(m->nota_pratica);
 }
 
 static float calcularMediaAluno(Matricula *m) {
@@ -73,6 +73,15 @@ static bool deveTrocarRanking(Matricula *atual, Matricula *proximo) {
     return false;
 }
 
+/**
+ * Ordena uma lista de matrículas por média decrescente.
+ *
+ * Exemplo de uso:
+ * ----------------------------------
+ * DAO_list lista = buscar_matriculas();
+ * ordenarRanking(&lista);
+ * ----------------------------------
+ */
 void ordenarRanking(DAO_list *lista) {
     for (int i = 0; i < lista->size - 1; i++) {
         for (int j = 0; j < lista->size - i - 1; j++) {
@@ -127,17 +136,19 @@ static void definirStatusDiagnostico(
     }
 }
 
-/* COMO CALCULAR DIAGNÓSTICO DA TURMA
-    DiagnosticoTurma d = calcularDiagnosticoTurma(id_turma);
-
-    printf("Media Geral: %.2f\n", d.mediaGeral);
-    printf("Taxa Evasao: %.2f%%\n", d.taxaEvasao);
-    printf("Defasagem: %.2f h\n", d.defasagemTotal);
-    printf("Alunos: %d\n", d.totalAlunos);
-    printf("Status: %s\n", d.status);
-        |
-        V
-*/
+/**
+ * Calcula o diagnóstico completo de uma turma.
+ *
+ * Exemplo de uso na View:
+ * ----------------------------------
+ * DiagnosticoTurma d = calcularDiagnosticoTurma(1);
+ *
+ * printf("Media Geral: %.2f\n", d.mediaGeral);
+ * printf("Taxa Evasao: %.2f%%\n", d.taxaEvasao);
+ * printf("Defasagem: %.2f h\n", d.defasagemTotal);
+ * printf("Status: %s\n", d.status);
+ * ----------------------------------
+ */
 
 DiagnosticoTurma calcularDiagnosticoTurma(int id_turma) {
     Turma *turma = buscar_turma(id_turma);
@@ -204,6 +215,19 @@ DiagnosticoTurma calcularDiagnosticoTurma(int id_turma) {
 // RANKING DA TURMA
 // ======================================================
 
+/**
+ * Retorna ranking ordenado das matrículas de uma turma.
+ *
+ * Exemplo de uso na View:
+ * ----------------------------------
+ * DAO_list ranking = obterRankingMatriculas(1);
+ *
+ * for (int i = 0; i < ranking.size; i++) {
+ *     Matricula *m = (Matricula*) ranking.items[i];
+ *     printf("Aluno ID: %d\n", m->id);
+ * }
+ * ----------------------------------
+ */
 DAO_list obterRankingMatriculas(int id_turma) {
     Turma *turma = buscar_turma(id_turma);
 

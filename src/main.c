@@ -5,10 +5,11 @@
 #include "controller/notas.h"
 #include "view/diagnostico.h"
 #include "model/estado.h"
-#include "controller/evasao.h"
+#include "controller/evasao_controller.h"
 #include "utils/utils.h"
 #include "model/estado.h"
 #include "dao/discenteDAO.h"
+#include "controller/evasao_controller.h"
 
 #include "dao/jsonDAO.h"
 
@@ -68,6 +69,9 @@ int main() {
     // d.numero_matricula = 654627;
 
     // salvar_discente(&d);
+
+
+
 
     return 0;
 }

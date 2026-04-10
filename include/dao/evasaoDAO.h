@@ -7,7 +7,7 @@
 #include "model/evasao.h"
 
 
-#define FILE "data/evasao.json"
+#define EVASAO_FILE "data/evasao.json"
 
 void salvar_evasao(Evasao *d);
 

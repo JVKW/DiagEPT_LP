@@ -5,4 +5,10 @@
 		"carga_horaria_total":	10,
 		"qtd_disciplinas":	1,
 		"id_disciplinas":	[2]
+	}, {
+		"id":	2,
+		"nome":	"CC",
+		"codigo":	"245",
+		"carga_horaria_total":	2111336416,
+		"qtd_disciplinas":	0
 	}]

@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "controller/diagnostico_controller.h"
+#include "controller/ranking_controller.h"
 #include "model/matricula.h"
 #include "model/turma.h"
 #include "model/diagnostico_turma.h"
@@ -11,102 +12,17 @@
 #include "dao/turmaDAO.h"
 #include "dao/matriculaDAO.h"
 
-
 // ======================================================
-// REGRAS DE NEGÓCIO AUXILIARES
+// DEFASAGEM
 // ======================================================
-
-static bool possuiNotaValida(float nota) {
-    return nota >= 0;
-}
-
-static bool alunoPossuiAlgumaNota(Matricula *m) {
-    return possuiNotaValida(m->nota_teorica) ||
-        possuiNotaValida(m->nota_pratica);
-}
-
-static float calcularMediaAluno(Matricula *m) {
-    float soma = 0.0f;
-    int quantidadeNotas = 0;
-
-    if (possuiNotaValida(m->nota_teorica)) {
-        soma += m->nota_teorica;
-        quantidadeNotas++;
-    }
-
-    if (possuiNotaValida(m->nota_pratica)) {
-        soma += m->nota_pratica;
-        quantidadeNotas++;
-    }
-
-    if (quantidadeNotas == 0) {
-        return -1.0f;
-    }
-
-    return soma / quantidadeNotas;
-}
-
 static float calcularDefasagemAluno(Matricula *m) {
+    if (!m) return 0.0f;
     return (m->aulas_ausente * 45.0f) / 60.0f;
 }
 
-
 // ======================================================
-// REGRAS DE ORDENAÇÃO
+// INIT
 // ======================================================
-
-static bool deveTrocarRanking(Matricula *atual, Matricula *proximo) {
-    float mediaAtual = calcularMediaAluno(atual);
-    float mediaProximo = calcularMediaAluno(proximo);
-
-    bool atualSemNota = (mediaAtual < 0);
-    bool proximoSemNota = (mediaProximo < 0);
-
-    if (atualSemNota && !proximoSemNota) {
-        return true;
-    }
-
-    if (!atualSemNota && !proximoSemNota && mediaAtual < mediaProximo) {
-        return true;
-    }
-
-    return false;
-}
-
-/**
- * Ordena uma lista de matrículas por média decrescente.
- *
- * Exemplo de uso:
- * ----------------------------------
- * DAO_list lista = buscar_matriculas();
- * ordenarRanking(&lista);
- * ----------------------------------
- */
-void ordenarRanking(DAO_list *lista) {
-    for (int i = 0; i < lista->size - 1; i++) {
-        for (int j = 0; j < lista->size - i - 1; j++) {
-
-            Matricula *atual   = (Matricula*) lista->items[j];
-            Matricula *proximo = (Matricula*) lista->items[j + 1];
-
-            if (!atual || !proximo) {
-                continue;
-            }
-
-            if (deveTrocarRanking(atual, proximo)) {
-                void *temp = lista->items[j];
-                lista->items[j] = lista->items[j + 1];
-                lista->items[j + 1] = temp;
-            }
-        }
-    }
-}
-
-
-// ======================================================
-// DIAGNÓSTICO DA TURMA
-// ======================================================
-
 static void inicializarDiagnostico(DiagnosticoTurma *d) {
     d->totalAlunos = 0;
     d->mediaGeral = 0.0f;
@@ -115,6 +31,9 @@ static void inicializarDiagnostico(DiagnosticoTurma *d) {
     strcpy(d->status, "");
 }
 
+// ======================================================
+// STATUS
+// ======================================================
 static void definirStatusDiagnostico(
     DiagnosticoTurma *d,
     int alunosComNota
@@ -136,29 +55,19 @@ static void definirStatusDiagnostico(
     }
 }
 
-/**
- * Calcula o diagnóstico completo de uma turma.
- *
- * Exemplo de uso na View:
- * ----------------------------------
- * DiagnosticoTurma d = calcularDiagnosticoTurma(1);
- *
- * printf("Media Geral: %.2f\n", d.mediaGeral);
- * printf("Taxa Evasao: %.2f%%\n", d.taxaEvasao);
- * printf("Defasagem: %.2f h\n", d.defasagemTotal);
- * printf("Status: %s\n", d.status);
- * ----------------------------------
- */
-
+// ======================================================
+// DIAGNÓSTICO
+// ======================================================
 DiagnosticoTurma calcularDiagnosticoTurma(int id_turma) {
+
     Turma *turma = buscar_turma(id_turma);
 
-    DiagnosticoTurma diagnostico;
-    inicializarDiagnostico(&diagnostico);
+    DiagnosticoTurma d;
+    inicializarDiagnostico(&d);
 
     if (!turma) {
-        strcpy(diagnostico.status, "TURMA NAO ENCONTRADA");
-        return diagnostico;
+        strcpy(d.status, "TURMA NAO ENCONTRADA");
+        return d;
     }
 
     float somaMedias = 0.0f;
@@ -166,97 +75,50 @@ DiagnosticoTurma calcularDiagnosticoTurma(int id_turma) {
     int totalEvasoes = 0;
 
     for (int i = 0; i < turma->qtd_matricula; i++) {
-        Matricula *matricula = buscar_matricula(turma->id_matricula[i]);
 
-        if (!matricula) {
+        Matricula *m = buscar_matricula(turma->id_matricula[i]);
+
+        if (!m) continue;
+        if (m->id_turma != id_turma) continue;
+
+        d.totalAlunos++;
+
+        if (m->tem_evasao) {
+            totalEvasoes++;
+        }
+
+        if (m->nota_teorica < 0 && m->nota_pratica < 0) {
             continue;
         }
 
-        // garante consistência entre turma e matrícula
-        if (matricula->id_turma != id_turma) {
-            continue;
-        }
-
-        float media = calcularMediaAluno(matricula);
+        float media = calcularMediaAluno(m);
 
         if (media >= 0) {
             somaMedias += media;
             alunosComNota++;
         }
 
-        diagnostico.defasagemTotal += calcularDefasagemAluno(matricula);
+        d.defasagemTotal += calcularDefasagemAluno(m);
 
-        if (matricula->tem_evasao) {
+        if (m->tem_evasao) {
             totalEvasoes++;
         }
 
-        diagnostico.totalAlunos++;
+        d.totalAlunos++;
     }
 
-    if (diagnostico.totalAlunos == 0) {
-        strcpy(diagnostico.status, "SEM DADOS");
-        return diagnostico;
+    if (d.totalAlunos == 0) {
+        strcpy(d.status, "SEM DADOS");
+        return d;
     }
 
     if (alunosComNota > 0) {
-        diagnostico.mediaGeral = somaMedias / alunosComNota;
+        d.mediaGeral = somaMedias / alunosComNota;
     }
 
-    diagnostico.taxaEvasao =
-        (totalEvasoes * 100.0f) / diagnostico.totalAlunos;
+    d.taxaEvasao = (totalEvasoes * 100.0f) / d.totalAlunos;
 
-    definirStatusDiagnostico(&diagnostico, alunosComNota);
+    definirStatusDiagnostico(&d, alunosComNota);
 
-    return diagnostico;
-}
-
-
-// ======================================================
-// RANKING DA TURMA
-// ======================================================
-
-/**
- * Retorna ranking ordenado das matrículas de uma turma.
- *
- * Exemplo de uso na View:
- * ----------------------------------
- * DAO_list ranking = obterRankingMatriculas(1);
- *
- * for (int i = 0; i < ranking.size; i++) {
- *     Matricula *m = (Matricula*) ranking.items[i];
- *     printf("Aluno ID: %d\n", m->id);
- * }
- * ----------------------------------
- */
-DAO_list obterRankingMatriculas(int id_turma) {
-    Turma *turma = buscar_turma(id_turma);
-
-    DAO_list lista = {
-        .size = 0,
-        .items = NULL
-    };
-
-    if (!turma) {
-        return lista;
-    }
-
-    lista.items = malloc(sizeof(void*) * turma->qtd_matricula);
-
-    for (int i = 0; i < turma->qtd_matricula; i++) {
-        Matricula *matricula = buscar_matricula(turma->id_matricula[i]);
-
-        if (!matricula) {
-            continue;
-        }
-
-        if (matricula->id_turma != id_turma) {
-            continue;
-        }
-
-        lista.items[lista.size++] = matricula;
-    }
-
-    ordenarRanking(&lista);
-
-    return lista;
+    return d;
 }

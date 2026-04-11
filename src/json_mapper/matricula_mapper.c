@@ -29,9 +29,9 @@ void *json_to_matricula(cJSON *json)
     d->id =
         cJSON_GetObjectItem(json,"id")->valueint;
     d->nota_pratica = 
-        cJSON_GetObjectItem(json,"nota_pratica")->valueint;    
+        cJSON_GetObjectItem(json,"nota_pratica")->valuedouble;    
     d->nota_teorica = 
-        cJSON_GetObjectItem(json,"nota_teorica")->valueint;    
+        cJSON_GetObjectItem(json,"nota_teorica")->valuedouble;    
     d->tempo_ausente = 
         cJSON_GetObjectItem(json,"tempo_ausente")->valueint;    
     d->aulas_ausente = 

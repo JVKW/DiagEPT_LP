@@ -81,7 +81,12 @@ DiagnosticoTurma calcularDiagnosticoTurma(int id_turma) {
         if (!m) continue;
         if (m->id_turma != id_turma) continue;
 
-        // 🔥 mesma regra do ranking
+        d.totalAlunos++;
+
+        if (m->tem_evasao) {
+            totalEvasoes++;
+        }
+
         if (m->nota_teorica < 0 && m->nota_pratica < 0) {
             continue;
         }

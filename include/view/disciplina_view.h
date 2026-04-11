@@ -1,8 +1,9 @@
 #ifndef DISCIPLINA_VIEW
 #define DISCIPLINA_VIEW
 
-void atualizar_turmas();
+int atualizar_turmas();
 
+void menu_remover_disciplina();
 
 void menu_disciplina();
 

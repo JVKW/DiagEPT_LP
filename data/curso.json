@@ -3,6 +3,6 @@
 		"nome":	"Disciplina",
 		"codigo":	"sahfg",
 		"carga_horaria_total":	10,
-		"qtd_disciplinas":	1,
-		"id_disciplinas":	[3]
+		"qtd_disciplinas":	12,
+		"id_disciplinas":	[3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 	}]

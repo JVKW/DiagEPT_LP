@@ -1,7 +1,7 @@
 #ifndef DISCENTE_CONTROLLER
 #define DISCENTE_CONTROLLER
 
-#include "model/discente.h"
+#include "../model/discente.h"
 
 int cadastrar_discente(Discente *);
 

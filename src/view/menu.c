@@ -10,6 +10,7 @@ void imprimirMenu(const char *menu) {
     printf("%s\n", menu);
 }
 
+
 int lerOpcao() {
     char buffer[10];
     fgets(buffer, sizeof(buffer), stdin);

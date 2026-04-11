@@ -35,6 +35,10 @@ int USUARIO_AUTENTICADO = 0;
 */
 
 int main() {
+
+    logoPrint();
+    
+    
     // Exemplo de como salvar um dado
     // ISSO DEVE ACONTECER EXCLUSIVAMENTE EM UM ARQUIVO 
     // DA PASTA VIEW

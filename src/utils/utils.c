@@ -4,6 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 
+
+
 void limparTela() {
     printf("\033[H\033[J]");
 }
@@ -32,7 +34,7 @@ int lerInteiro() {
             return valor;
         }
 
-        printf("Valor inválido. Tente novamente: ");
+        printf("Valor invalido. Digite um numero inteiro: ");
     }
 }
 
@@ -50,6 +52,7 @@ float lerFloat() {
         printf("Valor inválido. Tente novamente: ");
     }
 }
+
 
 void lerString(char *destino, int tamanho) {
     fgets(destino, tamanho, stdin);
@@ -161,4 +164,5 @@ char *removerEspacos(char *str) {
 
     resultado[j] = '\0';
     return resultado;
-}
+
+}    

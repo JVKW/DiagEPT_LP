@@ -18,7 +18,7 @@
 #include "dao/jsonDAO.h"
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
-#include "view/relatorio_evasao_view.h"
+#include "view/evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -187,19 +187,35 @@ int main() {
 
         case 7:
             limparTela();
-            while (opcao_sub7 != 2){
+            while (opcao_sub7 != 3){
                 logoPrint();
-                puts("\n1. Captura de motivos e atualização de status \n 2. Sair");
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {
                 case 1:
+                    limparTela();
                     logoPrint();
+                    
+                    relatorio_evasoes();
+                    puts("\n\nDigite enter para continuar:");
+                    char aux;
+                    scanf("%c", &aux);
                     //registrarEvasaoView();
                     break;
                 case 2:
-                    opcao_sub7 = 2;
+                    
                     limparTela();
+                    logoPrint();
+                    
+                    relatorio_evasoes();
+                    puts("\n\nDigite enter para continuar:");
+                    limparTela();
+                    break;
+                case 3:
+                    
+                    opcao_sub7 = 3;
+                    break;
                 default:
                     puts("Opcao invalida!");
                     break;

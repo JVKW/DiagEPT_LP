@@ -43,8 +43,8 @@ DAO_list buscar_discentes(){
     );
 }
 
-void excluir_discente(id){
-    return dao_delete_by_id(
+void excluir_discente(int id){
+    dao_delete_by_id(
         DISCENTE_FILE,
         id
     );

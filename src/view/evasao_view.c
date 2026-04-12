@@ -4,6 +4,7 @@
 #include "controller/evasao_controller.h"
 #include "dao/matriculaDAO.h"
 #include "dao/discenteDAO.h"
+#include "dao/evasaoDAO.h"
 #include "model/lista_generica.h"
 
 void registrarEvasaoView() {

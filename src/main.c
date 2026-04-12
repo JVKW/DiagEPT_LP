@@ -22,6 +22,7 @@
 
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
+#include "view/relatorio_evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -80,10 +81,12 @@ int main() {
     // Turma * t = buscar_turma(1);
     // printf("%d", excluir_turma_seguro(9));
 
-    realizar_matricula(1, 1);
-    processar_evasao_discente(1, "LEDSON");
-    //remover_matricula(1);
-    exibir_relatorio_turma(1);
+    // realizar_matricula(1, 1);
+    // processar_evasao_discente(1, "LEDSON");
+    // //remover_matricula(1);
+    // exibir_relatorio_turma(1);
+
+    relatorio_evasoes();
 
     return 0;
 }

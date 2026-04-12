@@ -13,10 +13,14 @@ void salvar_turma(Turma *d);
 
 Turma *buscar_turma(int id);
 
+DAO_list buscar_turmas();
+
 void update_turma(Turma *d);
 
 int existe_turma(int id);
 
 void excluir_turma(int id);
+
+void atulizar_turma(Turma *d);
 
 #endif

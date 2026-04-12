@@ -8,7 +8,7 @@
 #include "model/lista_generica.h"
 
 
-#define FILE "data/curso.json"
+#define CURSO_FILE "data/curso.json"
 
 void salvar_curso(Curso *d);
 

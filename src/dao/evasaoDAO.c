@@ -7,9 +7,9 @@
 
 void salvar_evasao(Evasao *d)
 {
-    d->id = dao_next_id(FILE);
+    d->id = dao_next_id(EVASAO_FILE);
     dao_save(
-        FILE,
+        EVASAO_FILE,
         d,
         evasao_to_json
     );
@@ -18,7 +18,7 @@ void salvar_evasao(Evasao *d)
 Evasao *buscar_evasao(int id)
 {
     return dao_find_by_id(
-        FILE,
+        EVASAO_FILE,
         id,
         json_to_evasao
     );
@@ -26,7 +26,7 @@ Evasao *buscar_evasao(int id)
 
 void update_evasao(Evasao *d){
     dao_update(
-        FILE,
+        EVASAO_FILE,
         d->id,
         d,
         evasao_to_json

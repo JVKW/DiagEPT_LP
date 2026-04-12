@@ -8,13 +8,22 @@
 #include "controller/curso_controller.h"
 #include "controller/disciplina_controller.h"
 #include "controller/turma_controller.h"
+#include "controller/diagnostico_controller.h"
+
 #include "controller/discente_controller.h"
+#include "controller/matricula_controller.h"
 
 #include "utils/utils.h"
+#include "controller/evasao_controller.h"
+#include "utils/utils.h"
+#include "dao/discenteDAO.h"
 
 #include "view/discente_view.h"
 
 #include "dao/jsonDAO.h"
+
+#include "view/curso_view.h"
+#include "view/relatorio_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0

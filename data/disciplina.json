@@ -3,6 +3,6 @@
 		"nome":	"LAB",
 		"codigo":	"alsre",
 		"carga_horaria_total":	40,
-		"qtd_turma":	1,
-		"id_turma":	[1]
+		"qtd_turma":	2,
+		"id_turma":	[1, 2]
 	}]

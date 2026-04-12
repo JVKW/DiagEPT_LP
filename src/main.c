@@ -36,58 +36,87 @@ int USUARIO_AUTENTICADO = 0;
     -1 Erro na valição;
 */
 
+void imprimir_menu(){
+        char * texto_menu = {"1.Gestao de Cursos\n2.Gestao de Disciplinas\n3.Gestao de Turmas e Matriculas\n4.Gestao de discentes\n5.Lancamento de Notas\n6.Relatorios e Diagnosticos\n7.Registro de Evasoes\n8.Sair\n"};
+        printf("%s",texto_menu);
+    }
+
 int main() {
 
-    logoPrint();
     
     
-    // Exemplo de como salvar um dado
-    // ISSO DEVE ACONTECER EXCLUSIVAMENTE EM UM ARQUIVO 
-    // DA PASTA VIEW
+    /*
+    1.Gestao de Cursos (view/curso_view.h)
+    tela_cadastrar_curso();
+    tela_excluir_curso();
+    2.Gestão de Disciplinas (src/view/disciplina_view.h)
+    Validação de carga horária e codigos únicos.
+    3.Gestão de Turmas e Matrículas (view/menu_turma.h)
+    Listagem de turmas do docente, busca de discentes e controle de matrículas.
+    4.Gestão de discentes (view/discente_view.h)
+    menu_registrar_aluno()
+    não menu_remover_aluno()
+    5.Lançamento de Notas (view/notas_view.h)
+    Fluxo de seleção de turma e loop de entrada de notas.
+    6.Relatórios e Diagnósticos (view/relatorio_view.h)
+    Dashboard da turma, ranking de alunos e estatísticas.
+    7.Registro de Evasões (view/evasao_view.h)
+    Captura de motivos e atualização de status.
+    8.Sair
 
-    // Docente d;
-    // strcpy(d.nome, "Fulanoo de Tal");
-    // strcpy(d.senha, "sadojfoisr");
-    // strcpy(d.login, "654927");
+    */
 
-    // cadastrar_docente(&d);
+    int opcao = -1;
+    int opcao_sub = -1;
+   do{
+        opcao = -1;
+        opcao_sub = -1;    
+        
+        logoPrint();
 
-    // USUARIO_AUTENTICADO = logar_docente("654927", "sadojfoisr") >= 0? 1: 0;
+        imprimir_menu();
+        opcao = lerInteiro();
+        switch (opcao)
+        {
+        case 1:
+            limparTela();
+            while(opcao_sub != 3){
+                puts(" 1.Registrar curso\n 2.Remover curso\n 3.Sair");
+                opcao_sub = lerInteiro();
+                switch (opcao_sub)
+                {
+                case 1:
+                    tela_cadastrar_curso();
+                    break;
+                case 2:
+                
+                    tela_excluir_curso();
+                    break;
+                case 3:
+                    opcao_sub = 3;
+                    
+                    limparTela();
+                    break;
+                
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
+            break;
+        case 2:
+        
+            break;
+        
+        default:
+            puts("Opcao invalida!");
+            break;
+        }
     
-    // printf("%d\n", USUARIO_AUTENTICADO);
+        limparTela();
+    }while(opcao != 8);
 
-    // Curso c;
-    // c.id = 3;
-    // c.carga_horaria_total = 10;
-    // strcpy(c.codigo, "sahfg");
-    // strcpy(c.nome, "Disciplina");
-
-
-    // cadastrar_curso(&c);
-
-    //Disciplina d;
-
-    //d.carga_horaria_total = 40;
-    //strcpy(d.codigo, "alsjjre");
-    //strcpy(d.nome, "LAB");
-    
-    //int curso_id = 1;
-    //cadastrar_disciplina(&d, curso_id);
-
-
-    //printf("%d\n",remover_disciplina_seguro(1));
-    // Discente xanderson;
-    // strcpy(xanderson.nome,"xanderson");
-    // xanderson.numero_matricula= 458889;
-    // printf("%d \n ", cadastrar_discente(&xanderson));
-
-
-    // int result = criar_turma(2,1);
-    // // Turma * t = buscar_turma(1);
-    // printf("%d", excluir_turma_seguro(9));
-
-
-    menu_registrar_aluno();
 
     return 0;
 }

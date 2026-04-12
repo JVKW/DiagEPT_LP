@@ -12,6 +12,8 @@
 
 #include "utils/utils.h"
 
+#include "view/discente_view.h"
+
 #include "dao/jsonDAO.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
@@ -71,9 +73,12 @@ int main() {
     // printf("%d \n ", cadastrar_discente(&xanderson));
 
 
-    int result = criar_turma(2,1);
-    // Turma * t = buscar_turma(1);
-    printf("%d", excluir_turma_seguro(9));
-        
+    // int result = criar_turma(2,1);
+    // // Turma * t = buscar_turma(1);
+    // printf("%d", excluir_turma_seguro(9));
+
+
+    menu_registrar_aluno();
+
     return 0;
 }

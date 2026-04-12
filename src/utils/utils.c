@@ -55,9 +55,28 @@ float lerFloat() {
 
 
 void lerString(char *destino, int tamanho) {
+    char * sem_espacos = "";
+    
+    do
+    {
     fgets(destino, tamanho, stdin);
 
     destino[strcspn(destino, "\n")] = '\0';
+    
+    char * sem_espacos = removerEspacosExtras(destino);
+    strcpy(destino, sem_espacos);
+
+    if (strlen(sem_espacos)>=1)
+    {
+        return;
+    }else{
+        puts("Entrada invalida! Tente novamente");
+    }
+
+    
+    }while (strlen(sem_espacos)<1);
+
+    
 }
 
 char *ler_arquivo(const char *path)
@@ -165,4 +184,24 @@ char *removerEspacos(char *str) {
     resultado[j] = '\0';
     return resultado;
 
-}    
+}
+
+char *removerEspacosExtras(char *str) {
+    char *resultado = malloc(strlen(str) + 1);
+    int i = 0, j = 0;
+
+    while (str[i] != '\0') {
+        if (!isspace((unsigned char)str[i]) ||
+            isspace((unsigned char)str[i]) &&
+            !isspace((unsigned char)str[i+1]) &&
+            i != 0 && i == strlen(str)
+        ) {
+            resultado[j++] = str[i];
+        }
+        i++;
+    }
+
+    resultado[j] = '\0';
+    return resultado;
+
+}

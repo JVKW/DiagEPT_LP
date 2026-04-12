@@ -41,6 +41,12 @@ void imprimir_menu(){
         printf("%s",texto_menu);
     }
 
+void continuar(){
+    puts("\n\nDigite enter para continuar:");
+    char aux;
+    scanf("%c", &aux);
+}
+
 int main() {
 
     /*
@@ -153,6 +159,8 @@ int main() {
                     limparTela();
                     logoPrint();
                     menu_remover_aluno();
+
+                    continuar();
                     break;
                 case 3:
                     opcao_sub4 = 3;
@@ -215,6 +223,9 @@ int main() {
                     
                     relatorio_evasoes();
                     puts("\n\nDigite enter para continuar:");
+                    
+                    char aux;
+                    scanf("%c", &aux);
                     limparTela();
                     break;
                 case 3:

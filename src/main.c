@@ -24,6 +24,7 @@
 
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
+#include "view/relatorio_evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0

@@ -2,10 +2,11 @@
 #include <stdio.h>
 #include "dao/discenteDAO.h"
 #include "controller/discente_controller.h"
+#include "dao/matriculaDAO.h"
 
 int cadastrar_discente(Discente *d){
     //conversão dos arquivo json para se tornarem discentes criando a lista 
-    DAO_list lista = dao_find_all("data/discentes.json", json_to_discente);
+    DAO_list lista = buscar_discentes();
     //loop que começa em zero e teremina quando a lista fica do tamanho da quantia de discentes menos 1 pq encerra quando fica do mesmo tamanho somando de 1 em 1
     for (int i= 0; i < lista.size; i++ ) { 
         //aqui eu uso uma conversão de tipo CAST (discente *) (tipo (que é discente ) e valor (que é um ponteiro, hexadecimal) ou seja eu tô apontando para a lista e guardando como discente no arquivo json)
@@ -26,6 +27,21 @@ int cadastrar_discente(Discente *d){
     // o código so vai chegar aqui se nao encontrar nenhuma matricula igual, chamando a função de salvar para finalizar e salvar os novo(s) discentes
    
     salvar_discente(d);
+    return 0;
+}
+
+int remover_discente(int id){
+    DAO_list lista = buscar_matriculas();
+    
+    for (int i= 0; i < lista.size; i++ ) {
+        Matricula* matricula = lista.items[i];
+        if (matricula->discente_id == id) {
+            puts ("Erro: O discente possui matricula ativa em turmas!");
+            return -1;
+        }
+    }
+    
+    excluir_discente(id);
     return 0;
 }
 

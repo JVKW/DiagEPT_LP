@@ -42,3 +42,10 @@ DAO_list buscar_discentes(){
         json_to_discente
     );
 }
+
+void excluir_discente(id){
+    return dao_delete_by_id(
+        DISCENTE_FILE,
+        id
+    );
+}

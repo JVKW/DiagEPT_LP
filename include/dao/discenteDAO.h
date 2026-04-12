@@ -16,6 +16,8 @@ Discente *buscar_discente(int id);
 
 DAO_list buscar_discentes();
 
+void excluir_discente(id);
+
 void update_discente(Discente *d);
 
 #endif

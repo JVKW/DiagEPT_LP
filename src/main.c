@@ -23,7 +23,6 @@
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
 #include "view/evasao_view.h"
-#include "view/evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -46,6 +45,8 @@ void continuar(){
     char aux;
     scanf("%c", &aux);
 }
+
+void tela_listar_cursos();
 
 int main() {
 
@@ -106,9 +107,9 @@ int main() {
         {
         case 1:
             limparTela();
-            while(opcao_sub1 != 3){
+            while(opcao_sub1 != 4){
                 logoPrint();
-                puts("\n1. Registrar curso\n2. Remover curso\n3. Sair\n");
+                puts("\n1. Registrar curso\n2. Remover curso\n3. Listar cursos\n4. Sair\n");
                 opcao_sub1 = lerInteiro();
                 switch (opcao_sub1)
                 {
@@ -116,13 +117,21 @@ int main() {
                     limparTela();
                     logoPrint();
                     tela_cadastrar_curso();
+                    continuar();
                     break;
                 case 2:
                     limparTela();
                     logoPrint();
                     tela_excluir_curso();
+                    continuar();
                     break;
                 case 3:
+                    limparTela();
+                    logoPrint();
+                    tela_listar_cursos();
+                    continuar();
+                    break;
+                case 4:
                     opcao_sub1 = 3;
                     limparTela();
                     break;
@@ -154,12 +163,12 @@ int main() {
                     limparTela();
                     logoPrint();
                     menu_registrar_aluno();
+                    continuar();
                     break;
                 case 2:
                     limparTela();
                     logoPrint();
                     menu_remover_aluno();
-
                     continuar();
                     break;
                 case 3:
@@ -191,6 +200,7 @@ int main() {
                     printf("\nDigite o ID da turma: ");
                     int id_turma = lerInteiro();
                     exibir_relatorio_turma(id_turma);
+                    continuar();
                     break;
                 case 2:
                     opcao_sub6 = 2;
@@ -214,23 +224,18 @@ int main() {
                 case 1:
                     limparTela();
                     logoPrint();
-                    
                     registrarEvasaoView();
+                    continuar();
                     break;
                 case 2:
                     limparTela();
                     logoPrint();
-                    
                     relatorio_evasoes();
-                    puts("\n\nDigite enter para continuar:");
-                    
-                    char aux;
-                    scanf("%c", &aux);
-                    limparTela();
+                    continuar();
                     break;
                 case 3:
-                    
                     opcao_sub7 = 3;
+                    limparTela();
                     break;
                 default:
                     puts("Opcao invalida!");

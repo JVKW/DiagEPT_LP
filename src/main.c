@@ -18,7 +18,7 @@
 #include "dao/jsonDAO.h"
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
-#include "view/relatorio_evasao_view.h"
+//#include "view/relatorio_evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -143,7 +143,7 @@ int main() {
                     break;
                 case 2:
                     logoPrint();
-                    //menu_remover_aluno();
+                    menu_remover_aluno();
                     break;
                 case 3:
                     opcao_sub4 = 3;

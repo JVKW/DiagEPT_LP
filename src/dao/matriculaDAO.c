@@ -16,7 +16,6 @@ void salvar_matricula(Matricula *d)
     );
 }
 
-
 Matricula *buscar_matricula(int id)
 {
     return dao_find_by_id(
@@ -44,7 +43,7 @@ void update_matricula(Matricula *d){
 }
 
 int existe_matricula(int id){
-    dao_exists(
+    return dao_exists(
         MATRICULA_FILE,
         id
     );

@@ -35,8 +35,9 @@ void update_discente(Discente *d){
         discente_to_json
     );
 }
-Discente *buscar_discentes(){
-    dao_find_all(
+
+DAO_list buscar_discentes(){
+    return dao_find_all(
         DISCENTE_FILE,
         json_to_discente
     );

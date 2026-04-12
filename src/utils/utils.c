@@ -7,7 +7,11 @@
 
 
 void limparTela() {
-    printf("\033[H\033[J]");
+#ifdef _WIN32
+    system("cls");   // Windows
+#else
+    system("clear"); // Linux/macOS
+#endif
 }
 
 float lerNotaValida() {

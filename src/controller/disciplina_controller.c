@@ -47,6 +47,8 @@ int cadastrar_disciplina(Disciplina *d, int id_disciplina){
     return 0;
 }
 
+
+
 int remover_disciplina_seguro(int id){
     if (existe_disciplina(id) != 0){
         return -2;

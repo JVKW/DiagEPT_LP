@@ -9,9 +9,9 @@ cJSON *docente_to_json(void *obj)
     cJSON *json = cJSON_CreateObject();
 
     cJSON_AddNumberToObject(json, "id", d->id);
-    cJSON_AddStringToObject(json, "nome", d->nome ? d->nome : "");
-    cJSON_AddStringToObject(json, "login", d->login ? d->login : "");
-    cJSON_AddStringToObject(json, "senha", d->senha ? d->senha : "");
+    cJSON_AddStringToObject(json, "nome", d->nome);
+    cJSON_AddStringToObject(json, "login", d->login);
+    cJSON_AddStringToObject(json, "senha", d->senha);
 
     return json;
 }

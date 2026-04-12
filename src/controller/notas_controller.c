@@ -69,6 +69,7 @@ DAO_list listar_turmas_professor(int id_docente) {
         printf("Turma %d -> docente_id: %d\n", t->id, t->docente_id);
     }
 
+    free(todas.items);
     return filtradas;
 }
 

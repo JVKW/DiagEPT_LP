@@ -36,7 +36,6 @@ int USUARIO_AUTENTICADO = 0;
 
 int main() {
 
-    logoPrint();
     
     
     // Exemplo de como salvar um dado

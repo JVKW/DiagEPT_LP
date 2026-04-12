@@ -1,5 +1,5 @@
 #include "model/estado.h"
-#include "include/model/discente.h"
+#include "model/discente.h"
 
 void inicializarEstado(Estado *e) {
     e->totalAlunos = 0;

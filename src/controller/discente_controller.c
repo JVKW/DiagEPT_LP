@@ -29,6 +29,26 @@ int cadastrar_discente(Discente *d){
     return 0;
 }
 
+int excluir_discente_seguro(int id_discente) {
+    // 1. Carregar todas as matrículas
+    DAO_list matriculas = buscar_matriculas();
+
+    // 2. Percorrer e verificar vínculo
+    for (int i = 0; i < matriculas.size; i++) {
+        Matricula *m = (Matricula *)matriculas.items[i];
+
+        // 3. Encontrou vínculo - BLOQUEIA
+        if (m->discente_id == id_discente) {
+            puts("Nao e possivel excluir: Aluno possui matriculas vinculadas.");
+            return -1;
+        }
+    }
+
+    // 4. Sem vínculos — exclui direto pelo DAO
+    dao_delete_by_id("data/discentes.json", id_discente);
+    return 0;
+}
+
 Discente buscar_discente_id(int id){
     return *buscar_discente(id);
 }

@@ -9,5 +9,4 @@ typedef struct Discente
     
 } Discente;
 
-
 #endif

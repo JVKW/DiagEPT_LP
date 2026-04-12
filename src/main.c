@@ -23,6 +23,7 @@
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
 #include "view/evasao_view.h"
+#include "view/evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -198,23 +199,28 @@ int main() {
             limparTela();
             while (opcao_sub7 != 3){
                 logoPrint();
-                puts("\n1. Captura de motivos e atualização de status\n2. Sair\n");
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes\n3. Sair\n");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {
                 case 1:
                     limparTela();
                     logoPrint();
+                    
                     registrarEvasaoView();
                     break;
                 case 2:
                     limparTela();
                     logoPrint();
+                    
                     relatorio_evasoes();
+                    puts("\n\nDigite enter para continuar:");
+                    limparTela();
                     break;
                 case 3:
-                    opcao_sub7 = 2;
-                    limparTela();
+                    
+                    opcao_sub7 = 3;
+                    break;
                 default:
                     puts("Opcao invalida!");
                     break;

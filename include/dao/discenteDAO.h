@@ -13,7 +13,7 @@ void salvar_discente(Discente *d);
 
 Discente *buscar_discente(int id);
 
-Discente *buscar_discentes();
+DAO_list buscar_discentes();
 
 void update_discente(Discente *d);
 

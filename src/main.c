@@ -36,7 +36,7 @@ int USUARIO_AUTENTICADO = 0;
 */
 
 void imprimir_menu(){
-        char * texto_menu = {"\n1. Gestao de Cursos\n2. Gestao de Disciplinas\n3. Gestao de Turmas e Matriculas\n4. Gestao de discentes\n5. Lancamento de Notas\n6. Relatorios e Diagnosticos\n7. Registro de Evasoes\n8. Sair\n"};
+        char * texto_menu = {"\n1. Gestao de Cursos\n2. Gestao de Disciplinas\n3. Gestao de Turmas e Matriculas\n4. Gestao de discentes\n5. Lancamento de Notas\n6. Relatorios e Diagnosticos\n7. Registro de Evasoes\n8. Sair\n\n"};
         printf("%s",texto_menu);
     }
 
@@ -101,15 +101,17 @@ int main() {
             limparTela();
             while(opcao_sub1 != 3){
                 logoPrint();
-                puts("\n1. Registrar curso\n 2. Remover curso\n 3. Sair");
+                puts("\n1. Registrar curso\n2. Remover curso\n3. Sair\n");
                 opcao_sub1 = lerInteiro();
                 switch (opcao_sub1)
                 {
                 case 1:
+                    limparTela();
                     logoPrint();
                     tela_cadastrar_curso();
                     break;
                 case 2:
+                    limparTela();
                     logoPrint();
                     tela_excluir_curso();
                     break;
@@ -137,15 +139,17 @@ int main() {
             limparTela();
             while(opcao_sub4 != 3){
                 logoPrint();
-                puts("\n1. Registrar aluno\n 2. Remover aluno\n 3. Sair");
+                puts("\n1. Registrar aluno\n2. Remover aluno\n3. Sair\n");
                 opcao_sub4 = lerInteiro();
                 switch (opcao_sub4)
                 {
                 case 1:
+                    limparTela();
                     logoPrint();
                     menu_registrar_aluno();
                     break;
                 case 2:
+                    limparTela();
                     logoPrint();
                     menu_remover_aluno();
                     break;
@@ -168,14 +172,15 @@ int main() {
             limparTela();
             while(opcao_sub6 != 2){
                 logoPrint();
-                puts("\n1. Dashboard da turma, ranking de alunos e estatisticas \n 2. Sair");
+                puts("\n1. Dashboard da turma, ranking de alunos e estatisticas\n2. Sair\n");
                 opcao_sub6 = lerInteiro();
                 switch (opcao_sub6)
                 {
                 case 1:
+                    limparTela();
                     logoPrint();
-                    int id_turma = lerInteiro();
                     printf("\nDigite o ID da turma: ");
+                    int id_turma = lerInteiro();
                     exibir_relatorio_turma(id_turma);
                     break;
                 case 2:
@@ -193,15 +198,17 @@ int main() {
             limparTela();
             while (opcao_sub7 != 3){
                 logoPrint();
-                puts("\n1. Captura de motivos e atualização de status \n 2. Sair");
+                puts("\n1. Captura de motivos e atualização de status\n2. Sair\n");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {
                 case 1:
+                    limparTela();
                     logoPrint();
                     registrarEvasaoView();
                     break;
                 case 2:
+                    limparTela();
                     logoPrint();
                     relatorio_evasoes();
                     break;
@@ -217,18 +224,16 @@ int main() {
             break;
         
         case 8:
+            limparTela();
             logoPrint();
             puts("\nObrigado por utilizar o DiagEPT!\n\nSaindo do sistema...");
             opcao = 8;
-            limparTela();
             break;
 
         default:
             puts("Opcao invalida!");
             break;
         }
-    
-        limparTela();
     }while(opcao != 8);
 
     return 0;

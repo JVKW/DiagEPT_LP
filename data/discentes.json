@@ -18,4 +18,8 @@
 		"id":	5,
 		"nome":	"kleber",
 		"numero_matricula":	456416
+	}, {
+		"id":	6,
+		"nome":	"nicolas",
+		"numero_matricula":	582982
 	}]

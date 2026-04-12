@@ -42,7 +42,7 @@ void update_docente(Docente *d){
 }
 
 int existe_docente(int id){
-    dao_exists(
+    return dao_exists(
         DOCENTE_FILE,
         id
     );

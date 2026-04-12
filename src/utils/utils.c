@@ -107,12 +107,14 @@ char *ler_arquivo(const char *path)
 
 void escrever_arquivo(const char *path, const char *conteudo)
 {
-    FILE *f = fopen(path,"w");
+    FILE *f = fopen(path, "wb");
 
-    if(!f)
+    if (!f) {
+        printf("[ERRO] Não conseguiu abrir arquivo\n");
         return;
+    }
 
-    fprintf(f,"%s",conteudo);
+    fwrite(conteudo, 1, strlen(conteudo), f);
 
     fclose(f);
 }

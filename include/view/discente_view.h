@@ -3,4 +3,6 @@
 
 void menu_registrar_aluno();
 
+void menu_remover_aluno();
+
 #endif

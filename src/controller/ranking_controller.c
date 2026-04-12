@@ -171,3 +171,15 @@ Matricula* obterAlunoDestaque(int id_turma) {
 
     return destaque;
 }
+
+bool turmaEhDestaque(int id_turma) {
+    DAO_list ranking = obterRankingMatriculas(id_turma);
+    bool destaque = false;
+
+    if (ranking.size > 0 && ranking.items[0]) {
+        destaque = calcularMediaAluno(ranking.items[0]) >= 7.0f;
+    }
+
+    free(ranking.items);
+    return destaque;
+}

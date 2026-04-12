@@ -29,23 +29,24 @@ void *json_to_turma(cJSON *json)
 {
     Turma *e = malloc(sizeof(Turma));
 
-    e->id = 
-        cJSON_GetObjectItem(json, "id")->valueint;
-    
-    e->docente_id = 
-        cJSON_GetObjectItem(json, "docente_id")->valueint;
-    
-    e->qtd_matricula = 
+    e->id = cJSON_GetObjectItem(json, "id")->valueint;
+
+    e->docente_id = cJSON_GetObjectItem(json, "docente_id")->valueint;
+
+    e->qtd_matricula =
         cJSON_GetObjectItem(json, "qtd_matricula")->valueint;
-    
-    e->id_disciplina = 
+
+    e->id_disciplina =
         cJSON_GetObjectItem(json, "id_disciplina")->valueint;
 
-    strcpy(e->codigo,
-        cJSON_GetObjectItem(json,"codigo")->valuestring);
-    
+    const char *codigo_json = cJSON_GetObjectItem(json, "codigo")->valuestring;
+    strncpy(e->codigo, codigo_json, sizeof(e->codigo) - 1);
+    e->codigo[sizeof(e->codigo) - 1] = '\0';
+
     cJSON *array = cJSON_GetObjectItem(json, "id_matricula");
-    e->id_matricula = json_to_int_array(array, &e->qtd_matricula);
+
+    int tamanho_array = 0;
+    e->id_matricula = json_to_int_array(array, &tamanho_array);
 
     return e;
 }

@@ -7,7 +7,7 @@
 typedef struct Turma
 {
     int id;
-    char codigo[8];
+    char codigo[9];
     int docente_id;
     int id_disciplina;
 

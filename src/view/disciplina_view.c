@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "../include/dao/disciplinaDAO.h"
-#include "../include/model/disciplina.h"
-#include "../include/model/lista_generica.h"
+#include "dao/disciplinaDAO.h"
+#include "model/disciplina.h"
+#include "model/lista_generica.h"
 
 void listar_todas_disciplinas(){
 

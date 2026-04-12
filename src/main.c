@@ -36,12 +36,12 @@ int USUARIO_AUTENTICADO = 0;
 */
 
 void imprimir_menu(){
-        char * texto_menu = {"\n1. Gestao de Cursos\n2. Gestao de Disciplinas\n3. Gestao de Turmas e Matriculas\n4. Gestao de discentes\n5. Lancamento de Notas\n6. Relatorios e Diagnosticos\n7. Registro de Evasoes\n8. Sair\n\n"};
+        char * texto_menu = {"1. Gestao de Cursos\n2. Gestao de Disciplinas\n3. Gestao de Turmas e Matriculas\n4. Gestao de discentes\n5. Lancamento de Notas\n6. Relatorios e Diagnosticos\n7. Registro de Evasoes\n8. Sair\n\n"};
         printf("%s",texto_menu);
     }
 
 void continuar(){
-    puts("\n\nDigite enter para continuar:");
+    puts("\nDigite enter para continuar:");
     char aux;
     scanf("%c", &aux);
 }
@@ -109,7 +109,7 @@ int main() {
             limparTela();
             while(opcao_sub1 != 4){
                 logoPrint();
-                puts("\n1. Registrar curso\n2. Remover curso\n3. Listar cursos\n4. Sair\n");
+                puts("1. Registrar curso\n2. Remover curso\n3. Listar cursos\n4. Sair\n");
                 opcao_sub1 = lerInteiro();
                 switch (opcao_sub1)
                 {
@@ -132,7 +132,7 @@ int main() {
                     continuar();
                     break;
                 case 4:
-                    opcao_sub1 = 3;
+                    opcao_sub1 = 4;
                     limparTela();
                     break;
                 default:
@@ -155,7 +155,7 @@ int main() {
             limparTela();
             while(opcao_sub4 != 3){
                 logoPrint();
-                puts("\n1. Registrar aluno\n2. Remover aluno\n3. Sair\n");
+                puts("1. Registrar aluno\n2. Remover aluno\n3. Sair\n");
                 opcao_sub4 = lerInteiro();
                 switch (opcao_sub4)
                 {
@@ -190,7 +190,7 @@ int main() {
             limparTela();
             while(opcao_sub6 != 2){
                 logoPrint();
-                puts("\n1. Dashboard da turma, ranking de alunos e estatisticas\n2. Sair\n");
+                puts("1. Dashboard da turma, ranking de alunos e estatisticas\n2. Sair\n");
                 opcao_sub6 = lerInteiro();
                 switch (opcao_sub6)
                 {
@@ -217,7 +217,7 @@ int main() {
             limparTela();
             while (opcao_sub7 != 3){
                 logoPrint();
-                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes\n3. Sair\n");
+                puts("1. Captura de motivos e atualização de status\n2. Listar todas as evasoes\n3. Sair\n");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {
@@ -248,7 +248,7 @@ int main() {
         case 8:
             limparTela();
             logoPrint();
-            puts("\nObrigado por utilizar o DiagEPT!\n\nSaindo do sistema...");
+            puts("Obrigado por utilizar o DiagEPT!\n\nSaindo do sistema...");
             opcao = 8;
             break;
 

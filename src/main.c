@@ -16,6 +16,7 @@
 #include "utils/utils.h"
 
 #include "dao/discenteDAO.h"
+#include "dao/evasaoDAO.h"
 #include "dao/jsonDAO.h"
 
 #include "view/discente_view.h"

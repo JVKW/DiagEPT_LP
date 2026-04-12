@@ -16,7 +16,7 @@ void update_matricula(Matricula *m);
 
 Matricula *buscar_matricula(int id);
 
-void update_matricula(Matricula *d);
+// void update_matricula(Matricula *d);
 
 DAO_list buscar_matriculas();
 

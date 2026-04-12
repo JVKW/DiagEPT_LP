@@ -13,4 +13,6 @@ void adicionar_turma_na_disciplina(int id_disciplina, int nova_turma_id);
 
 int remover_turma_na_disciplina(int id_disciplina, int turma_id);
 
+Disciplina buscar_disciplina_id(int id);
+
 #endif

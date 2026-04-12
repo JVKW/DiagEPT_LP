@@ -62,6 +62,15 @@ int remover_disciplina_seguro(int id){
     return 0;
 }
 
+Disciplina buscar_disciplina_id(int id) {
+    Disciplina *d = buscar_disciplina(id);
+    if (!d) {
+        Disciplina vazio = {0};
+        return vazio;
+    }
+    return *d;
+}
+
 void adicionar_turma_na_disciplina(int id_disciplina, int nova_turma_id) {
     Disciplina * disc = buscar_disciplina(id_disciplina);
 

@@ -1,8 +1,10 @@
-[{
-		"id":	1,
-		"codigo":	"T0000002\u0001",
-		"docente_id":	1,
-		"qtd_matricula":	2,
-		"id_disciplina":	2,
-		"id_matricula":	[1, 1]
-	}]
+[
+  {
+    "id": 1,
+    "codigo": "T0000002",
+    "docente_id": 1,
+    "qtd_matricula": 5,
+    "id_disciplina": 2,
+    "id_matricula": [1, 2, 3, 4, 5]
+  }
+]

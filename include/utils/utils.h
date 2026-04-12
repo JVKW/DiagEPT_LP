@@ -22,4 +22,6 @@ int* json_to_int_array(cJSON *json_array, int *size);
 
 char * removerEspacos(char *str);
 
+char *removerEspacosExtras(char *str);
+
 #endif

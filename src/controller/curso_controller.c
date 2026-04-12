@@ -15,7 +15,7 @@
 */
 int cadastrar_curso(Curso *c){
     
-    c->qtd_disciplinas == 0;
+    c->qtd_disciplinas = 0;
     strcpy(c->codigo, removerEspacos(c->codigo));
 
 

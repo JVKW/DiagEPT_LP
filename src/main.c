@@ -9,81 +9,242 @@
 #include "controller/disciplina_controller.h"
 #include "controller/turma_controller.h"
 #include "controller/diagnostico_controller.h"
-
 #include "controller/discente_controller.h"
 #include "controller/matricula_controller.h"
-
-#include "utils/utils.h"
 #include "controller/evasao_controller.h"
-#include "utils/utils.h"
-#include "dao/discenteDAO.h"
 
+#include "utils/utils.h"
+
+#include "dao/discenteDAO.h"
+#include "dao/evasaoDAO.h"
 #include "dao/jsonDAO.h"
 
+#include "view/discente_view.h"
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
+#include "view/evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
+
 int USUARIO_AUTENTICADO = 0; 
 
-
-// PADÃO DE CÓDIGOS DE ERRO
+// PADRÃO DE CÓDIGOS DE ERRO
 /*
      0 Executou sem erros;
     -1 Erro na valição;
 */
 
+void imprimir_menu(){
+        char * texto_menu = {"\n1. Gestao de Cursos\n2. Gestao de Disciplinas\n3. Gestao de Turmas e Matriculas\n4. Gestao de discentes\n5. Lancamento de Notas\n6. Relatorios e Diagnosticos\n7. Registro de Evasoes\n8. Sair\n"};
+        printf("%s",texto_menu);
+    }
+
 int main() {
-    // Exemplo de como salvar um dado
-    // ISSO DEVE ACONTECER EXCLUSIVAMENTE EM UM ARQUIVO 
-    // DA PASTA VIEW
 
-    // Docente d;
-    // strcpy(d.nome, "Fulanoo de Tal");
-    // strcpy(d.senha, "sadojfoisr");
-    // strcpy(d.login, "654927");
+    /*
+    MENU DE OPÇÕES
 
-    // cadastrar_docente(&d);
+    1. Gestao de Cursos (view/curso_view.h)
+    tela_cadastrar_curso();
+    tela_excluir_curso();
 
-    // USUARIO_AUTENTICADO = logar_docente("654927", "sadojfoisr") >= 0? 1: 0;
+    (FALTOSO) 2. Gestão de Disciplinas (src/view/disciplina_view.h)
+    Validação de carga horária e codigos únicos.
+
+    (FALTOSO) 3. Gestão de Turmas e Matrículas (view/menu_turma.h)
+    Listagem de turmas do docente, busca de discentes e controle de matrículas.
+
+    4. Gestão de discentes (view/discente_view.h)
+    menu_registrar_aluno();
+    não foi feito ainda: menu_remover_aluno();
+
+    (FALTOSO) 5. Lançamento de Notas (view/notas_view.h)
+    Fluxo de seleção de turma e loop de entrada de notas.
+
+    6.Relatórios e Diagnósticos (view/relatorio_view.h)
+    Dashboard da turma, ranking de alunos e estatísticas.
+
+    (INCOMPLETO) 7. Registro de Evasões (view/evasao_view.h)
+    Captura de motivos e atualização de status.
+
+    8.Sair
+    */
+
+    int opcao = -1;
+    int opcao_sub1 = -1;
+    int opcao_sub2 = -1;
+    int opcao_sub3 = -1;
+    int opcao_sub4 = -1;
+    int opcao_sub5 = -1;
+    int opcao_sub6 = -1;
+    int opcao_sub7 = -1;
+
+   do{
+        opcao = -1;
+        opcao_sub1 = -1;
+        opcao_sub2 = -1;
+        opcao_sub3 = -1;
+        opcao_sub4 = -1;
+        opcao_sub5 = -1;
+        opcao_sub6 = -1;
+        opcao_sub7 = -1;
     
-    // printf("%d\n", USUARIO_AUTENTICADO);
+        logoPrint();
 
-    // Curso c;
-    // c.id = 3;
-    // c.carga_horaria_total = 10;
-    // strcpy(c.codigo, "sahfg");
-    // strcpy(c.nome, "Disciplina");
+        imprimir_menu();
+        opcao = lerInteiro();
 
+        switch (opcao)
+        {
+        case 1:
+            limparTela();
+            while(opcao_sub1 != 3){
+                logoPrint();
+                puts("\n1. Registrar curso\n 2. Remover curso\n 3. Sair");
+                opcao_sub1 = lerInteiro();
+                switch (opcao_sub1)
+                {
+                case 1:
+                    logoPrint();
+                    tela_cadastrar_curso();
+                    break;
+                case 2:
+                    logoPrint();
+                    tela_excluir_curso();
+                    break;
+                case 3:
+                    opcao_sub1 = 3;
+                    limparTela();
+                    break;
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
+            break;
 
-    // cadastrar_curso(&c);
+        case 2:
+            limparTela();
+            break;
+        
+        case 3:
+            limparTela();
+            break;
+        
+        case 4:
+            limparTela();
+            while(opcao_sub4 != 3){
+                logoPrint();
+                puts("\n1. Registrar aluno\n 2. Remover aluno\n 3. Sair");
+                opcao_sub4 = lerInteiro();
+                switch (opcao_sub4)
+                {
+                case 1:
+                    logoPrint();
+                    menu_registrar_aluno();
+                    break;
+                case 2:
+                    logoPrint();
+                    menu_remover_aluno();
+                    break;
+                case 3:
+                    opcao_sub4 = 3;
+                    limparTela();
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
+            break;
+        
+        case 5:
+            limparTela();
+            break;
+        
+        case 6:
+            limparTela();
+            while(opcao_sub6 != 2){
+                logoPrint();
+                puts("\n1. Dashboard da turma, ranking de alunos e estatisticas \n 2. Sair");
+                opcao_sub6 = lerInteiro();
+                switch (opcao_sub6)
+                {
+                case 1:
+                    logoPrint();
+                    int id_turma = lerInteiro();
+                    printf("\nDigite o ID da turma: ");
+                    exibir_relatorio_turma(id_turma);
+                    break;
+                case 2:
+                    opcao_sub6 = 2;
+                    limparTela();
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
+            break;
 
-    //Disciplina d;
+        case 7:
+            limparTela();
+            while (opcao_sub7 != 3){
+                logoPrint();
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
+                opcao_sub7 = lerInteiro();
+                switch (opcao_sub7)
+                {
+                case 1:
+                    limparTela();
+                    logoPrint();
+                    
+                    registrarEvasaoView();
+                    break;
+                case 2:
+                    
+                    limparTela();
+                    logoPrint();
+                    
+                    relatorio_evasoes();
+                    puts("\n\nDigite enter para continuar:");
+                    
+                    limparTela();
+                    logoPrint();
+                    
+                    relatorio_evasoes();
+                    puts("\n\nDigite enter para continuar:");
+                    limparTela();
+                    break;
+                case 3:
+                    
+                    opcao_sub7 = 3;
+                    break;
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
+            break;
+        
+        case 8:
+            logoPrint();
+            puts("\nObrigado por utilizar o DiagEPT!\n\nSaindo do sistema...");
+            opcao = 8;
+            limparTela();
+            break;
 
-    //d.carga_horaria_total = 40;
-    //strcpy(d.codigo, "alsjjre");
-    //strcpy(d.nome, "LAB");
+        default:
+            puts("Opcao invalida!");
+            break;
+        }
     
-    //int curso_id = 1;
-    //cadastrar_disciplina(&d, curso_id);
-
-
-    //printf("%d\n",remover_disciplina_seguro(1));
-    // Discente xanderson;
-    // strcpy(xanderson.nome,"xanderson");
-    // xanderson.numero_matricula= 458889;
-    // printf("%d \n ", cadastrar_discente(&xanderson));
-
-
-    // //int result = criar_turma(2,1);
-    // Turma * t = buscar_turma(1);
-    // printf("%d", excluir_turma_seguro(9));
-
-    realizar_matricula(1, 1);
-    processar_evasao_discente(1, "LEDSON");
-    //remover_matricula(1);
-    exibir_relatorio_turma(1);
+        limparTela();
+    }while(opcao != 8);
 
     return 0;
 }

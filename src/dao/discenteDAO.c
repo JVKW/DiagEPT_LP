@@ -35,9 +35,17 @@ void update_discente(Discente *d){
         discente_to_json
     );
 }
-Discente *buscar_discentes(){
-    dao_find_all(
+
+DAO_list buscar_discentes(){
+    return dao_find_all(
         DISCENTE_FILE,
         json_to_discente
+    );
+}
+
+void excluir_discente(id){
+    return dao_delete_by_id(
+        DISCENTE_FILE,
+        id
     );
 }

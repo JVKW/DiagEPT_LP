@@ -11,12 +11,15 @@ void dao_save(const char *file, void *obj, to_json_fn to_json)
 {
     char *conteudo = ler_arquivo(file);
 
-    cJSON *array;
+    cJSON *array = NULL;
 
-    if(conteudo)
+    if (conteudo) {
         array = cJSON_Parse(conteudo);
-    else
+    }
+
+    if (!array) {
         array = cJSON_CreateArray();
+    }
 
     cJSON *json_obj = to_json(obj);
 

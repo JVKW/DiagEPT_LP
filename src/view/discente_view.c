@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "model/discente.h"
+
 #include "controller/discente_controller.h"
+#include "view/discente_view.h"
+#include "model/discente.h"
 #include "utils/utils.h"
 
 void menu_registrar_aluno() {
@@ -29,4 +31,15 @@ void menu_registrar_aluno() {
     free(novo);
 }
 
+void menu_remover_aluno(){
 
+    puts("\n=== Remossao de Aluno ===");
+
+    printf("\nDigite o id do aluno: ");
+    int id = lerInteiro();
+
+    int resultado = remover_discente(id);
+    if (resultado == 0) {
+        puts("Aluno removido com sucesso!");
+    }    
+}

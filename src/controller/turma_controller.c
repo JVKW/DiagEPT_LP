@@ -25,8 +25,8 @@ int criar_turma(int id_disciplina, int id_docente){
     // Gerando código da turma
     int id_turma = dao_next_id(TURMA_FILE);
 
-    char * cod_turma = malloc(9);
-    char * num = malloc(sizeof(99999));
+    char cod_turma[10];
+    char num[16];
 
     sprintf(num, "%d", id_turma);
 
@@ -37,12 +37,13 @@ int criar_turma(int id_disciplina, int id_docente){
     for (int i = 0; i < zeros; i++) {
         cod_turma[pos++] = '0';
     }
-    for (int i = 0; i < strlen(num); i++){
+    for (int i = 0; i < (int)strlen(num); i++) {
         cod_turma[pos++] = num[i];
     }
+    cod_turma[pos] = '\0';
 
-    strcpy(t.codigo, cod_turma);
-    free(cod_turma);
+    strncpy(t.codigo, cod_turma, sizeof(t.codigo) - 1);
+    t.codigo[sizeof(t.codigo) - 1] = '\0';
 
     t.docente_id = id_docente;
     t.id_matricula = NULL;
@@ -52,7 +53,9 @@ int criar_turma(int id_disciplina, int id_docente){
 
     adicionar_turma_na_disciplina(id_disciplina, id_turma);
 
+    return id_turma;
 }
+
 int excluir_turma_seguro(int id){
     if (existe_turma(id) != 0)
     {
@@ -61,7 +64,7 @@ int excluir_turma_seguro(int id){
     
     Turma *t = buscar_turma(id);
     if(t->qtd_matricula > 0){
-        for(int i; i < t->qtd_matricula; i++){
+        for(int i = 0; i < t->qtd_matricula; i++){
             Matricula * m = buscar_matricula(t->id_matricula[i]);
             if (m->tem_evasao != true)
             {
@@ -98,8 +101,6 @@ void adicionar_matricula_na_turma(int id_turma, int id_matricula) {
     t->qtd_matricula = novo_tamanho;
 
     atulizar_turma(t);
-
-    free(matriculas_atuais);
 }
 
 int remover_matricula_na_turma(int id_matricula){

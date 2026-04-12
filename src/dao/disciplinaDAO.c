@@ -41,6 +41,7 @@ void atualizar_disciplina(Disciplina *d){
     );
 }
 
+
 void excluir_disciplina(int id){
     dao_delete_by_id(
         DISCIPLINA_FILE,

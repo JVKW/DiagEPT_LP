@@ -1,6 +1,6 @@
 #ifndef UTILS_H
 #define UTILS_H
-#include "cJSON.h"
+#include "cjson/cJSON.h"
 
 int logoPrint();
 void limparTela();

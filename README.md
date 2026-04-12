@@ -78,8 +78,12 @@ erDiagram
 
 Para compilar o projeto, utilize o seguinte comando:
 
+- Linux
 ```bash
     gcc src/*.c src/*/*.c lib/cjson/cJSON.c -Iinclude -Iinclude/cjson -o bin/programa
+```
+- Windows
+```powershell
     gcc (Get-ChildItem src/.c, src//*.c, lib/cjson/cJSON.c) -Iinclude -Iinclude/cjson -o bin/programa.exe
 ```
 # 🚀 GUIA DE COMANDOS GIT - PROJETO 1 (LAB. PROGRAMAÇÃO)

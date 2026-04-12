@@ -3,4 +3,6 @@
 
 void registrarEvasaoView();
 
+void relatorio_evasoes();
+
 #endif

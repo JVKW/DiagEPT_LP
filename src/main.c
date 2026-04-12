@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "model/lista_generica.h"
+
 #include "controller/docente_controller.h"
 #include "controller/curso_controller.h"
 #include "controller/disciplina_controller.h"
@@ -10,15 +11,17 @@
 #include "controller/diagnostico_controller.h"
 #include "controller/discente_controller.h"
 #include "controller/matricula_controller.h"
-#include "utils/utils.h"
 #include "controller/evasao_controller.h"
+
 #include "utils/utils.h"
+
 #include "dao/discenteDAO.h"
-#include "view/discente_view.h"
 #include "dao/jsonDAO.h"
+
+#include "view/discente_view.h"
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
-//#include "view/relatorio_evasao_view.h"
+#include "view/evasao_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -187,7 +190,7 @@ int main() {
 
         case 7:
             limparTela();
-            while (opcao_sub7 != 2){
+            while (opcao_sub7 != 3){
                 logoPrint();
                 puts("\n1. Captura de motivos e atualização de status \n 2. Sair");
                 opcao_sub7 = lerInteiro();
@@ -195,9 +198,13 @@ int main() {
                 {
                 case 1:
                     logoPrint();
-                    //registrarEvasaoView();
+                    registrarEvasaoView();
                     break;
                 case 2:
+                    logoPrint();
+                    relatorio_evasoes();
+                    break;
+                case 3:
                     opcao_sub7 = 2;
                     limparTela();
                 default:

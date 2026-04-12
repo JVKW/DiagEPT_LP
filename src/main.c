@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "model/lista_generica.h"
+
 #include "controller/docente_controller.h"
 #include "controller/curso_controller.h"
 #include "controller/disciplina_controller.h"
@@ -10,12 +11,15 @@
 #include "controller/diagnostico_controller.h"
 #include "controller/discente_controller.h"
 #include "controller/matricula_controller.h"
-#include "utils/utils.h"
 #include "controller/evasao_controller.h"
+
 #include "utils/utils.h"
+
 #include "dao/discenteDAO.h"
-#include "view/discente_view.h"
+#include "dao/evasaoDAO.h"
 #include "dao/jsonDAO.h"
+
+#include "view/discente_view.h"
 #include "view/curso_view.h"
 #include "view/relatorio_view.h"
 #include "view/evasao_view.h"
@@ -143,7 +147,7 @@ int main() {
                     break;
                 case 2:
                     logoPrint();
-                    //menu_remover_aluno();
+                    menu_remover_aluno();
                     break;
                 case 3:
                     opcao_sub4 = 3;
@@ -190,6 +194,7 @@ int main() {
             while (opcao_sub7 != 3){
                 logoPrint();
                 puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {
@@ -197,13 +202,15 @@ int main() {
                     limparTela();
                     logoPrint();
                     
-                    relatorio_evasoes();
-                    puts("\n\nDigite enter para continuar:");
-                    char aux;
-                    scanf("%c", &aux);
-                    //registrarEvasaoView();
+                    registrarEvasaoView();
                     break;
                 case 2:
+                    
+                    limparTela();
+                    logoPrint();
+                    
+                    relatorio_evasoes();
+                    puts("\n\nDigite enter para continuar:");
                     
                     limparTela();
                     logoPrint();

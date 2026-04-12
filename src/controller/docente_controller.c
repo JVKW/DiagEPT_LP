@@ -40,5 +40,10 @@ int logar_docente(char * login, char * senha){
 
 
 Docente buscar_docente_id(int id){
-    return *buscar_docente(id);
+    Docente *d = buscar_docente(id);
+    if (!d) {
+        Docente vazio = {0};
+        return vazio;
+    }
+    return *d;
 }

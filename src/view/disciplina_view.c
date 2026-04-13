@@ -13,6 +13,7 @@ void menu_cadastrar_disciplina(){
 
     
     printf("Qual o id do curso? \n ");
+    
     int id_curso = lerInteiro();
 
     printf("Qual o nome da disciplina ? \n ");

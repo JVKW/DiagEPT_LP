@@ -27,6 +27,7 @@
 #include "view/turma_view.h"
 #include "view/menu_turma.h"
 #include "view/login_view.h"
+#include "view/notas_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0

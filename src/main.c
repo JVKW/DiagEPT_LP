@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 #include "model/lista_generica.h"
 
@@ -40,6 +42,18 @@ int USUARIO_AUTENTICADO;
     -1 Erro na valição;
 */
 
+void verificar_criar_diretorio_data() {
+    struct stat st = {0};
+    if (stat("data", &st) == -1) {
+        // Diretório não existe, criar
+        if (mkdir("data", 0777) == -1) {
+            perror("Erro ao criar diretorio data");
+            exit(1);
+        }
+        printf("Diretorio 'data' criado com sucesso.\n");
+    }
+}
+
 void imprimir_menu(){
         char * texto_menu = {"1. Gestao de Cursos\n2. Gestao de Disciplinas\n3. Gestao de Turmas e Matriculas\n4. Gestao de discentes\n5. Lancamento de Notas\n6. Relatorios e Diagnosticos\n7. Registro de Evasoes\n8. Sair\n\n"};
         printf("%s",texto_menu);
@@ -54,6 +68,8 @@ void continuar(){
 void tela_listar_cursos();
 
 int main() {
+    verificar_criar_diretorio_data();
+
     /*
     MENU DE OPÇÕES
 

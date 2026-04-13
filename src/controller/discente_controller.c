@@ -45,10 +45,9 @@ int excluir_discente_seguro(int id_discente) {
         }
     }
 
-    // 4. Sem vínculos — exclui direto pelo DAO
-    dao_delete_by_id("data/discentes.json", id_discente);
+    // 4. Excluir
 
-    excluir_discente(id);
+    excluir_discente(id_discente);
     return 0;
 }
 

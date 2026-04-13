@@ -51,6 +51,10 @@ int excluir_discente_seguro(int id_discente) {
     return 0;
 }
 
+DAO_list listar_discentes() {
+    return buscar_discentes();
+}
+
 Discente buscar_discente_id(int id){
     return *buscar_discente(id);
 }

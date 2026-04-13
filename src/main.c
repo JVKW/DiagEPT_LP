@@ -25,6 +25,7 @@
 #include "view/relatorio_view.h"
 #include "view/evasao_view.h"
 #include "view/turma_view.h"
+#include "view/menu_turma.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
@@ -55,27 +56,27 @@ int main() {
     /*
     MENU DE OPÇÕES
 
-    1. Gestao de Cursos (view/curso_view.h)
+    (OK) 1. Gestao de Cursos (view/curso_view.h)
     tela_cadastrar_curso();
     tela_excluir_curso();
 
-    (FALTOSO) 2. Gestão de Disciplinas (src/view/disciplina_view.h)
+    (OK) 2. Gestão de Disciplinas (src/view/disciplina_view.h)
     Validação de carga horária e codigos únicos.
 
-    (FALTOSO) 3. Gestão de Turmas e Matrículas (view/menu_turma.h)
+    (OK) 3. Gestão de Turmas e Matrículas (view/menu_turma.h)
     Listagem de turmas do docente, busca de discentes e controle de matrículas.
 
-    4. Gestão de discentes (view/discente_view.h)
+    (OK) 4. Gestão de discentes (view/discente_view.h)
     menu_registrar_aluno();
-    não foi feito ainda: menu_remover_aluno();
+    menu_remover_aluno();
 
     (FALTOSO) 5. Lançamento de Notas (view/notas_view.h)
     Fluxo de seleção de turma e loop de entrada de notas.
 
-    6.Relatórios e Diagnósticos (view/relatorio_view.h)
+    (OK) 6.Relatórios e Diagnósticos (view/relatorio_view.h)
     Dashboard da turma, ranking de alunos e estatísticas.
 
-    (INCOMPLETO) 7. Registro de Evasões (view/evasao_view.h)
+    (OK) 7. Registro de Evasões (view/evasao_view.h)
     Captura de motivos e atualização de status.
 
     8.Sair
@@ -146,10 +147,69 @@ int main() {
 
         case 2:
             limparTela();
+            while (opcao_sub2 != 4){
+                logoPrint();
+                puts("1. Registrar disciplina\n2. Remover disciplina\n3. Listar disciplina\n4. Sair\n");
+                opcao_sub2 = lerinteiro();
+                switch (opcao_sub2)
+                {
+                case 1:
+                    limparTela();
+                    logoPrint();
+                    menu_cadastrar_disciplina();
+                    continuar();
+                    break;
+                case 2:
+                    limparTela();
+                    logoPrint();
+                    menu_remover_disciplina();
+                    continuar();
+                    break;
+                case 3:
+                    limparTela();
+                    logoPrint();
+                    listar_todas_disciplinas();
+                    continuar();
+                    break;
+                case 4:
+                    opcao_sub2 = 4;
+                    limparTela();
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
             break;
         
         case 3:
             limparTela();
+            while (opcao_sub3 != 3){
+                logoPrint();
+                puts("1. Criar turmas\n2. Menu turmas\n3. Sair\n");
+                opcao_sub3 = lerInteiro();
+                switch (opcao_sub3)
+                {
+                case 1:
+                    limparTela();
+                    logoPrint();
+                    fluxo_criar_turma();
+                    continuar();
+                    break;
+                case 2:
+                    limparTela();
+                    logoPrint();
+                    menu_turma();
+                    continuar();
+                case 3:
+                    opcao_sub3 = 3;
+                    limparTela();
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
             break;
         
         case 4:
@@ -219,7 +279,6 @@ int main() {
             while (opcao_sub7 != 3){
                 logoPrint();
                 puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
-                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {
@@ -230,13 +289,6 @@ int main() {
                     continuar();
                     break;
                 case 2:
-                    
-                    limparTela();
-                    logoPrint();
-                    
-                    relatorio_evasoes();
-                    puts("\n\nDigite enter para continuar:");
-                    
                     limparTela();
                     logoPrint();
                     relatorio_evasoes();

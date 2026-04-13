@@ -12,20 +12,20 @@ void menu_cadastrar_disciplina(){
     Disciplina novo;
 
     
-    printf("Qual o id do curso? \n");
+    printf("Qual o id do curso?\n");
     
     int id_curso = lerInteiro();
 
-    printf("Qual o nome da disciplina? \n");
+    printf("Qual o nome da disciplina?\n");
 
     lerString(novo.nome, 128);
 
-    printf("Qual o codigo da disciplina? \n");
+    printf("Qual o codigo da disciplina?\n");
 
     lerString(novo.codigo, 16);
 
 
-    printf("Qual a carga horaria da disciplina ? \n");
+    printf("Qual a carga horaria da disciplina ?\n");
     
     novo.carga_horaria_total = lerInteiro();
     
@@ -38,11 +38,11 @@ void menu_cadastrar_disciplina(){
 
     if (resultado == 0) {
 
-        printf("Sucesso ao cadastrar disciplina!! \n ");
+        printf("Sucesso ao cadastrar disciplina!!\n ");
 
     }else{
         
-        printf("Falha ao cadastrar disciplina :( \n  ");
+        printf("Falha ao cadastrar disciplina :(\n  ");
     }
 }
 
@@ -50,7 +50,7 @@ void menu_cadastrar_disciplina(){
 
 void menu_remover_disciplina(){
 
-    printf("Digite o ID da disciplina a ser removida! \n");
+    printf("Digite o ID da disciplina a ser removida!\n");
 
     int id = lerInteiro();
 
@@ -58,10 +58,10 @@ void menu_remover_disciplina(){
 
 
     if (resultado ==0 ){
-        printf("Disciplina Removida com sucesso !! \n ");
+        printf("Disciplina Removida com sucesso !!\n ");
 
     }else{
-        printf("Erro ao remover disciplina esse id de disciplina nao existe.... \n " );
+        printf("Erro ao remover disciplina esse id de disciplina nao existe....\n " );
     }
 
     }

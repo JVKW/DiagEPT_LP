@@ -94,7 +94,6 @@ int main() {
         puts("Obrigado por utilizar o DiagEPT!\n\nSaindo do sistema...");
         exit(0);
     }
-    
 
     int opcao = -1;
     int opcao_sub1 = -1;
@@ -319,7 +318,7 @@ int main() {
             limparTela();
             while (opcao_sub7 != 3){
                 logoPrint();
-                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes\n 3. Sair");
+                puts("\n1. Captura de motivos e atualizacao de status\n2. Listar todas as evasoes\n3. Sair\n");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {

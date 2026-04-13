@@ -43,7 +43,7 @@ void tela_excluir_curso(){
     int resultado = remover_curso_seguro(id);
 
     
-    printf((resultado == 0 ?  "Sucesso na remoção! o curso Foi removido !! \n "  : "Erro na remoção do curso !! esse curso não existe .... \n " ));
+    printf((resultado == 0 ?  "Sucesso na remoção! o curso Foi removido !!\n "  : "Erro na remoção do curso !! esse curso não existe ....\n " ));
 
     remover_curso_seguro(id);
 

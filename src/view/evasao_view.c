@@ -42,7 +42,7 @@ void relatorio_evasoes(){
     DAO_list matriculas = buscar_matriculas();
     bool evasao_flag = false;
     
-    for(int i; i < matriculas.size; i++){
+    for(int i = 0; i < matriculas.size; i++){
         
         Matricula * aux = matriculas.items[i];
         if (aux->tem_evasao == true)
@@ -58,7 +58,11 @@ void relatorio_evasoes(){
                 puts("| ID Discente |                   Nome                 |       Motivo");
             }
             Evasao * evasao = buscar_evasao(aux->id_evasao);
-            if (strcmp(evasao->motivo, "") == 0)
+            if (evasao == NULL)
+            {
+                printf("   %010d |  %30s        |   ?????????", aluno->id, aluno->nome);
+            }
+            else if (strcmp(evasao->motivo, "") == 0)
             {
                 printf("   %010d |  %30s        |   ?????????", aluno->id, aluno->nome);
             }else{

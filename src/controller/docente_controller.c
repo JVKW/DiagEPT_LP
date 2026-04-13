@@ -13,7 +13,7 @@ int cadastrar_docente(Docente *d){
         Docente * temp = docentes.items[i];
          
         if(strcmp(temp->login, d->login) == 0) {
-            puts("Erro ao salvar docente: \nO login informado já está em uso!");
+            puts("Erro ao salvar docente:\nO login informado já está em uso!");
             return -1;
         }
     }
@@ -34,7 +34,7 @@ int logar_docente(char * login, char * senha){
         }
     }
     
-    puts("Erro ao logar docente: \nLogin ou senha incorretos!");
+    puts("Erro ao logar docente:\nLogin ou senha incorretos!");
     return -1;
 }
 

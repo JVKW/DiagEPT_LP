@@ -12,6 +12,7 @@ void menu_disciplina(){
 
     
     printf("Qual o id do curso? \n ");
+    
     int id_curso = lerInteiro();
 
     printf("Qual o nome da disciplina ? \n ");
@@ -65,6 +66,7 @@ void menu_remover_disciplina(){
     }    
 
 void menu_atualizar_disciplina() {
+
     int id;
 
     printf("ID da disciplina a ser atualizada: ");
@@ -102,6 +104,7 @@ void menu_atualizar_disciplina() {
         printf("Erro ao atualizar!\n");
     } else {
         printf("Disciplina atualizada com sucesso!\n");
+
     }
 }
 

@@ -79,6 +79,6 @@ int main() {
     //tela_excluir_curso();
     //menu_disciplina();
     //menu_remover_disciplina();
-    menu_atualizar_disciplina();
+    //menu_atualizar_disciplina();
     return 0;
 }

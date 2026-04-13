@@ -43,6 +43,9 @@ DAO_list listar_turmas_professor(int id_docente) {
     filtradas.items = malloc(sizeof(void*) * todas.size);
 
     if (!filtradas.items) {
+        if (todas.items) {
+            free(todas.items);
+        }
         return filtradas;
     }
 
@@ -62,11 +65,8 @@ DAO_list listar_turmas_professor(int id_docente) {
         filtradas.items = NULL;
     }
 
-    printf("Total turmas: %d\n", todas.size);
-
-    for (int i = 0; i < todas.size; i++) {
-        Turma *t = (Turma*) todas.items[i];
-        printf("Turma %d -> docente_id: %d\n", t->id, t->docente_id);
+    if (todas.items) {
+        free(todas.items);
     }
 
     return filtradas;

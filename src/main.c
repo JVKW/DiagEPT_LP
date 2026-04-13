@@ -26,11 +26,14 @@
 #include "view/evasao_view.h"
 #include "view/turma_view.h"
 #include "view/menu_turma.h"
+#include "view/login_view.h"
 
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
 
 int USUARIO_AUTENTICADO = 0; 
+
+tela_logar_docente();
 
 // PADRÃO DE CÓDIGOS DE ERRO
 /*
@@ -82,6 +85,8 @@ int main() {
     8.Sair
     */
 
+    USUARIO_AUTENTICADO = tela_logar_docente();
+
     int opcao = -1;
     int opcao_sub1 = -1;
     int opcao_sub2 = -1;
@@ -90,6 +95,7 @@ int main() {
     int opcao_sub5 = -1;
     int opcao_sub6 = -1;
     int opcao_sub7 = -1;
+
    do{
         opcao = -1;
         opcao_sub1 = -1;

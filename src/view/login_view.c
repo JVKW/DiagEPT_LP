@@ -5,7 +5,7 @@
 #include "dao/docenteDAO.h"
 #include "controller/docente_controller.h"
 
-void tela_logar_docente(){
+int tela_logar_docente(){
     int logado = -1;
     DAO_list * lista = buscar_docentes;
     if (lista == NULL || lista->size == 0)

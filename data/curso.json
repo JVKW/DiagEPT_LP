@@ -22,4 +22,10 @@
 		"codigo":	"889",
 		"carga_horaria_total":	99,
 		"qtd_disciplinas":	0
+	}, {
+		"id":	5,
+		"nome":	"engenhariadesoftware",
+		"codigo":	"0000",
+		"carga_horaria_total":	5000,
+		"qtd_disciplinas":	0
 	}]

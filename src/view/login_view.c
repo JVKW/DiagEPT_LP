@@ -28,7 +28,12 @@ int tela_logar_docente(){
 
         return 1;
     }
-    
+
+    return tela_cadastrar_docente();
+}
+
+int tela_cadastrar_docente(){
+    int logado = -1;
     while (logado != 0 || logado != -2)
     {
         char * login;

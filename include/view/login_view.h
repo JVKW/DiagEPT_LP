@@ -3,4 +3,6 @@
 
 int tela_logar_docente();
 
+int tela_cadastrar_docente();
+
 #endif

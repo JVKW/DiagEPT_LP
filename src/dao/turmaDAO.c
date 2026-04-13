@@ -41,8 +41,24 @@ void excluir_turma(int id){
 }
 
 int existe_turma(int id){
-    dao_exists(
+    return dao_exists(
         TURMA_FILE,
         id
+    );
+}
+
+void atulizar_turma(Turma *d){
+    dao_update(
+        TURMA_FILE,
+        d->id,
+        d,
+        turma_to_json
+    );
+}
+
+DAO_list buscar_turmas(){
+    return dao_find_all(
+        TURMA_FILE,
+        json_to_turma
     );
 }

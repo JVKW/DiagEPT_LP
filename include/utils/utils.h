@@ -1,6 +1,6 @@
 #ifndef UTILS_H
 #define UTILS_H
-#include "cJSON.h"
+#include "cjson/cJSON.h"
 
 int logoPrint();
 void limparTela();
@@ -21,5 +21,7 @@ cJSON* int_array_to_json(const int *array, int size);
 int* json_to_int_array(cJSON *json_array, int *size);
 
 char * removerEspacos(char *str);
+
+char *removerEspacosExtras(char *str);
 
 #endif

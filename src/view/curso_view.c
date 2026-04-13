@@ -51,3 +51,19 @@ void tela_excluir_curso(){
 
 
 }
+
+void tela_listar_cursos(){
+
+    DAO_list lista = buscar_cursos();
+    for(int i = 0; i < lista.size; i++){
+        Curso * temp = lista.items[i];
+
+        printf("\nID: %d",temp->id);
+        printf("\nNome %s",temp->nome);
+        printf("\nCodigo %s",temp->codigo);
+        printf("\nCarga horaria total: %dh",temp->carga_horaria_total);
+        printf("\nQuatidade de disciplinas: %d",temp->qtd_disciplinas);
+    
+    }
+
+}

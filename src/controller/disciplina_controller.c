@@ -28,7 +28,7 @@ int cadastrar_disciplina(Disciplina *d, int id_curso){
         return -1;
     }
      
-    for(int i; i < lista.size; i ++){
+    for(int i = 0; i < lista.size; i++){
         Disciplina * temp = lista.items[i];
         if (strcmp(temp->codigo, d->codigo) == 0)
         {
@@ -46,6 +46,8 @@ int cadastrar_disciplina(Disciplina *d, int id_curso){
 
     return 0;
 }
+
+
 
 int remover_disciplina_seguro(int id){
     if (existe_disciplina(id) != 0){

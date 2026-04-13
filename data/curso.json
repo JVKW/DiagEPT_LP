@@ -1,8 +1,25 @@
 [{
 		"id":	1,
-		"nome":	"Disciplina",
-		"codigo":	"sahfg",
-		"carga_horaria_total":	10,
-		"qtd_disciplinas":	12,
-		"id_disciplinas":	[3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+		"nome":	"curso",
+		"codigo":	"eaassd567",
+		"carga_horaria_total":	11234567,
+		"qtd_disciplinas":	0
+	}, {
+		"id":	2,
+		"nome":	"puf",
+		"codigo":	"uane568",
+		"carga_horaria_total":	276447231,
+		"qtd_disciplinas":	0
+	}, {
+		"id":	3,
+		"nome":	"ghjkl�da",
+		"codigo":	"131561da5e",
+		"carga_horaria_total":	54753,
+		"qtd_disciplinas":	0
+	}, {
+		"id":	4,
+		"nome":	"teste",
+		"codigo":	"889",
+		"carga_horaria_total":	99,
+		"qtd_disciplinas":	0
 	}]

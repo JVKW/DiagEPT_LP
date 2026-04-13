@@ -2,10 +2,11 @@
 #include <stdio.h>
 #include "dao/discenteDAO.h"
 #include "controller/discente_controller.h"
+#include "dao/matriculaDAO.h"
 
 int cadastrar_discente(Discente *d){
     //conversão dos arquivo json para se tornarem discentes criando a lista 
-    DAO_list lista = dao_find_all("data/discentes.json", json_to_discente);
+    DAO_list lista = buscar_discentes();
     //loop que começa em zero e teremina quando a lista fica do tamanho da quantia de discentes menos 1 pq encerra quando fica do mesmo tamanho somando de 1 em 1
     for (int i= 0; i < lista.size; i++ ) { 
         //aqui eu uso uma conversão de tipo CAST (discente *) (tipo (que é discente ) e valor (que é um ponteiro, hexadecimal) ou seja eu tô apontando para a lista e guardando como discente no arquivo json)
@@ -27,6 +28,31 @@ int cadastrar_discente(Discente *d){
    
     salvar_discente(d);
     return 0;
+}
+
+int excluir_discente_seguro(int id_discente) {
+    // 1. Carregar todas as matrículas
+    DAO_list matriculas = buscar_matriculas();
+
+    // 2. Percorrer e verificar vínculo
+    for (int i = 0; i < matriculas.size; i++) {
+        Matricula *m = (Matricula *)matriculas.items[i];
+
+        // 3. Encontrou vínculo - BLOQUEIA
+        if (m->discente_id == id_discente) {
+            puts("Nao e possivel excluir: Aluno possui matriculas vinculadas.");
+            return -1;
+        }
+    }
+
+    // 4. Excluir
+
+    excluir_discente(id_discente);
+    return 0;
+}
+
+DAO_list listar_discentes() {
+    return buscar_discentes();
 }
 
 Discente buscar_discente_id(int id){

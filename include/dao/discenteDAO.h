@@ -7,11 +7,16 @@
 #include "model/discente.h"
 
 
-#define FILE "data/discentes.json"
+#define DISCENTE_FILE "data/discentes.json"
+
 
 void salvar_discente(Discente *d);
 
 Discente *buscar_discente(int id);
+
+DAO_list buscar_discentes();
+
+void excluir_discente(int id);
 
 void update_discente(Discente *d);
 

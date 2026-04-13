@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "utils/utils.h"
 #include "dao/cursoDAO.h"
+#include "dao/disciplinaDAO.h"
 #include "view/disciplina_view.h"
 #include <stdlib.h>
 
@@ -63,3 +64,17 @@ void menu_remover_disciplina(){
     }
 
     }
+
+void listar_todas_disciplinas(){
+
+    DAO_list lista = buscar_disciplinas();
+    for(int i = 0; i < lista.size; i++){
+        Disciplina * temp = lista.items[i];
+        printf("ID: %d\n", temp->id);
+        printf("Nome: %s\n", temp->nome);
+        printf("Codigo: %s\n", temp->codigo);
+        printf("Carga Horaria Total: %d\n", temp->carga_horaria_total);
+        printf("Quantidade de Turmas: %d\n", temp->qtd_turma);
+        printf("\n");
+    }
+}

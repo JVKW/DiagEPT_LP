@@ -8,7 +8,7 @@
 #include "model/lista_generica.h"
 
 
-#define FILE "data/curso.json"
+#define CURSO_FILE "data/curso.json"
 
 void salvar_curso(Curso *d);
 
@@ -21,5 +21,7 @@ void excluir_curso(int id);
 void atualizar_curso(Curso *d);
 
 int existe_curso(int id);
+
+void tela_listar_cursos( );
 
 #endif

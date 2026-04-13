@@ -9,4 +9,6 @@ Discente buscar_discente_id(int id);
 
 void update_discente_id(Discente *d);
 
+int remover_discente(int id);
+
 #endif

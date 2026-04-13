@@ -25,8 +25,8 @@ int criar_turma(int id_disciplina, int id_docente){
     // Gerando código da turma
     int id_turma = dao_next_id(TURMA_FILE);
 
-    char * cod_turma = malloc(9);
-    char * num = malloc(sizeof(99999));
+    char cod_turma[10];
+    char num[16];
 
     sprintf(num, "%d", id_turma);
 
@@ -37,12 +37,13 @@ int criar_turma(int id_disciplina, int id_docente){
     for (int i = 0; i < zeros; i++) {
         cod_turma[pos++] = '0';
     }
-    for (int i = 0; i < strlen(num); i++){
+    for (int i = 0; i < (int)strlen(num); i++) {
         cod_turma[pos++] = num[i];
     }
+    cod_turma[pos] = '\0';
 
-    strcpy(t.codigo, cod_turma);
-    free(cod_turma);
+    strncpy(t.codigo, cod_turma, sizeof(t.codigo) - 1);
+    t.codigo[sizeof(t.codigo) - 1] = '\0';
 
     t.docente_id = id_docente;
     t.id_matricula = NULL;
@@ -52,7 +53,9 @@ int criar_turma(int id_disciplina, int id_docente){
 
     adicionar_turma_na_disciplina(id_disciplina, id_turma);
 
+    return id_turma;
 }
+
 int excluir_turma_seguro(int id){
     if (existe_turma(id) != 0)
     {
@@ -61,7 +64,7 @@ int excluir_turma_seguro(int id){
     
     Turma *t = buscar_turma(id);
     if(t->qtd_matricula > 0){
-        for(int i; i < t->qtd_matricula; i++){
+        for(int i = 0; i < t->qtd_matricula; i++){
             Matricula * m = buscar_matricula(t->id_matricula[i]);
             if (m->tem_evasao != true)
             {
@@ -77,5 +80,73 @@ int excluir_turma_seguro(int id){
 
     excluir_turma(id);
     
+    return 0;
+}
+
+void adicionar_matricula_na_turma(int id_turma, int id_matricula) {
+    Turma * t = buscar_turma(id_turma);
+
+    int novo_tamanho = t->qtd_matricula + 1;
+    
+    int *matriculas_atuais = malloc(sizeof(int) * novo_tamanho);
+
+    for (int i = 0; i < t->qtd_matricula; i++){
+        matriculas_atuais[i] = t->id_matricula[i];
+    }
+
+    free(t->id_matricula);
+
+    t->id_matricula = matriculas_atuais;
+    t->id_matricula[t->qtd_matricula] = id_matricula;
+    t->qtd_matricula = novo_tamanho;
+
+    atulizar_turma(t);
+}
+
+int remover_matricula_na_turma(int id_matricula){
+    
+    DAO_list turmas = buscar_turmas();
+    for (int t = 0; t < turmas.size; t++) {
+
+        Turma *turma = turmas.items[t];
+
+        int pos = -1;
+
+        for (int i = 0; i < turma->qtd_matricula; i++) {
+            if (turma->id_matricula[i] == id_matricula) {
+                pos = i;
+                break;
+            }
+        }
+
+        if (pos == -1) {
+            continue;
+        }
+
+        int novo_tamanho = turma->qtd_matricula - 1;
+
+        if (novo_tamanho == 0) {
+            free(turma->id_matricula);
+            turma->id_matricula = NULL;
+            turma->qtd_matricula = 0;
+            continue;
+        }
+
+        int *novo_vetor = malloc(sizeof(int) * novo_tamanho);
+
+        for (int i = 0, j = 0; i < turma->qtd_matricula; i++) {
+            if (i != pos) {
+                novo_vetor[j++] = turma->id_matricula[i];
+            }
+        }
+
+        free(turma->id_matricula);
+
+        turma->id_matricula = novo_vetor;
+        turma->qtd_matricula = novo_tamanho;
+
+        atulizar_turma(turma);
+    }
+
     return 0;
 }

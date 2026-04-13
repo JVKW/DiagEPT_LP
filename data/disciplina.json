@@ -1,7 +1,8 @@
 [{
-		"id":	1,
-		"nome":	"safd",
-		"codigo":	"adf",
-		"carga_horaria_total":	65,
-		"qtd_turma":	0
+		"id":	2,
+		"nome":	"LAB",
+		"codigo":	"alsre",
+		"carga_horaria_total":	40,
+		"qtd_turma":	2,
+		"id_turma":	[1, 2]
 	}]

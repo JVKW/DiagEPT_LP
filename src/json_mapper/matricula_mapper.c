@@ -16,6 +16,7 @@ cJSON *matricula_to_json(void *obj)
     cJSON_AddBoolToObject(json, "tem_evasao", d->tem_evasao);
     cJSON_AddStringToObject(json, "status", d->status);
     cJSON_AddNumberToObject(json, "discente_id", d->discente_id);
+    cJSON_AddNumberToObject(json, "id_turma", d->id_turma);
     cJSON_AddNumberToObject(json, "id_evasao", d->id_evasao);
 
     return json;
@@ -28,9 +29,9 @@ void *json_to_matricula(cJSON *json)
     d->id =
         cJSON_GetObjectItem(json,"id")->valueint;
     d->nota_pratica = 
-        cJSON_GetObjectItem(json,"nota_pratica")->valueint;    
+        cJSON_GetObjectItem(json,"nota_pratica")->valuedouble;    
     d->nota_teorica = 
-        cJSON_GetObjectItem(json,"nota_teorica")->valueint;    
+        cJSON_GetObjectItem(json,"nota_teorica")->valuedouble;    
     d->tempo_ausente = 
         cJSON_GetObjectItem(json,"tempo_ausente")->valueint;    
     d->aulas_ausente = 
@@ -41,6 +42,8 @@ void *json_to_matricula(cJSON *json)
         cJSON_GetObjectItem(json,"status")->valuestring);
     d->discente_id = 
         cJSON_GetObjectItem(json,"discente_id")->valueint;
+    d->id_turma = 
+        cJSON_GetObjectItem(json,"id_turma")->valueint;
     d->id_evasao = 
         cJSON_GetObjectItem(json,"id_evasao")->valueint;
     

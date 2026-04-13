@@ -1,14 +1,3 @@
-[{
-		"id":	1,
-		"codigo":	"T0000002",
-		"docente_id":	1,
-		"qtd_matricula":	5,
-		"id_disciplina":	2,
-		"id_matricula":	[1, 2, 3, 4, 5]
-	}, {
-		"id":	2,
-		"codigo":	"T0000002",
-		"docente_id":	2,
-		"qtd_matricula":	0,
-		"id_disciplina":	2
-	}]
+[
+	
+]

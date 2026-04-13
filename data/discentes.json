@@ -1,33 +1,3 @@
-[{
-		"id":	1,
-		"nome":	"xanderson",
-		"numero_matricula":	458889
-	}, {
-		"id":	2,
-		"nome":	"Aluno Fulano Sicrano De Tal",
-		"numero_matricula":	35416546
-	}, {
-		"id":	3,
-		"nome":	"Fulano De TAl",
-		"numero_matricula":	1465465
-	}, {
-		"id":	4,
-		"nome":	"",
-		"numero_matricula":	31654165
-	}, {
-		"id":	5,
-		"nome":	"kleber",
-		"numero_matricula":	456416
-	}, {
-		"id":	6,
-		"nome":	"nicolas",
-		"numero_matricula":	582982
-	}, {
-		"id":	28,
-		"nome":	"lhgu",
-		"numero_matricula":	651654
-	}, {
-		"id":	29,
-		"nome":	"pedro",
-		"numero_matricula":	57477
-	}]
+[
+	
+]

@@ -30,18 +30,24 @@ int cadastrar_discente(Discente *d){
     return 0;
 }
 
-int remover_discente(int id){
-    DAO_list lista = buscar_matriculas();
-    
-    for (int i= 0; i < lista.size; i++ ) {
-        Matricula* matricula = lista.items[i];
-        if (matricula->discente_id == id) {
-            puts ("Erro: O discente possui matricula ativa em turmas!");
+int excluir_discente_seguro(int id_discente) {
+    // 1. Carregar todas as matrículas
+    DAO_list matriculas = buscar_matriculas();
+
+    // 2. Percorrer e verificar vínculo
+    for (int i = 0; i < matriculas.size; i++) {
+        Matricula *m = (Matricula *)matriculas.items[i];
+
+        // 3. Encontrou vínculo - BLOQUEIA
+        if (m->discente_id == id_discente) {
+            puts("Nao e possivel excluir: Aluno possui matriculas vinculadas.");
             return -1;
         }
     }
-    
-    excluir_discente(id);
+
+    // 4. Excluir
+
+    excluir_discente(id_discente);
     return 0;
 }
 

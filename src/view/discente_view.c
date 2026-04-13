@@ -38,7 +38,7 @@ void menu_remover_aluno(){
     printf("\nDigite o id do aluno: ");
     int id = lerInteiro();
 
-    int resultado = remover_discente(id);
+    int resultado = excluir_discente_seguro(id);
     if (resultado == 0) {
         puts("Aluno removido com sucesso!");
     }    

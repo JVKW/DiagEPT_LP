@@ -31,9 +31,7 @@
 // Quando o usuário estiver logado deve ter o valor 1
 // Quando o usuário estiver deslogado deve ter o valor 0
 
-int USUARIO_AUTENTICADO = 0; 
-
-tela_logar_docente();
+int USUARIO_AUTENTICADO; 
 
 // PADRÃO DE CÓDIGOS DE ERRO
 /*
@@ -82,10 +80,19 @@ int main() {
     (OK) 7. Registro de Evasões (view/evasao_view.h)
     Captura de motivos e atualização de status.
 
-    8.Sair
+    (OK) 8.Sair
     */
 
     USUARIO_AUTENTICADO = tela_logar_docente();
+    if (USUARIO_AUTENTICADO != 1)
+    {
+    
+        limparTela();
+        logoPrint();
+        puts("Obrigado por utilizar o DiagEPT!\n\nSaindo do sistema...");
+        exit(0);
+    }
+    
 
     int opcao = -1;
     int opcao_sub1 = -1;
@@ -156,7 +163,7 @@ int main() {
             while (opcao_sub2 != 4){
                 logoPrint();
                 puts("1. Registrar disciplina\n2. Remover disciplina\n3. Listar disciplina\n4. Sair\n");
-                opcao_sub2 = lerinteiro();
+                opcao_sub2 = lerInteiro();
                 switch (opcao_sub2)
                 {
                 case 1:
@@ -220,9 +227,9 @@ int main() {
         
         case 4:
             limparTela();
-            while(opcao_sub4 != 3){
+            while(opcao_sub4 != 4){
                 logoPrint();
-                puts("1. Registrar aluno\n2. Remover aluno\n3. Sair\n");
+                puts("1. Registrar aluno\n2. Remover aluno\n3. Listar discentes\n4. Sair\n");
                 opcao_sub4 = lerInteiro();
                 switch (opcao_sub4)
                 {
@@ -239,7 +246,12 @@ int main() {
                     continuar();
                     break;
                 case 3:
-                    opcao_sub4 = 3;
+                    limparTela();
+                    logoPrint();
+                    listar_todas_discentes();
+                    continuar();
+                case 4:
+                    opcao_sub4 = 4;
                     limparTela();
                 default:
                     puts("Opcao invalida!");

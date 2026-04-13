@@ -4,22 +4,23 @@
 #include "utils/utils.h"
 #include "dao/docenteDAO.h"
 #include "controller/docente_controller.h"
+#include "view/login_view.h"
 
 int tela_logar_docente(){
     int logado = -1;
-    DAO_list * lista = buscar_docentes;
-    if (lista == NULL || lista->size == 0)
+    DAO_list lista = buscar_docentes();
+    if (lista.size == 0)
     {
         Docente d;
         puts("\n=== Registro de docente ===\n");
-        puts("\n Informe seu nome:");
+        puts("\nInforme seu nome:");
         lerString(d.nome, 256);
 
-        puts("\n Informe seu login:");
+        puts("\nInforme seu login:");
         lerString(d.login, 256);
         
 
-        puts("\n Informe seu senha:");
+        puts("\nInforme seu senha:");
         lerString(d.senha, 128);
 
         
@@ -30,20 +31,22 @@ int tela_logar_docente(){
     
     while (logado != 0 || logado != -2)
     {
-        char * login, senha;
-        puts("\n Informe seu login:");
+        char * login;
+        char * senha;
+        puts("\nInforme seu login:");
         lerString(login, 256);
         
 
-        puts("\n Informe seu senha:");
+        puts("\nInforme seu senha:");
         lerString(senha, 128);
+        limparTela();
 
         int logado = logar_docente(login, senha);
         if(logado == 0){
             return 1;
         }else{
             limparTela();
-            puts("/n Dados incorretos!\n\n");
+            puts("\nDados incorretos!\n\n");
 
             int opcao = -1;
             while (opcao != 1 && opcao != 2)
@@ -52,7 +55,7 @@ int tela_logar_docente(){
                 opcao = lerInteiro();
                 if(opcao == 2){
                     logado = -2;
-                    return 0;
+                    return -2;
                 }
             }
         }

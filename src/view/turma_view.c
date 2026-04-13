@@ -10,7 +10,7 @@
 #include "../include/model/docente.h"
 #include "../include/utils/utils.h"
 
-void fluxo_de_selecao_de_turma(){
+void fluxo_criar_turma(){
     printf("\nDisciplinas cadastradas:\n");
     DAO_list disciplinas = buscar_disciplinas();
 
@@ -44,7 +44,8 @@ void fluxo_de_selecao_de_turma(){
 
     int id_turma = criar_turma(id_disciplina, id_docente);
     if(id_turma >= 0){
-        printf("Turma T-%03d criada com sucesso!\n", id_turma);
+        Turma * turma = buscar_turma(id_turma);
+        printf("Turma %s criada com sucesso!\n", turma->codigo);
     } else {
         printf("Erro ao criar a turma.\n");
     }

@@ -12,20 +12,20 @@ void menu_cadastrar_disciplina(){
     Disciplina novo;
 
     
-    printf("Qual o id do curso? \n ");
+    printf("Qual o id do curso? \n");
     
     int id_curso = lerInteiro();
 
-    printf("Qual o nome da disciplina ? \n ");
+    printf("Qual o nome da disciplina? \n");
 
     lerString(novo.nome, 128);
 
-    printf("Qual o codigo da disciplina ? \n ");
+    printf("Qual o codigo da disciplina? \n");
 
     lerString(novo.codigo, 16);
 
 
-    printf("Qual a carga horaria da disciplina ? \n ");
+    printf("Qual a carga horaria da disciplina ? \n");
     
     novo.carga_horaria_total = lerInteiro();
     

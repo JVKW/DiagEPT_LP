@@ -35,7 +35,7 @@ void tela_cadastrar_curso(){
 
 void tela_excluir_curso(){
 
-    printf("Informe o id do curso que você gostaria de remover : \n ");
+    printf("Informe o id do curso que voce gostaria de remover:\n");
 
     int id;
     scanf("%d",&id);
@@ -60,7 +60,7 @@ void tela_listar_cursos(){
         printf("\nNome %s",temp->nome);
         printf("\nCodigo %s",temp->codigo);
         printf("\nCarga horaria total: %dh",temp->carga_horaria_total);
-        printf("\nQuatidade de disciplinas: %d",temp->qtd_disciplinas);
+        printf("\nQuatidade de disciplinas: %d\n\n]",temp->qtd_disciplinas);
     
     }
 

@@ -29,8 +29,8 @@
 #include "view/login_view.h"
 #include "view/notas_view.h"
 
-// Quando o usuário estiver logado deve ter o valor 1
-// Quando o usuário estiver deslogado deve ter o valor 0
+// Quando o usuário estiver logado deve ter o id do docente
+// Quando o usuário estiver deslogado deve ter um valor negativo e encerra o programa
 
 int USUARIO_AUTENTICADO; 
 
@@ -64,8 +64,8 @@ int main() {
     (OK) 2. Gestão de Disciplinas (src/view/disciplina_view.h)
     Validação de carga horária e codigos únicos.
 
-    (OK) 3. Gestão de Turmas e Matrículas (view/menu_turma.h)
-    Listagem de turmas do docente, busca de discentes e controle de matrículas.
+    (OK) 3. Gestão de Turmas e Matriculas (view/menu_turma.h)
+    Listagem de turmas do docente, busca de discentes e controle de matriculas.
 
     (OK) 4. Gestão de discentes (view/discente_view.h)
     menu_registrar_aluno();
@@ -83,8 +83,10 @@ int main() {
     (OK) 8.Sair
     */
 
+    limparTela();
+    logoPrint();
     USUARIO_AUTENTICADO = tela_logar_docente();
-    if (USUARIO_AUTENTICADO != 1)
+    if (USUARIO_AUTENTICADO < 1)
     {
     
         limparTela();
@@ -212,7 +214,7 @@ int main() {
                 case 2:
                     limparTela();
                     logoPrint();
-                    menu_turma();
+                    menu_turma(USUARIO_AUTENTICADO);
                     continuar();
                 case 3:
                     opcao_sub3 = 3;
@@ -263,6 +265,27 @@ int main() {
         
         case 5:
             limparTela();
+            while(opcao_sub5 != 2){
+                logoPrint();
+                puts("1. Gerenciar notas\n2. Sair\n");
+                opcao_sub5 = lerInteiro();
+                switch (opcao_sub5)
+                {
+                case 1:
+                    limparTela();
+                    logoPrint();
+                    menu_lancar_notas(USUARIO_AUTENTICADO);
+                    break;
+                case 2:
+                    opcao_sub5 = 2;
+                    limparTela();
+                    break;
+                default:
+                    puts("Opcao invalida!");
+                    break;
+                }
+                limparTela();
+            }
             break;
         
         case 6:
@@ -296,7 +319,7 @@ int main() {
             limparTela();
             while (opcao_sub7 != 3){
                 logoPrint();
-                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes\n 3. Sair");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {

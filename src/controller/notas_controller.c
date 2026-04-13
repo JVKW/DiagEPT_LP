@@ -77,7 +77,7 @@ DAO_list listar_turmas_professor(int id_docente) {
 // FUNÇÃO: listar_matriculas_turma
 // ======================================================
 /*
- * Retorna todas as matrículas de uma turma.
+ * Retorna todas as matriculas de uma turma.
  *
  * USO:
  *   DAO_list mats = listar_matriculas_turma(1);
@@ -127,7 +127,7 @@ DAO_list listar_matriculas_turma(int id_turma) {
 // FUNÇÃO: obter_nome_discente_por_matricula
 // ======================================================
 /*
- * Retorna o nome do aluno associado a uma matrícula.
+ * Retorna o nome do aluno associado a uma matricula.
  *
  * USO:
  *   char *nome = obter_nome_discente_por_matricula(m);

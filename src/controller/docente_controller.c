@@ -30,7 +30,7 @@ int logar_docente(char * login, char * senha){
          
         if( strcmp(temp->login, login) == 0 &&
             strcmp(temp->senha, senha) == 0   ) {
-            return 0;
+            return temp->id;
         }
     }
     

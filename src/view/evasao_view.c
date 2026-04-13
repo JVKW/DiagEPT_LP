@@ -8,7 +8,7 @@
 #include "model/lista_generica.h"
 
 void registrarEvasaoView() {
-    // Listar alunos e matrículas
+    // Listar alunos e matriculas
     printf("=== LISTA DE ALUNOS E MATRICULAS ===\n");
     DAO_list matriculas = buscar_matriculas();
     for (int i = 0; i < matriculas.size; i++) {

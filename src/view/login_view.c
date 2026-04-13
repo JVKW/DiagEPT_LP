@@ -9,11 +9,13 @@
 int tela_logar_docente(){
     int logado = -1;
     DAO_list lista = buscar_docentes();
-    if (lista.size == 0)
+    int existe_docente = -1;
+    if (lista.size > 0)
     {
+
         while (logado != 0 || logado != -2){
-            char * login;
-            char * senha;
+            char login[256];
+            char senha[128];
             puts("\nInforme seu login:");
             lerString(login, 256);
             
@@ -22,9 +24,22 @@ int tela_logar_docente(){
             lerString(senha, 128);
             limparTela();
 
-            int logado = logar_docente(login, senha);
-            if(logado == 0){
-                return 1;
+            int id_discent = logar_docente(login, senha);
+            Docente * docent_temp = buscar_docente(id_discent);
+
+            if (docent_temp == NULL)
+            {
+                existe_docente = 0;
+            }
+
+            if (strcmp(docent_temp->login, login) == 0)
+            {
+                existe_docente = 1;
+            }
+            
+            
+            if(existe_docente == 1){
+                return id_discent;
             }else{
                 limparTela();
                 puts("\nDados incorretos!\n");
@@ -62,6 +77,7 @@ int tela_cadastrar_docente(){
     lerString(d.senha, 128);
 
     
-    return cadastrar_docente(&d);
+    cadastrar_docente(&d);
+    return  logar_docente(d.login, d.senha);
 
 }

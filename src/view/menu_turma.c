@@ -215,10 +215,8 @@ static void excluir_matricula_turma(int id_turma) {
     free(lista.items);
 }
 
-void menu_turma(void) {
+void menu_turma(int id_docente) {
     puts("\n=== Menu de Turmas e Matriculas ===");
-    printf("Digite o ID do docente logado: ");
-    int id_docente = lerInteiro();
 
     DAO_list turmas = listar_turmas_professor(id_docente);
     if (turmas.size == 0 || !turmas.items) {

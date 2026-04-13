@@ -31,6 +31,10 @@ int menu_lancar_notas(int id_docente) {
     int id_matricula = lerInteiro();
 
     Turma * turma_alvo = buscar_turma(turma_id);
+    if(turma_alvo == NULL){
+        puts("Erro: Turma não encontrada");
+        return -1;
+    }
     if(turma_alvo->docente_id != id_docente){
         puts("Erro: Essa turma não pertence ao docente informado");
         return -1;
@@ -42,7 +46,7 @@ int menu_lancar_notas(int id_docente) {
     for (int i = 0; i < lista.size; i++) {
         Matricula *m = (Matricula *) lista.items[i];
 
-        if (m->id_turma != turma_id && id_matricula != m->id) continue;
+        if (m->id_turma != turma_id || id_matricula != m->id) continue;
 
         Discente *d = buscar_discente(m->discente_id);
 

@@ -13,13 +13,13 @@ void registrarEvasao(Estado *e) {
 }
 
 int processar_evasao_discente(int id_matricula, char *motivo) {
-    // Verificar Matrícula
+    // Verificar Matricula
     Matricula *m = buscar_matricula(id_matricula);
     if (m == NULL) {
-        return -1;  // Erro: matrícula não encontrada
+        return -1;  // Erro: matricula não encontrada
     }
     if (m->tem_evasao) {
-        return -1;  // Erro: matrícula já marcada como evadida
+        return -1;  // Erro: matricula já marcada como evadida
     }
 
     // Criar Evasão
@@ -27,10 +27,10 @@ int processar_evasao_discente(int id_matricula, char *motivo) {
     strcpy(nova_ev.motivo, motivo);
     salvar_evasao(&nova_ev);  // Gera ID automaticamente
 
-    // Atualizar Matrícula (buscar novamente para garantir consistência)
+    // Atualizar Matricula (buscar novamente para garantir consistência)
     m = buscar_matricula(id_matricula);
     if (m == NULL) {
-        return -1;  // Erro: matrícula não encontrada (caso tenha sido removida entre as buscas)
+        return -1;  // Erro: matricula não encontrada (caso tenha sido removida entre as buscas)
     }
     m->tem_evasao = true;
     m->id_evasao = nova_ev.id;

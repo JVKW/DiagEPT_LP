@@ -28,4 +28,11 @@
 		"codigo":	"0000",
 		"carga_horaria_total":	5000,
 		"qtd_disciplinas":	0
+	}, {
+		"id":	6,
+		"nome":	"problemaseu",
+		"codigo":	"555",
+		"carga_horaria_total":	888,
+		"qtd_disciplinas":	1,
+		"id_disciplinas":	[7]
 	}]

@@ -31,7 +31,7 @@ int cadastrar_discente(Discente *d){
 }
 
 int excluir_discente_seguro(int id_discente) {
-    // 1. Carregar todas as matrículas
+    // 1. Carregar todas as matriculas
     DAO_list matriculas = buscar_matriculas();
 
     // 2. Percorrer e verificar vínculo

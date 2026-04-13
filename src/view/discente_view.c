@@ -15,7 +15,7 @@ void menu_registrar_aluno() {
     printf("\nDigite o nome do aluno: ");
     lerString(novo->nome, 256);
 
-    printf("\nDigite o número de matrícula do aluno: ");
+    printf("\nDigite o numero de matricula do aluno: ");
     novo->numero_matricula = lerInteiro();
 
     if (novo == NULL) {

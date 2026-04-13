@@ -51,7 +51,7 @@ void listar_todas_discentes(){
         Discente * temp = lista.items[i];
         printf("ID: %d\n", temp->id);
         printf("Nome: %s\n", temp->nome);
-        printf("Matricula: %s\n", temp->numero_matricula);
+        printf("Matricula: %d\n", temp->numero_matricula);
         printf("\n");
     }
 }

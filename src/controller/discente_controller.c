@@ -45,6 +45,10 @@ int remover_discente(int id){
     return 0;
 }
 
+DAO_list listar_discentes() {
+    return buscar_discentes();
+}
+
 Discente buscar_discente_id(int id){
     return *buscar_discente(id);
 }

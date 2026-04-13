@@ -54,7 +54,6 @@ void continuar(){
 void tela_listar_cursos();
 
 int main() {
-
     /*
     MENU DE OPÇÕES
 

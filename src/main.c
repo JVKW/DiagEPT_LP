@@ -76,9 +76,8 @@ int main() {
     
     //remover_curso_seguro(1);
     //tela_cadastrar_curso();
-    //tela_excluir_curso();
-    //menu_disciplina();
-    //menu_remover_disciplina();
-    menu_atualizar_disciplina();
+    // tela_excluir_curso();
+    menu_cadastrar_disciplina();
+    menu_remover_disciplina();
     return 0;
 }

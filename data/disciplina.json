@@ -1,26 +1,7 @@
 [{
-		"id":	2,
-		"nome":	"LAB",
-		"codigo":	"alsre",
-		"carga_horaria_total":	40,
-		"qtd_turma":	1,
-		"id_turma":	[1]
-	}, {
-		"id":	4,
-		"nome":	"discreta",
-		"codigo":	"22",
-		"carga_horaria_total":	64,
-		"qtd_turma":	0
-	}, {
-		"id":	6,
-		"nome":	"discreta",
-		"codigo":	"22",
-		"carga_horaria_total":	64,
-		"qtd_turma":	0
-	}, {
-		"id":	7,
-		"nome":	"discretaa",
-		"codigo":	"22",
-		"carga_horaria_total":	64,
+		"id":	1,
+		"nome":	"safd",
+		"codigo":	"adf",
+		"carga_horaria_total":	65,
 		"qtd_turma":	0
 	}]

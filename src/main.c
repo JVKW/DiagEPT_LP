@@ -71,7 +71,7 @@ int main() {
     menu_registrar_aluno();
     menu_remover_aluno();
 
-    (FALTOSO) 5. Lançamento de Notas (view/notas_view.h)
+    (OK)5. Lançamento de Notas (view/notas_view.h)
     Fluxo de seleção de turma e loop de entrada de notas.
 
     (OK) 6.Relatórios e Diagnósticos (view/relatorio_view.h)

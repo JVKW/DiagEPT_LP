@@ -218,7 +218,8 @@ int main() {
             limparTela();
             while (opcao_sub7 != 3){
                 logoPrint();
-                puts("1. Captura de motivos e atualização de status\n2. Listar todas as evasoes\n3. Sair\n");
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
+                puts("\n1. Captura de motivos e atualização de status\n2. Listar todas as evasoes \n 3. Sair");
                 opcao_sub7 = lerInteiro();
                 switch (opcao_sub7)
                 {
@@ -229,6 +230,13 @@ int main() {
                     continuar();
                     break;
                 case 2:
+                    
+                    limparTela();
+                    logoPrint();
+                    
+                    relatorio_evasoes();
+                    puts("\n\nDigite enter para continuar:");
+                    
                     limparTela();
                     logoPrint();
                     relatorio_evasoes();

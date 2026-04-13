@@ -22,4 +22,6 @@ void atualizar_curso(Curso *d);
 
 int existe_curso(int id);
 
+void tela_listar_cursos( );
+
 #endif

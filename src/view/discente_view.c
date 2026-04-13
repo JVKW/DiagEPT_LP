@@ -12,16 +12,16 @@ void menu_registrar_aluno() {
 
     Discente *novo = malloc(sizeof(Discente));
 
+    if (novo == NULL) {
+        puts("Erro: Falha ao alocar memoria para o aluno.");
+        return;
+    }
+
     printf("\nDigite o nome do aluno: ");
     lerString(novo->nome, 256);
 
     printf("\nDigite o numero de matricula do aluno: ");
     novo->numero_matricula = lerInteiro();
-
-    if (novo == NULL) {
-        puts("Erro: Falha ao alocar memoria para o aluno.");
-        return;
-    }
 
     int resultado = cadastrar_discente(novo);
     if (resultado == 0) {

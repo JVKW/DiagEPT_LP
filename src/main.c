@@ -188,6 +188,7 @@ int main() {
                 case 4:
                     opcao_sub2 = 4;
                     limparTela();
+                    break;
                 default:
                     puts("Opcao invalida!");
                     break;
@@ -215,6 +216,7 @@ int main() {
                     logoPrint();
                     menu_turma(USUARIO_AUTENTICADO);
                     continuar();
+                    break;
                 case 3:
                     opcao_sub3 = 3;
                     limparTela();
@@ -251,9 +253,11 @@ int main() {
                     logoPrint();
                     listar_todas_discentes();
                     continuar();
+                    break;
                 case 4:
                     opcao_sub4 = 4;
                     limparTela();
+                    break;
                 default:
                     puts("Opcao invalida!");
                     break;

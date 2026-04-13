@@ -43,3 +43,15 @@ void menu_remover_aluno(){
         puts("Aluno removido com sucesso!");
     }    
 }
+
+void listar_todas_discentes(){
+
+    DAO_list lista = listar_discentes();
+    for(int i = 0; i < lista.size; i++){
+        Discente * temp = lista.items[i];
+        printf("ID: %d\n", temp->id);
+        printf("Nome: %s\n", temp->nome);
+        printf("Matricula: %s\n", temp->numero_matricula);
+        printf("\n");
+    }
+}
